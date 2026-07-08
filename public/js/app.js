@@ -30,6 +30,12 @@ async function loadSettings() {
     if (contactEmail && settings.contact_email) {
       contactEmail.innerHTML = `📧 <a href="mailto:${settings.contact_email}" style="color:inherit;text-decoration:underline;">${settings.contact_email}</a>`;
     }
+    // 更新网站名称（导航栏logo和浏览器标题）
+    const navLogo = document.querySelector('.nav-logo');
+    if (navLogo && settings.site_name) {
+      navLogo.textContent = settings.site_name;
+      document.title = `${settings.site_name} - Portfolio`;
+    }
     // 更新首页 hero
     const heroTitle = document.querySelector('#heroText h1');
     const heroSub = document.querySelector('.hero-subtitle');
