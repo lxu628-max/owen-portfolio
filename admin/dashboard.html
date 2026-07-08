@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理面板 - Owen Portfolio</title>
+  <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+  <!-- 顶部栏 -->
+  <header class="admin-header">
+    <div class="admin-header-left">
+      <a href="/" class="admin-logo">Owen Portfolio</a>
+      <span class="admin-badge">管理后台</span>
+    </div>
+    <div class="admin-header-right">
+      <span id="adminUser"></span>
+      <a href="/" target="_blank">查看前台</a>
+      <button class="btn btn-sm btn-outline" id="logoutBtn">退出</button>
+    </div>
+  </header>
+
+  <div class="admin-layout">
+    <!-- 左侧菜单 -->
+    <aside class="admin-sidebar">
+      <nav class="sidebar-nav">
+        <a href="#" class="sidebar-link active" data-panel="news">📰 首页动态</a>
+        <a href="#" class="sidebar-link" data-panel="about">👤 关于我</a>
+        <a href="#" class="sidebar-link" data-panel="academic">📚 学术成就</a>
+        <a href="#" class="sidebar-link" data-panel="sports">🏊 体育竞技</a>
+        <a href="#" class="sidebar-link" data-panel="tibet">🏔️ 西藏项目</a>
+        <a href="#" class="sidebar-link" data-panel="clubs">🤝 社团活动</a>
+        <a href="#" class="sidebar-link" data-panel="carousel">🖼️ 轮播图管理</a>
+        <a href="#" class="sidebar-link" data-panel="settings">⚙️ 网站设置</a>
+      </nav>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="admin-main">
+
+      <!-- 首页动态 -->
+      <div class="admin-panel active" id="panel-news">
+        <div class="panel-header">
+          <h2>首页动态管理</h2>
+          <button class="btn btn-primary" onclick="addNewsItem()">+ 添加动态</button>
+        </div>
+        <div id="newsList" class="item-list"></div>
+        <button class="btn btn-success" onclick="saveNews()">💾 保存更改</button>
+      </div>
+
+      <!-- 关于我 -->
+      <div class="admin-panel" id="panel-about">
+        <div class="panel-header">
+          <h2>关于我 - 内容编辑</h2>
+        </div>
+        <form id="aboutForm" class="edit-form">
+          <div class="form-group">
+            <label>个人背景</label>
+            <textarea rows="3" data-field="background"></textarea>
+          </div>
+          <div class="form-group">
+            <label>申请目标</label>
+            <textarea rows="3" data-field="goals"></textarea>
+          </div>
+          <div class="form-group">
+            <label>专业方向</label>
+            <textarea rows="3" data-field="majors"></textarea>
+          </div>
+          <div class="form-group">
+            <label>学生领导参与</label>
+            <textarea rows="3" data-field="leadership"></textarea>
+          </div>
+          <div class="form-group">
+            <label>个人特质</label>
+            <textarea rows="3" data-field="traits"></textarea>
+          </div>
+          <button type="submit" class="btn btn-success">💾 保存</button>
+        </form>
+      </div>
+
+      <!-- 学术 -->
+      <div class="admin-panel" id="panel-academic">
+        <div class="panel-header">
+          <h2>学术项目管理</h2>
+          <button class="btn btn-primary" onclick="addAcademicItem()">+ 添加项目</button>
+        </div>
+        <div id="academicList" class="item-list"></div>
+        <button class="btn btn-success" onclick="saveAcademic()">💾 保存更改</button>
+      </div>
+
+      <!-- 体育 -->
+      <div class="admin-panel" id="panel-sports">
+        <div class="panel-header">
+          <h2>运动记录管理</h2>
+          <button class="btn btn-primary" onclick="addSportsItem()">+ 添加记录</button>
+        </div>
+        <div id="sportsList" class="item-list"></div>
+        <button class="btn btn-success" onclick="saveSports()">💾 保存更改</button>
+      </div>
+
+      <!-- 西藏 -->
+      <div class="admin-panel" id="panel-tibet">
+        <div class="panel-header">
+          <h2>西藏活动管理</h2>
+          <button class="btn btn-primary" onclick="addTibetItem()">+ 添加活动</button>
+        </div>
+        <div id="tibetList" class="item-list"></div>
+        <button class="btn btn-success" onclick="saveTibet()">💾 保存更改</button>
+      </div>
+
+      <!-- 社团 -->
+      <div class="admin-panel" id="panel-clubs">
+        <div class="panel-header">
+          <h2>社团活动管理</h2>
+          <button class="btn btn-primary" onclick="addClubItem()">+ 添加活动</button>
+        </div>
+        <div id="clubsList" class="item-list"></div>
+        <button class="btn btn-success" onclick="saveClubs()">💾 保存更改</button>
+      </div>
+
+      <!-- 轮播图 -->
+      <div class="admin-panel" id="panel-carousel">
+        <div class="panel-header">
+          <h2>轮播图管理</h2>
+        </div>
+        <div class="carousel-section-select">
+          <label>选择板块：</label>
+          <select id="carouselSection" onchange="loadCarouselPanel()">
+            <option value="home">首页</option>
+            <option value="about">关于我</option>
+            <option value="academic">学术</option>
+            <option value="sports">体育</option>
+            <option value="tibet">西藏</option>
+            <option value="clubs">社团</option>
+          </select>
+          <button class="btn btn-primary" onclick="addCarouselItem()">+ 添加图片</button>
+        </div>
+        <div id="carouselList" class="item-list"></div>
+        <button class="btn btn-success" onclick="saveCarousel()">💾 保存更改</button>
+      </div>
+
+      <!-- 网站设置 -->
+      <div class="admin-panel" id="panel-settings">
+        <div class="panel-header">
+          <h2>网站设置</h2>
+        </div>
+        <form id="settingsForm" class="edit-form">
+          <div class="form-group">
+            <label>网站名称</label>
+            <input type="text" data-key="site_name">
+          </div>
+          <div class="form-group">
+            <label>首页标题</label>
+            <input type="text" data-key="hero_title">
+          </div>
+          <div class="form-group">
+            <label>首页副标题</label>
+            <input type="text" data-key="hero_subtitle">
+          </div>
+          <div class="form-group">
+            <label>首页描述</label>
+            <textarea rows="3" data-key="hero_description"></textarea>
+          </div>
+          <div class="form-group">
+            <label>页脚文字</label>
+            <input type="text" data-key="footer_text">
+          </div>
+          <div class="form-group">
+            <label>联系邮箱</label>
+            <input type="email" data-key="contact_email">
+          </div>
+          <button type="submit" class="btn btn-success">💾 保存设置</button>
+        </form>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- 图片上传模态框 -->
+  <div class="modal-overlay" id="uploadModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>上传图片</h3>
+        <button class="modal-close" onclick="closeUploadModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="upload-area" id="uploadArea">
+          <p>点击或拖拽图片到此处</p>
+          <input type="file" id="uploadInput" accept="image/*" style="display:none">
+        </div>
+        <div class="upload-preview" id="uploadPreview" style="display:none">
+          <img id="previewImg" src="" alt="预览">
+        </div>
+        <button class="btn btn-primary btn-block" id="uploadBtn" onclick="doUpload()" style="margin-top:12px">上传</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/admin/js/admin.js"></script>
+</body>
+</html>
