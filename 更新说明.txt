@@ -1,0 +1,16 @@
+修复：在页脚显示联系邮箱
+
+修改文件：
+- public/index.html（添加联系邮箱显示区域）
+- public/js/app.js（加载并渲染联系邮箱）
+
+更新步骤：
+1. 解压 owen-portfolio-update-contact-email.zip
+2. 将解压出的文件覆盖到你的 owen-portfolio 目录
+3. 执行以下命令：
+   cd ~/Desktop/owen-portfolio
+   git add .
+   git commit -m "feat: display contact email in footer"
+   git push
+4. 等待 Railway 自动重新部署（约1-2分钟）
+5. 刷新前台页面，页脚应该显示你设置的联系邮箱

@@ -25,6 +25,11 @@ async function loadSettings() {
     if (footer && settings.footer_text) {
       footer.textContent = settings.footer_text;
     }
+    // 更新联系邮箱
+    const contactEmail = document.getElementById('contactEmail');
+    if (contactEmail && settings.contact_email) {
+      contactEmail.innerHTML = `📧 <a href="mailto:${settings.contact_email}" style="color:inherit;text-decoration:underline;">${settings.contact_email}</a>`;
+    }
     // 更新首页 hero
     const heroTitle = document.querySelector('#heroText h1');
     const heroSub = document.querySelector('.hero-subtitle');
