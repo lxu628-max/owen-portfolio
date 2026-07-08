@@ -432,6 +432,28 @@ app.post('/api/admin/login', (req, res) => {
   }
 });
 
+// 修改密码
+app.post('/api/admin/change-password', authMiddleware, (req, res) => {
+  try {
+    const { oldPassword, newPassword } = req.body;
+    if (!oldPassword || !newPassword) {
+      return res.status(400).json({ error: '请填写原密码和新密码' });
+    }
+    if (newPassword.length < 6) {
+      return res.status(400).json({ error: '新密码至少6个字符' });
+    }
+    const user = db.prepare('SELECT * FROM users WHERE id = ?').get(req.user.id);
+    if (!bcrypt.compareSync(oldPassword, user.password_hash)) {
+      return res.status(401).json({ error: '原密码错误' });
+    }
+    const newHash = bcrypt.hashSync(newPassword, 10);
+    db.prepare('UPDATE users SET password_hash = ? WHERE id = ?').run(newHash, user.id);
+    res.json({ message: '密码修改成功' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // 上传图片
 app.post('/api/admin/upload', authMiddleware, upload.single('image'), (req, res) => {
   try {

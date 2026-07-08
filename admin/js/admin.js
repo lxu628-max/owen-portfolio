@@ -717,6 +717,47 @@ async function doUpload() {
   }
 }
 
+// ============ 修改密码 ============
+document.getElementById('passwordForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const oldPw = document.getElementById('oldPassword').value;
+  const newPw = document.getElementById('newPassword').value;
+  const confirmPw = document.getElementById('confirmPassword').value;
+
+  if (!oldPw || !newPw) {
+    showToast('请填写原密码和新密码', 'error');
+    return;
+  }
+  if (newPw.length < 6) {
+    showToast('新密码至少6个字符', 'error');
+    return;
+  }
+  if (newPw !== confirmPw) {
+    showToast('两次输入的新密码不一致', 'error');
+    return;
+  }
+
+  try {
+    const res = await fetch('/api/admin/change-password', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      body: JSON.stringify({ oldPassword: oldPw, newPassword: newPw })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      showToast('密码修改成功！');
+      document.getElementById('passwordForm').reset();
+    } else {
+      showToast(data.error || '修改失败', 'error');
+    }
+  } catch (err) {
+    showToast('修改失败', 'error');
+  }
+});
+
 // ============ 工具函数 ============
 function esc(str) {
   if (!str) return '';

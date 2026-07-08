@@ -32,6 +32,7 @@
         <a href="#" class="sidebar-link" data-panel="clubs">🤝 社团活动</a>
         <a href="#" class="sidebar-link" data-panel="carousel">🖼️ 轮播图管理</a>
         <a href="#" class="sidebar-link" data-panel="settings">⚙️ 网站设置</a>
+        <a href="#" class="sidebar-link" data-panel="password">🔑 修改密码</a>
       </nav>
     </aside>
 
@@ -170,6 +171,28 @@
             <input type="email" data-key="contact_email">
           </div>
           <button type="submit" class="btn btn-success">💾 保存设置</button>
+        </form>
+      </div>
+
+      <!-- 修改密码 -->
+      <div class="admin-panel" id="panel-password">
+        <div class="panel-header">
+          <h2>修改密码</h2>
+        </div>
+        <form id="passwordForm" class="edit-form" style="max-width:400px">
+          <div class="form-group">
+            <label>原密码</label>
+            <input type="password" id="oldPassword" placeholder="输入当前密码">
+          </div>
+          <div class="form-group">
+            <label>新密码</label>
+            <input type="password" id="newPassword" placeholder="至少6个字符">
+          </div>
+          <div class="form-group">
+            <label>确认新密码</label>
+            <input type="password" id="confirmPassword" placeholder="再次输入新密码">
+          </div>
+          <button type="submit" class="btn btn-success">🔑 修改密码</button>
         </form>
       </div>
 
