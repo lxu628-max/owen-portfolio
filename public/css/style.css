@@ -1,0 +1,835 @@
+/* ============ v3 杂志编辑风 ============ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg: #faf9f7;
+  --bg-card: #ffffff;
+  --bg-warm: #f5f2ed;
+  --text-primary: #1a1a1a;
+  --text-body: #3d3d3d;
+  --text-secondary: #6b6b6b;
+  --text-muted: #999999;
+  --accent: #c0392b;
+  --accent-light: #e74c3c;
+  --border: #e8e4df;
+  --border-light: #f0ece7;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+  --radius: 4px;
+  --radius-lg: 8px;
+  --transition: all 0.25s ease;
+  --serif: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
+  --sans: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--sans);
+  color: var(--text-body);
+  background: var(--bg);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* ============ 导航栏 ============ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0;
+}
+
+.nav-link {
+  padding: 8px 20px;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 0;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+.nav-link.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  width: 22px;
+  height: 1.5px;
+  background: var(--text-primary);
+  transition: var(--transition);
+}
+
+/* ============ 主内容 ============ */
+#mainContent {
+  padding-top: 72px;
+  min-height: calc(100vh - 140px);
+}
+
+.page-section {
+  display: none;
+  animation: fadeEditorial 0.4s ease-out;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 32px 80px;
+}
+
+.page-section.active {
+  display: block;
+}
+
+@keyframes fadeEditorial {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ============ 首页 ============ */
+.home-hero {
+  display: flex;
+  gap: 56px;
+  align-items: flex-start;
+}
+
+.home-left {
+  flex: 0 0 58%;
+}
+
+.home-right {
+  flex: 0 0 38%;
+}
+
+.hero-text {
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 32px;
+}
+
+.hero-text h1 {
+  font-family: var(--serif);
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.3px;
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: var(--text-body);
+  line-height: 1.8;
+}
+
+/* 轮播图 */
+.carousel-container {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 16/10;
+}
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-track img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.92);
+  color: var(--text-primary);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+}
+
+.carousel-btn:hover {
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-prev { left: 14px; }
+.carousel-next { right: 14px; }
+
+.carousel-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+.carousel-dot.active {
+  background: var(--white);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* 新闻面板 */
+.news-panel {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  border: 1px solid var(--border);
+}
+
+.news-panel h2 {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--text-primary);
+  display: block;
+}
+
+.news-item {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border-light);
+  transition: var(--transition);
+}
+
+.news-item:last-child { border-bottom: none; }
+
+.news-item:hover {
+  padding-left: 8px;
+}
+
+.news-item-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.news-item-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.news-item-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ============ 板块通用头部 ============ */
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.section-header h1 {
+  font-family: var(--serif);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.section-divider {
+  width: 40px;
+  height: 3px;
+  background: var(--accent);
+  margin: 16px auto 0;
+  border-radius: 0;
+}
+
+/* ============ 关于我 ============ */
+.about-layout {
+  display: flex;
+  gap: 56px;
+  align-items: flex-start;
+}
+
+.about-left {
+  flex: 0 0 45%;
+}
+
+.about-right {
+  flex: 1;
+}
+
+.about-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.about-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border);
+}
+
+.about-card h3 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-card h3::before {
+  content: '';
+  width: 3px;
+  height: 16px;
+  background: var(--accent);
+  border-radius: 0;
+  display: inline-block;
+}
+
+.about-card p {
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.8;
+}
+
+/* ============ 体育 ============ */
+.sports-layout, .academic-layout, .clubs-layout {
+  display: flex;
+  gap: 56px;
+  align-items: flex-start;
+}
+
+.sports-left, .academic-left, .clubs-left {
+  flex: 0 0 45%;
+}
+
+.sports-right, .academic-right, .clubs-right {
+  flex: 1;
+}
+
+.sports-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
+
+.sports-table th, .sports-table td {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.sports-table th {
+  background: var(--text-primary);
+  color: var(--bg);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.sports-table td {
+  border-bottom: 1px solid var(--border);
+  color: var(--text-body);
+}
+
+.sports-table tr:hover td {
+  background: var(--bg-warm);
+}
+
+.sports-table tr {
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.result-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 2px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.result-gold { background: #fef3cd; color: #856404; }
+.result-silver { background: #f0f0f0; color: #495057; }
+.result-bronze { background: #fde8d8; color: #8b4513; }
+
+.progress-text {
+  font-size: 0.88rem;
+  color: var(--text-body);
+  margin-top: 8px;
+  line-height: 1.8;
+  padding: 20px;
+  background: var(--bg-warm);
+  border-radius: var(--radius-lg);
+  border-left: 3px solid var(--accent);
+  font-style: italic;
+}
+
+/* ============ 学术 ============ */
+.academic-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.academic-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.academic-card h3 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.academic-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.academic-card .card-meta {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* ============ 西藏 ============ */
+.tibet-intro {
+  background: var(--bg-warm);
+  color: var(--text-primary);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  margin-bottom: 40px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.tibet-intro h2 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+  color: var(--text-primary);
+}
+
+.tibet-intro p {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.9;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.tibet-carousel {
+  margin-bottom: 48px;
+}
+
+.tibet-timeline {
+  position: relative;
+  padding-left: 36px;
+}
+
+.tibet-timeline::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 32px;
+  padding: 28px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.timeline-item:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -30px;
+  top: 32px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--accent);
+}
+
+.timeline-item h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.timeline-item p {
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.timeline-item .timeline-date {
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.timeline-item .timeline-impact {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-light);
+}
+
+/* ============ 社团 ============ */
+.club-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 14px;
+  transition: var(--transition);
+}
+
+.club-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.club-card h3 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.club-card .club-role {
+  font-size: 0.82rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.club-card p {
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.7;
+}
+
+.club-card .club-status {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.status-active { background: #d4edda; color: #155724; }
+.status-inactive { background: var(--bg-warm); color: var(--text-muted); }
+
+/* ============ 详情弹窗 ============ */
+.detail-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.detail-overlay.show {
+  display: flex;
+}
+
+.detail-modal {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  animation: modalEditorial 0.3s ease-out;
+}
+
+@keyframes modalEditorial {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.detail-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-close:hover {
+  background: var(--bg-warm);
+  color: var(--accent);
+}
+
+.detail-modal h2 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-modal .detail-meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.detail-modal .detail-meta span {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  background: var(--bg-warm);
+  padding: 5px 14px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.detail-modal .detail-section {
+  margin-bottom: 20px;
+}
+
+.detail-modal .detail-section h4 {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.detail-modal .detail-section p {
+  font-size: 0.9rem;
+  color: var(--text-body);
+  line-height: 1.8;
+}
+
+/* ============ 页脚 ============ */
+.footer {
+  background: var(--bg-warm);
+  border-top: 1px solid var(--border);
+  padding: 32px;
+  text-align: center;
+}
+
+.footer-content p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.admin-link {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+}
+
+.admin-link:hover {
+  color: var(--accent);
+}
+
+/* ============ 响应式 ============ */
+@media (max-width: 900px) {
+  .home-hero {
+    flex-direction: column;
+  }
+  .home-left, .home-right {
+    flex: 1;
+  }
+  .about-layout, .sports-layout, .academic-layout, .clubs-layout {
+    flex-direction: column;
+  }
+  .about-left, .sports-left, .academic-left, .clubs-left {
+    flex: 1;
+  }
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    padding: 16px;
+    gap: 0;
+  }
+  .nav-links.show { display: flex; }
+  .nav-toggle { display: flex; }
+  .hero-text h1 { font-size: 1.8rem; }
+  .section-header h1 { font-size: 2rem; }
+  .page-section { padding: 32px 20px 48px; }
+  .nav-container { padding: 0 20px; }
+  .detail-modal { padding: 28px; }
+  .tibet-intro { padding: 28px; }
+  .sports-table th, .sports-table td {
+    padding: 10px 12px;
+    font-size: 0.8rem;
+  }
+}

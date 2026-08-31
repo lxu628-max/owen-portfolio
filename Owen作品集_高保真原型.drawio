@@ -1,0 +1,1619 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<mxfile host="app.diagrams.net" version="24.0.0">
+  <diagram id="page_index" name="00-页面索引">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="it" value="Owen 个人作品集网站" style="text;html=1;fontSize=28;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="200" y="30" width="800" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="is" value="高保真产品原型  ·  Hi-Fi Prototype  ·  v2.0" style="text;html=1;fontSize=14;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="300" y="80" width="600" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="idiv" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3182CE;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="550" y="115" width="100" height="3" as="geometry" />
+        </mxCell>
+        <mxCell id="ic0" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="140" width="340" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="ia0" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#3182CE;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="62" y="158" width="5" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="in0" value="01" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#3182CE;opacity=35;" vertex="1" parent="1">
+          <mxGeometry x="76" y="148" width="45" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="icn0" value="首页" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="115" y="150" width="180" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="ien0" value="Homepage" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="115" y="172" width="180" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="idd0" value="轮播图 + 动态列表 + 个人介绍" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="76" y="198" width="290" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ic1" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="140" width="340" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="ia1" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#3182CE;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="422" y="158" width="5" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="in1" value="02" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#3182CE;opacity=35;" vertex="1" parent="1">
+          <mxGeometry x="436" y="148" width="45" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="icn1" value="关于我" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="475" y="150" width="180" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="ien1" value="About Me" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="475" y="172" width="180" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="idd1" value="个人照片 + 背景信息 + 特质标签" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="436" y="198" width="290" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ic2" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="770" y="140" width="340" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="ia2" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#805AD5;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="782" y="158" width="5" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="in2" value="03" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#805AD5;opacity=35;" vertex="1" parent="1">
+          <mxGeometry x="796" y="148" width="45" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="icn2" value="学术列表" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="835" y="150" width="180" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="ien2" value="Academics List" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="835" y="172" width="180" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="idd2" value="IB 课程 + 学术项目卡片" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="796" y="198" width="290" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ic3" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="263" width="340" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="ia3" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#805AD5;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="62" y="281" width="5" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="in3" value="04" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#805AD5;opacity=35;" vertex="1" parent="1">
+          <mxGeometry x="76" y="271" width="45" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="icn3" value="学术详情" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="115" y="273" width="180" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="ien3" value="Academics Detail" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="115" y="295" width="180" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="idd3" value="项目详情 + 成果展示" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="76" y="321" width="290" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ic4" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="263" width="340" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="ia4" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#38A169;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="422" y="281" width="5" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="in4" value="05" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#38A169;opacity=35;" vertex="1" parent="1">
+          <mxGeometry x="436" y="271" width="45" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="icn4" value="体育列表" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="475" y="273" width="180" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="ien4" value="Athletics List" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="475" y="295" width="180" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="idd4" value="游泳参赛记录 + 进步轨迹" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="436" y="321" width="290" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ic5" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="770" y="263" width="340" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="ia5" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#38A169;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="782" y="281" width="5" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="in5" value="06" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#38A169;opacity=35;" vertex="1" parent="1">
+          <mxGeometry x="796" y="271" width="45" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="icn5" value="体育详情" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="835" y="273" width="180" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="ien5" value="Athletics Detail" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="835" y="295" width="180" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="idd5" value="比赛信息 + 成绩展示" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="796" y="321" width="290" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ic6" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="386" width="340" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="ia6" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#E53E3E;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="62" y="404" width="5" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="in6" value="07" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#E53E3E;opacity=35;" vertex="1" parent="1">
+          <mxGeometry x="76" y="394" width="45" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="icn6" value="西藏" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="115" y="396" width="180" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="ien6" value="Xizang" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="115" y="418" width="180" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="idd6" value="公益项目 + 活动 + 影响力" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="76" y="444" width="290" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ic7" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="386" width="340" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="ia7" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#D69E2E;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="422" y="404" width="5" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="in7" value="08" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#D69E2E;opacity=35;" vertex="1" parent="1">
+          <mxGeometry x="436" y="394" width="45" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="icn7" value="社团" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="475" y="396" width="180" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="ien7" value="Clubs" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="475" y="418" width="180" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="idd7" value="社团卡片 + 角色 + 状态" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="436" y="444" width="290" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ic8" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="770" y="386" width="340" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="ia8" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#1A365D;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="782" y="404" width="5" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="in8" value="09" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;opacity=35;" vertex="1" parent="1">
+          <mxGeometry x="796" y="394" width="45" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="icn8" value="后台管理" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="835" y="396" width="180" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="ien8" value="Admin Dashboard" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="835" y="418" width="180" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="idd8" value="数据表格 + CRUD 操作" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="796" y="444" width="290" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ds" value="🎨 主色 #1A365D  ·  品牌蓝 #3182CE  ·  学术紫 #805AD5  ·  体育绿 #38A169  ·  西藏红 #E53E3E  ·  社团金 #D69E2E" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EDF2F7;strokeColor=#E2E8F0;fontColor=#4A5568;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="100" y="500" width="1000" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="nt" value="💡 点击左侧页面标签切换查看各页面原型。所有元素均可在 diagrams.net 中自由编辑。" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;size=15;fillColor=#FFFFF0;strokeColor=#FEFCBF;fontSize=11;align=left;spacingLeft=10;fontColor=#744210;" vertex="1" parent="1">
+          <mxGeometry x="250" y="550" width="700" height="45" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page_home" name="01-首页">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="nav" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1A365D;strokeColor=none;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="logo" value="Owen's Portfolio" style="text;html=1;fontSize=18;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="30" y="8" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv0" value="About Me" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv1" value="Athletics" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv2" value="Academics" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="780" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv3" value="Xizang" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="890" y="16" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv4" value="Clubs" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="990" y="16" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ftr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF2F7;strokeColor=#E2E8F0;" vertex="1" parent="1">
+          <mxGeometry x="0" y="856" width="1200" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="ftrt" value="© 2024 Owen. All rights reserved.  |  aboutowen.cn" style="text;html=1;fontSize=11;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="862" width="600" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="ip_3076540" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EBF4FF;strokeColor=#BEE3F8;shadow=1;gradientColor=#C3DAFE;gradientDirection=south;" vertex="1" parent="1">
+          <mxGeometry x="30" y="76" width="540" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="ii_3076540" value="📷" style="text;html=1;fontSize=36;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#3182CE;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="280" y="216" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="il_3076540" value="3 张轮播图" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="50" y="256" width="500" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="is_3076540" value="自动轮播 · 手动切换" style="text;html=1;fontSize=10;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="278" width="500" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="hp" value="◀" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E2E8F0;fontSize=14;fontColor=#3182CE;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="45" y="225" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="hn" value="▶" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E2E8F0;fontSize=14;fontColor=#3182CE;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="519" y="225" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="hd1" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#3182CE;strokeColor=none;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="390" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="hd2" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#CBD5E0;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="290" y="390" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="hd3" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#CBD5E0;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="310" y="390" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="hi" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="436" width="540" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="hit" value="你好，我是 Owen" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="50" y="450" width="400" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="his" value="YCIS IB 学生  |  科技爱好者  |  竞技游泳运动员" style="text;html=1;fontSize=14;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="50" y="488" width="500" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="hid" value="热爱探索科技前沿，在水中挑战极限，用教育连接远方。" style="text;html=1;fontSize=12;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="50" y="516" width="500" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="ht1" value="IB 学生" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#EBF4FF;strokeColor=#BEE3F8;fontColor=#3182CE;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="550" width="70" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="ht2" value="科技爱好者" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#EBF4FF;strokeColor=#BEE3F8;fontColor=#3182CE;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="128" y="550" width="82" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="ht3" value="游泳运动员" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#F0FFF4;strokeColor=#C6F6D5;fontColor=#38A169;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="218" y="550" width="82" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="ht4" value="社区服务" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FFF5F5;strokeColor=#FED7D7;fontColor=#E53E3E;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="308" y="550" width="70" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="ntt" value="动态  /  Updates" style="text;html=1;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="590" y="76" width="300" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="ndv" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="590" y="112" width="580" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nc0" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="124" width="580" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="ni0" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#3182CE;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="598" y="134" width="5" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="nt0" value="ISS 游泳锦标赛" style="text;html=1;fontSize=12;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="614" y="129" width="300" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="nd0" value="代表学校参加 ISS 游泳锦标赛，获得200米自由泳银牌" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="614" y="151" width="380" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ndt0" value="2024-11-15" style="text;html=1;fontSize=11;fontStyle=0;align=right;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="129" width="110" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="nc1" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="186" width="580" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="ni1" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#805AD5;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="598" y="196" width="5" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="nt1" value="康莱德创新挑战赛" style="text;html=1;fontSize=12;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="614" y="191" width="300" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="nd1" value="团队项目进入区域决赛，聚焦可持续发展议题" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="614" y="213" width="380" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ndt1" value="2024-10-20" style="text;html=1;fontSize=11;fontStyle=0;align=right;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="191" width="110" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="nc2" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="248" width="580" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="ni2" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#E53E3E;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="598" y="258" width="5" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="nt2" value="西藏教育项目" style="text;html=1;fontSize=12;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="614" y="253" width="300" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="nd2" value="完成第三期西藏远程教学计划，覆盖50名学生" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="614" y="275" width="380" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ndt2" value="2024-09-01" style="text;html=1;fontSize=11;fontStyle=0;align=right;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="253" width="110" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="nc3" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="310" width="580" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="ni3" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#3182CE;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="598" y="320" width="5" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="nt3" value="NVIDIA 深度学习证书" style="text;html=1;fontSize=12;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="614" y="315" width="300" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="nd3" value="完成 NVIDIA 深度学习基础课程并获得认证" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="614" y="337" width="380" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ndt3" value="2024-08-15" style="text;html=1;fontSize=11;fontStyle=0;align=right;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="315" width="110" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="nc4" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="372" width="580" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="ni4" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#D69E2E;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="598" y="382" width="5" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="nt4" value="机器人社团招新" style="text;html=1;fontSize=12;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="614" y="377" width="300" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="nd4" value="作为核心成员组织新学期招新活动，吸引30+新成员" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="614" y="399" width="380" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ndt4" value="2024-08-01" style="text;html=1;fontSize=11;fontStyle=0;align=right;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="377" width="110" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="rb" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="436" width="580" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="rbt" value="关于本站" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="610" y="450" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="rbd" value="这是一个展示我大学申请背景、学术成就和课外活动的个人作品集网站。通过这里，你可以了解我的学术追求、体育竞技、社区服务和社团经历。" style="text;html=1;fontSize=11;align=left;verticalAlign=top;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="610" y="480" width="540" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="rql" value="学术成就 →" style="text;html=1;fontSize=11;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#805AD5;" vertex="1" parent="1">
+          <mxGeometry x="610" y="555" width="100" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="rq2" value="体育竞技 →" style="text;html=1;fontSize=11;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#38A169;" vertex="1" parent="1">
+          <mxGeometry x="730" y="555" width="100" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="rq3" value="西藏公益 →" style="text;html=1;fontSize=11;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#E53E3E;" vertex="1" parent="1">
+          <mxGeometry x="850" y="555" width="100" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="rq4" value="社团活动 →" style="text;html=1;fontSize=11;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#D69E2E;" vertex="1" parent="1">
+          <mxGeometry x="970" y="555" width="100" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="bqn" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="646" width="1140" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="bqt" value="快速导航" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="50" y="660" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="qn0" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FAF5FF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="695" width="255" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="qne0" value="🎓" style="text;html=1;fontSize=20;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="60" y="710" width="40" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="qnn0" value="学术" style="text;html=1;fontSize=13;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#805AD5;" vertex="1" parent="1">
+          <mxGeometry x="105" y="708" width="150" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="qnd0" value="IB课程 · 竞赛 · 研究" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="105" y="730" width="180" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="qn1" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F0FFF4;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="325" y="695" width="255" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="qne1" value="🏊" style="text;html=1;fontSize=20;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="335" y="710" width="40" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="qnn1" value="体育" style="text;html=1;fontSize=13;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#38A169;" vertex="1" parent="1">
+          <mxGeometry x="380" y="708" width="150" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="qnd1" value="游泳比赛 · 成绩记录" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="380" y="730" width="180" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="qn2" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFF5F5;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="695" width="255" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="qne2" value="🏔️" style="text;html=1;fontSize=20;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="610" y="710" width="40" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="qnn2" value="西藏" style="text;html=1;fontSize=13;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#E53E3E;" vertex="1" parent="1">
+          <mxGeometry x="655" y="708" width="150" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="qnd2" value="公益教育 · 社会影响" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="655" y="730" width="180" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="qn3" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFF0;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="875" y="695" width="255" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="qne3" value="🏛️" style="text;html=1;fontSize=20;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="885" y="710" width="40" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="qnn3" value="社团" style="text;html=1;fontSize=13;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#D69E2E;" vertex="1" parent="1">
+          <mxGeometry x="930" y="708" width="150" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="qnd3" value="机器人 · 创新 · 服务" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="930" y="730" width="180" height="18" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page_about" name="02-关于我">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="nav" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1A365D;strokeColor=none;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="logo" value="Owen's Portfolio" style="text;html=1;fontSize=18;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="30" y="8" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv0" value="About Me" style="text;html=1;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="560" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nvu0" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3182CE;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="560" y="53" width="90" height="3" as="geometry" />
+        </mxCell>
+        <mxCell id="nv1" value="Athletics" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv2" value="Academics" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="780" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv3" value="Xizang" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="890" y="16" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv4" value="Clubs" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="990" y="16" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ftr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF2F7;strokeColor=#E2E8F0;" vertex="1" parent="1">
+          <mxGeometry x="0" y="856" width="1200" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="ftrt" value="© 2024 Owen. All rights reserved.  |  aboutowen.cn" style="text;html=1;fontSize=11;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="862" width="600" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="ip_3076460" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EBF4FF;strokeColor=#BEE3F8;shadow=1;gradientColor=#BEE3F8;gradientDirection=south;" vertex="1" parent="1">
+          <mxGeometry x="30" y="76" width="460" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="ii_3076460" value="📷" style="text;html=1;fontSize=36;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#3182CE;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="240" y="346" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="il_3076460" value="个人照片轮播" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="50" y="386" width="420" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="is_3076460" value="支持上传/替换/排序" style="text;html=1;fontSize=10;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="408" width="420" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="abt" value="关于我" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="510" y="86" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="abdiv" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="128" width="660" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ai0" value="🏫" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EBF4FF;strokeColor=none;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="510" y="142" width="38" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="al0" value="学校" style="text;html=1;fontSize=11;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#3182CE;" vertex="1" parent="1">
+          <mxGeometry x="556" y="142" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="av0" value="上海耀中外籍人员子女学校（YCIS）" style="text;html=1;fontSize=12;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="556" y="162" width="580" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="ad0" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="192" width="660" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ai1" value="🎯" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EBF4FF;strokeColor=none;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="510" y="214" width="38" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="al1" value="申请目标" style="text;html=1;fontSize=11;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#3182CE;" vertex="1" parent="1">
+          <mxGeometry x="556" y="214" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="av1" value="美国 / 香港 — 顶尖大学" style="text;html=1;fontSize=12;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="556" y="234" width="580" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="ad1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="264" width="660" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ai2" value="📚" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EBF4FF;strokeColor=none;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="510" y="286" width="38" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="al2" value="专业方向" style="text;html=1;fontSize=11;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#805AD5;" vertex="1" parent="1">
+          <mxGeometry x="556" y="286" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="av2" value="计算机科学、人工智能、数据科学" style="text;html=1;fontSize=12;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="556" y="306" width="580" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="ad2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="336" width="660" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ai3" value="🤝" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EBF4FF;strokeColor=none;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="510" y="358" width="38" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="al3" value="领导力参与" style="text;html=1;fontSize=11;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#38A169;" vertex="1" parent="1">
+          <mxGeometry x="556" y="358" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="av3" value="积极参与学生领导活动，担任多个社团核心成员与组织者" style="text;html=1;fontSize=12;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="556" y="378" width="580" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="ad3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="408" width="660" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ai4" value="⭐" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EBF4FF;strokeColor=none;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="510" y="430" width="38" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="al4" value="个人特质" style="text;html=1;fontSize=11;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#D69E2E;" vertex="1" parent="1">
+          <mxGeometry x="556" y="430" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="av4" value="自律 · 领导力 · 好奇心 · 韧性" style="text;html=1;fontSize=12;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="556" y="450" width="580" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="att" value="个人特质" style="text;html=1;fontSize=13;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="510" y="510" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="at0" value="自律" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#EBF8FF;strokeColor=none;fontColor=#2B6CB0;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="540" width="48" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="at1" value="领导力" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FAF5FF;strokeColor=none;fontColor=#805AD5;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="568" y="540" width="62" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="at2" value="好奇心" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#F0FFF4;strokeColor=none;fontColor=#38A169;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="540" width="62" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="at3" value="韧性" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FFF5F5;strokeColor=none;fontColor=#E53E3E;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="712" y="540" width="48" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="at4" value="创新思维" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#EBF4FF;strokeColor=none;fontColor=#3182CE;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="770" y="540" width="76" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="at5" value="团队合作" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FFFFF0;strokeColor=none;fontColor=#D69E2E;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="856" y="540" width="76" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="aq" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="590" width="660" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="aqt" value="&quot;追求卓越，不只是成绩，更是成长的过程。&quot;" style="text;html=1;fontSize=13;fontStyle=2;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="530" y="605" width="620" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="aqs" value="—— Owen" style="text;html=1;fontSize=11;align=right;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="630" width="150" height="22" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page_academic_list" name="03-学术列表页">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="nav" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1A365D;strokeColor=none;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="logo" value="Owen's Portfolio" style="text;html=1;fontSize=18;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="30" y="8" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv0" value="About Me" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv1" value="Athletics" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv2" value="Academics" style="text;html=1;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="780" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nvu2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3182CE;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="780" y="53" width="90" height="3" as="geometry" />
+        </mxCell>
+        <mxCell id="nv3" value="Xizang" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="890" y="16" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv4" value="Clubs" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="990" y="16" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ftr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF2F7;strokeColor=#E2E8F0;" vertex="1" parent="1">
+          <mxGeometry x="0" y="856" width="1200" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="ftrt" value="© 2024 Owen. All rights reserved.  |  aboutowen.cn" style="text;html=1;fontSize=11;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="862" width="600" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="ip_3076460" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FAF5FF;strokeColor=#E9D8FD;shadow=1;gradientColor=#E9D8FD;gradientDirection=south;" vertex="1" parent="1">
+          <mxGeometry x="30" y="76" width="460" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="ii_3076460" value="📷" style="text;html=1;fontSize=36;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#805AD5;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="240" y="346" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="il_3076460" value="学术证书与奖项" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="50" y="386" width="420" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="is_3076460" value="图片滚动展示" style="text;html=1;fontSize=10;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="408" width="420" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="alt" value="学术概况" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="510" y="86" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="aldiv" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="128" width="660" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ibc" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="140" width="660" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ibt" value="📚 IB 课程选择" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="530" y="150" width="300" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="hlbl" value="Higher Level (HL)" style="text;html=1;fontSize=11;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#805AD5;" vertex="1" parent="1">
+          <mxGeometry x="530" y="185" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="hl0" value="数学 AA" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FAF5FF;strokeColor=#E9D8FD;fontColor=#805AD5;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="207" width="80" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hl1" value="物理" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FAF5FF;strokeColor=#E9D8FD;fontColor=#805AD5;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="618" y="207" width="44" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hl2" value="计算机科学" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FAF5FF;strokeColor=#E9D8FD;fontColor=#805AD5;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="207" width="80" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="slbl" value="Standard Level (SL)" style="text;html=1;fontSize=11;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2B6CB0;" vertex="1" parent="1">
+          <mxGeometry x="530" y="242" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sl0" value="英语 A" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#EBF8FF;strokeColor=#BEE3F8;fontColor=#2B6CB0;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="264" width="68" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="sl1" value="中文 A" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#EBF8FF;strokeColor=#BEE3F8;fontColor=#2B6CB0;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="606" y="264" width="68" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="sl2" value="历史" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#EBF8FF;strokeColor=#BEE3F8;fontColor=#2B6CB0;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="682" y="264" width="44" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="apt" value="📋 学术竞赛与项目" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="510" y="350" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ap0" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="388" width="660" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="api0" value="🇦🇺" style="text;html=1;fontSize=16;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="520" y="400" width="30" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="apt20" value="澳大利亚数学竞赛" style="text;html=1;fontSize=12;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="555" y="393" width="300" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="apd0" value="AMC - Australian Mathematics Competition" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="555" y="415" width="420" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="apa0" value="›" style="text;html=1;fontSize=18;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="398" width="25" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="apc0" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#805AD5;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="396" width="4" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="ap1" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="448" width="660" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="api1" value="🌍" style="text;html=1;fontSize=16;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="520" y="460" width="30" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="apt21" value="欧洲研究项目" style="text;html=1;fontSize=12;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="555" y="453" width="300" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="apd1" value="European Studies - 跨文化研究课题" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="555" y="475" width="420" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="apa1" value="›" style="text;html=1;fontSize=18;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="458" width="25" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="apc1" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#3182CE;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="456" width="4" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="ap2" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="508" width="660" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="api2" value="🚀" style="text;html=1;fontSize=16;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="520" y="520" width="30" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="apt22" value="康莱德创新挑战赛" style="text;html=1;fontSize=12;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="555" y="513" width="300" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="apd2" value="Conrad Challenge - 区域决赛入围" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="555" y="535" width="420" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="apa2" value="›" style="text;html=1;fontSize=18;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="518" width="25" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="apc2" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#38A169;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="516" width="4" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="ap3" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="568" width="660" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="api3" value="🤖" style="text;html=1;fontSize=16;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="520" y="580" width="30" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="apt23" value="NVIDIA 深度学习认证" style="text;html=1;fontSize=12;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="555" y="573" width="300" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="apd3" value="NVIDIA Deep Learning Fundamentals" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="555" y="595" width="420" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="apa3" value="›" style="text;html=1;fontSize=18;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="578" width="25" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="apc3" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#D69E2E;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="576" width="4" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="ap4" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="628" width="660" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="api4" value="📐" style="text;html=1;fontSize=16;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="520" y="640" width="30" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="apt24" value="地理研究与活动" style="text;html=1;fontSize=12;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="555" y="633" width="300" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="apd4" value="Geography Research - 城市可持续发展" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="555" y="655" width="420" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="apa4" value="›" style="text;html=1;fontSize=18;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="638" width="25" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="apc4" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#E53E3E;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="636" width="4" height="36" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page_academic_detail" name="04-学术详情页">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="nav" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1A365D;strokeColor=none;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="logo" value="Owen's Portfolio" style="text;html=1;fontSize=18;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="30" y="8" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv0" value="About Me" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv1" value="Athletics" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv2" value="Academics" style="text;html=1;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="780" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nvu2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3182CE;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="780" y="53" width="90" height="3" as="geometry" />
+        </mxCell>
+        <mxCell id="nv3" value="Xizang" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="890" y="16" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv4" value="Clubs" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="990" y="16" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ftr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF2F7;strokeColor=#E2E8F0;" vertex="1" parent="1">
+          <mxGeometry x="0" y="856" width="1200" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="ftrt" value="© 2024 Owen. All rights reserved.  |  aboutowen.cn" style="text;html=1;fontSize=11;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="862" width="600" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="ip_3076460" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FAF5FF;strokeColor=#E9D8FD;shadow=1;gradientColor=#E9D8FD;gradientDirection=south;" vertex="1" parent="1">
+          <mxGeometry x="30" y="76" width="460" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="ii_3076460" value="📷" style="text;html=1;fontSize=36;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#805AD5;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="240" y="191" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="il_3076460" value="合照" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="50" y="231" width="420" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="is_3076460" value="项目团队合影" style="text;html=1;fontSize=10;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="253" width="420" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ip_30380460" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FAF5FF;strokeColor=#E9D8FD;shadow=1;gradientColor=#D6BCFA;gradientDirection=south;" vertex="1" parent="1">
+          <mxGeometry x="30" y="380" width="460" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="ii_30380460" value="📷" style="text;html=1;fontSize=36;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#805AD5;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="240" y="495" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="il_30380460" value="证书展示" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="50" y="535" width="420" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="is_30380460" value="获奖证书/认证" style="text;html=1;fontSize=10;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="557" width="420" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dt_title" value="康莱德创新挑战赛" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="510" y="86" width="400" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="dt_sub" value="Conrad Challenge - 区域决赛" style="text;html=1;fontSize=14;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="510" y="122" width="400" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="dt_t1" value="📅 2024年10月" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FAF5FF;strokeColor=#E9D8FD;fontColor=#805AD5;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="155" width="130" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="dt_t2" value="📍 上海" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FAF5FF;strokeColor=#E9D8FD;fontColor=#805AD5;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="155" width="80" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="dt_t3" value="👥 团队项目（4人）" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FAF5FF;strokeColor=#E9D8FD;fontColor=#805AD5;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="155" width="145" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="dt_div" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="192" width="660" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dt_dl" value="项目描述" style="text;html=1;fontSize=13;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="510" y="205" width="200" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="dt_dd" value="围绕可持续发展议题，团队设计了一款基于 AI 的城市废物分类系统。从调研、方案设计到原型开发，经历了3个月的深入研究。在区域决赛中展示了项目成果，获得评委高度评价。" style="text;html=1;fontSize=12;align=left;verticalAlign=top;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="510" y="230" width="660" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="dt_al" value="成果与收获" style="text;html=1;fontSize=13;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="510" y="310" width="200" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="dt_ac1" value="🏆 区域决赛入围" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F0FFF4;strokeColor=#C6F6D5;fontColor=#38A169;fontSize=12;fontStyle=1;align=left;spacingLeft=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="338" width="660" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="dt_ac2" value="📜 创新方案设计证书" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F0FFF4;strokeColor=#C6F6D5;fontColor=#38A169;fontSize=12;fontStyle=1;align=left;spacingLeft=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="378" width="660" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="dt_ac3" value="🤝 团队协作与项目管理能力提升" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EBF4FF;strokeColor=#BEE3F8;fontColor=#3182CE;fontSize=12;fontStyle=1;align=left;spacingLeft=10;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="418" width="660" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="dt_gl" value="个人成长" style="text;html=1;fontSize=13;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="510" y="470" width="200" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="dt_gd" value="通过这次比赛，我学会了如何将技术想法转化为可行的解决方案，并体验了完整的创新流程。团队的协作让我认识到跨学科合作的价值。" style="text;html=1;fontSize=12;align=left;verticalAlign=top;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="510" y="495" width="660" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bk" value="← 返回学术列表" style="text;html=1;fontSize=12;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#3182CE;" vertex="1" parent="1">
+          <mxGeometry x="510" y="570" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="bkb" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FFFFFF;strokeColor=#3182CE;fontColor=#3182CE;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="600" width="140" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="bkbt" value="← 返回列表" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#3182CE;" vertex="1" parent="1">
+          <mxGeometry x="510" y="600" width="140" height="36" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page_sports_list" name="05-体育列表页">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="nav" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1A365D;strokeColor=none;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="logo" value="Owen's Portfolio" style="text;html=1;fontSize=18;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="30" y="8" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv0" value="About Me" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv1" value="Athletics" style="text;html=1;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="670" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nvu1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3182CE;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="670" y="53" width="90" height="3" as="geometry" />
+        </mxCell>
+        <mxCell id="nv2" value="Academics" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="780" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv3" value="Xizang" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="890" y="16" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv4" value="Clubs" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="990" y="16" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ftr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF2F7;strokeColor=#E2E8F0;" vertex="1" parent="1">
+          <mxGeometry x="0" y="856" width="1200" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="ftrt" value="© 2024 Owen. All rights reserved.  |  aboutowen.cn" style="text;html=1;fontSize=11;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="862" width="600" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="ip_3076460" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F0FFF4;strokeColor=#C6F6D5;shadow=1;gradientColor=#C6F6D5;gradientDirection=south;" vertex="1" parent="1">
+          <mxGeometry x="30" y="76" width="460" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="ii_3076460" value="📷" style="text;html=1;fontSize=36;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#38A169;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="240" y="346" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="il_3076460" value="游泳比赛照片" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="50" y="386" width="420" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="is_3076460" value="图片滚动展示" style="text;html=1;fontSize=10;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="408" width="420" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="slt" value="参赛记录" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="510" y="86" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sldiv" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="128" width="660" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sc0" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="140" width="660" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="si0" value="🏊" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F0FFF4;strokeColor=#C6F6D5;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="522" y="152" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sn0" value="ISS 游泳锦标赛" style="text;html=1;fontSize=13;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="572" y="146" width="250" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="se0" value="200米自由泳" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="572" y="170" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sr0" value="银牌 2:05.3" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#F7FAFC;strokeColor=none;fontColor=#718096;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="148" width="170" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="sd0" value="2024-11" style="text;html=1;fontSize=11;fontStyle=0;align=right;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="178" width="130" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="sc1" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="212" width="660" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="si1" value="🏊" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F0FFF4;strokeColor=#C6F6D5;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="522" y="224" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sn1" value="校际邀请赛" style="text;html=1;fontSize=13;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="572" y="218" width="250" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="se1" value="100米仰泳" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="572" y="242" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sr1" value="金牌 1:02.1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FFFFF0;strokeColor=none;fontColor=#D69E2E;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="220" width="170" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="sd1" value="2024-09" style="text;html=1;fontSize=11;fontStyle=0;align=right;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="250" width="130" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="sc2" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="284" width="660" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="si2" value="🏊" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F0FFF4;strokeColor=#C6F6D5;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="522" y="296" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sn2" value="区域联赛" style="text;html=1;fontSize=13;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="572" y="290" width="250" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="se2" value="200米混合泳" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="572" y="314" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sr2" value="铜牌 2:20.5" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FFF5F5;strokeColor=none;fontColor=#A0522D;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="292" width="170" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="sd2" value="2024-06" style="text;html=1;fontSize=11;fontStyle=0;align=right;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="322" width="130" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="sc3" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="356" width="660" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="si3" value="🏊" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F0FFF4;strokeColor=#C6F6D5;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="522" y="368" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sn3" value="春季锦标赛" style="text;html=1;fontSize=13;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="572" y="362" width="250" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="se3" value="400米自由泳" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="572" y="386" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sr3" value="第4名 4:30.2" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#F7FAFC;strokeColor=none;fontColor=#718096;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="364" width="170" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="sd3" value="2024-04" style="text;html=1;fontSize=11;fontStyle=0;align=right;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="394" width="130" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="sc4" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="428" width="660" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="si4" value="🏊" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F0FFF4;strokeColor=#C6F6D5;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="522" y="440" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sn4" value="校内选拔赛" style="text;html=1;fontSize=13;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="572" y="434" width="250" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="se4" value="100米自由泳" style="text;html=1;fontSize=11;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="572" y="458" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sr4" value="金牌 55.8s" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FFFFF0;strokeColor=none;fontColor=#D69E2E;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="436" width="170" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="sd4" value="2024-03" style="text;html=1;fontSize=11;fontStyle=0;align=right;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="466" width="130" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="spb" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="510" width="660" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="spbt" value="📈 进步轨迹" style="text;html=1;fontSize=13;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="530" y="520" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="spbd" value="从入学时的 2:30 → 现在的 2:05，持续进步中" style="text;html=1;fontSize=12;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="530" y="548" width="400" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="spbtag" value="提升 16.7%" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#F0FFF4;strokeColor=#C6F6D5;fontColor=#38A169;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="548" width="100" height="24" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page_sports_detail" name="06-体育详情页">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="nav" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1A365D;strokeColor=none;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="logo" value="Owen's Portfolio" style="text;html=1;fontSize=18;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="30" y="8" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv0" value="About Me" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv1" value="Athletics" style="text;html=1;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="670" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nvu1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3182CE;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="670" y="53" width="90" height="3" as="geometry" />
+        </mxCell>
+        <mxCell id="nv2" value="Academics" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="780" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv3" value="Xizang" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="890" y="16" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv4" value="Clubs" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="990" y="16" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ftr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF2F7;strokeColor=#E2E8F0;" vertex="1" parent="1">
+          <mxGeometry x="0" y="856" width="1200" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="ftrt" value="© 2024 Owen. All rights reserved.  |  aboutowen.cn" style="text;html=1;fontSize=11;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="862" width="600" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="ip_3076460" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F0FFF4;strokeColor=#C6F6D5;shadow=1;gradientColor=#C6F6D5;gradientDirection=south;" vertex="1" parent="1">
+          <mxGeometry x="30" y="76" width="460" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="ii_3076460" value="📷" style="text;html=1;fontSize=36;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#38A169;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="240" y="346" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="il_3076460" value="比赛照片" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="50" y="386" width="420" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="is_3076460" value="ISS 游泳锦标赛现场" style="text;html=1;fontSize=10;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="408" width="420" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sd_title" value="ISS 游泳锦标赛" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="510" y="86" width="400" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="sd_sub" value="200米自由泳 · 个人项目" style="text;html=1;fontSize=14;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="510" y="122" width="400" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="sd_ig" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="155" width="660" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="sif0" value="📅 时间" style="text;html=1;fontSize=11;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="525" y="165" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="siv0" value="2024年11月15日" style="text;html=1;fontSize=12;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="525" y="185" width="200" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="sif1" value="📍 地点" style="text;html=1;fontSize=11;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="855" y="165" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="siv1" value="上海东方体育中心" style="text;html=1;fontSize=12;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="855" y="185" width="200" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="sif2" value="🏊 项目" style="text;html=1;fontSize=11;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="525" y="220" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="siv2" value="200米自由泳" style="text;html=1;fontSize=12;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="525" y="240" width="200" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="sif3" value="🏅 成绩" style="text;html=1;fontSize=11;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="855" y="220" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="siv3" value="银牌 2:05.3" style="text;html=1;fontSize=12;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="855" y="240" width="200" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="srh" value="🥈 银牌  2:05.3" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFF0;strokeColor=#F6E05E;fontColor=#B7791F;fontSize=22;fontStyle=1;align=center;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="305" width="560" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sdd_l" value="比赛描述" style="text;html=1;fontSize=13;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="510" y="385" width="200" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="sdd_d" value="代表学校参加年度 ISS 校际游泳锦标赛，在200米自由泳项目中发挥出色，以2分05秒3的成绩获得银牌。本次比赛汇集了全市多所国际学校的优秀选手。" style="text;html=1;fontSize=12;align=left;verticalAlign=top;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="510" y="410" width="660" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="sp_l" value="技术进步与提升" style="text;html=1;fontSize=13;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="510" y="480" width="200" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="sp_d" value="通过改进转身技术和节奏控制，成绩稳步提升。从入学时的 2:30 提升到 2:05。" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F0FFF4;strokeColor=#C6F6D5;fontColor=#38A169;fontSize=12;align=left;spacingLeft=12;spacingRight=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="508" width="660" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="skb" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FFFFFF;strokeColor=#3182CE;fontColor=#3182CE;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="585" width="140" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="skbt" value="← 返回列表" style="text;html=1;fontSize=12;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#3182CE;" vertex="1" parent="1">
+          <mxGeometry x="510" y="585" width="140" height="36" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page_xizang" name="07-西藏">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="nav" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1A365D;strokeColor=none;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="logo" value="Owen's Portfolio" style="text;html=1;fontSize=18;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="30" y="8" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv0" value="About Me" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv1" value="Athletics" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv2" value="Academics" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="780" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv3" value="Xizang" style="text;html=1;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="890" y="16" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nvu3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3182CE;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="890" y="53" width="80" height="3" as="geometry" />
+        </mxCell>
+        <mxCell id="nv4" value="Clubs" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="990" y="16" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ftr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF2F7;strokeColor=#E2E8F0;" vertex="1" parent="1">
+          <mxGeometry x="0" y="856" width="1200" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="ftrt" value="© 2024 Owen. All rights reserved.  |  aboutowen.cn" style="text;html=1;fontSize=11;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="862" width="600" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="ip_3076460" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFF5F5;strokeColor=#FED7D7;shadow=1;gradientColor=#FED7D7;gradientDirection=south;" vertex="1" parent="1">
+          <mxGeometry x="30" y="76" width="460" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="ii_3076460" value="📷" style="text;html=1;fontSize=36;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#E53E3E;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="240" y="346" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="il_3076460" value="西藏项目图片" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="50" y="386" width="420" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="is_3076460" value="公益活动 · 教育支持" style="text;html=1;fontSize=10;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="408" width="420" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="xt" value="西藏公益项目" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="510" y="86" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="xd" value="参与西藏公益教育项目，为偏远地区学生带去知识和温暖。&#10;通过教育和文化交流，促进藏区青少年发展，搭建城乡教育桥梁。" style="text;html=1;fontSize=12;align=left;verticalAlign=top;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="510" y="130" width="660" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="xdiv" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="180" width="660" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xc0" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="195" width="660" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="xci0" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#E53E3E;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="205" width="4" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xt0" value="▸ 远程教学计划" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="530" y="205" width="300" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="xd0" value="为西藏偏远地区中学生提供在线英语和科学辅导" style="text;html=1;fontSize=12;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="530" y="231" width="620" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="xi0" value="📊 覆盖50名学生 · 累计授课100+小时" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FFF5F5;strokeColor=#FED7D7;fontColor=#E53E3E;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="257" width="400" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="xc1" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="305" width="660" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="xci1" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#E53E3E;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="315" width="4" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xt1" value="▸ 物资募集行动" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="530" y="315" width="300" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="xd1" value="组织校内募集活动，为藏区学校捐赠书籍和文具" style="text;html=1;fontSize=12;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="530" y="341" width="620" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="xi1" value="📊 募集500+本书籍 · 200套文具" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FFF5F5;strokeColor=#FED7D7;fontColor=#E53E3E;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="367" width="400" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="xc2" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="415" width="660" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="xci2" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=#E53E3E;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="425" width="4" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xt2" value="▸ 暑期实地考察" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="530" y="425" width="300" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="xd2" value="前往西藏实地考察教育现状，建立长期合作基地" style="text;html=1;fontSize=12;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="530" y="451" width="620" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="xi2" value="📊 与当地3所学校建立长期合作关系" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FFF5F5;strokeColor=#FED7D7;fontColor=#E53E3E;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="477" width="400" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="xkw" value="关键词" style="text;html=1;fontSize=12;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="510" y="530" width="100" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="xk0" value="影响力" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FFF5F5;strokeColor=none;fontColor=#C53030;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="555" width="66" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xk1" value="责任感" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FFF5F5;strokeColor=none;fontColor=#C53030;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="588" y="555" width="66" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xk2" value="长期参与" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FFF5F5;strokeColor=none;fontColor=#C53030;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="666" y="555" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xin" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="605" width="660" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xin1" value="50+" style="text;html=1;fontSize=18;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#E53E3E;" vertex="1" parent="1">
+          <mxGeometry x="540" y="612" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="xin1l" value="受益学生" style="text;html=1;fontSize=10;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="540" y="636" width="80" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="xin2" value="100+" style="text;html=1;fontSize=18;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#E53E3E;" vertex="1" parent="1">
+          <mxGeometry x="700" y="612" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="xin2l" value="授课小时" style="text;html=1;fontSize=10;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="700" y="636" width="80" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="xin3" value="3所" style="text;html=1;fontSize=18;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#E53E3E;" vertex="1" parent="1">
+          <mxGeometry x="860" y="612" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="xin3l" value="合作学校" style="text;html=1;fontSize=10;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="860" y="636" width="80" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="xin4" value="3期" style="text;html=1;fontSize=18;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#E53E3E;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="612" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="xin4l" value="持续期数" style="text;html=1;fontSize=10;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="636" width="80" height="18" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page_clubs" name="08-社团">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="nav" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1A365D;strokeColor=none;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="logo" value="Owen's Portfolio" style="text;html=1;fontSize=18;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="30" y="8" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nv0" value="About Me" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv1" value="Athletics" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv2" value="Academics" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="780" y="16" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv3" value="Xizang" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="890" y="16" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nv4" value="Clubs" style="text;html=1;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="990" y="16" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nvu4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3182CE;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="990" y="53" width="70" height="3" as="geometry" />
+        </mxCell>
+        <mxCell id="ftr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF2F7;strokeColor=#E2E8F0;" vertex="1" parent="1">
+          <mxGeometry x="0" y="856" width="1200" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="ftrt" value="© 2024 Owen. All rights reserved.  |  aboutowen.cn" style="text;html=1;fontSize=11;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="862" width="600" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="ip_3076460" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFF0;strokeColor=#FEFCBF;shadow=1;gradientColor=#FEFCBF;gradientDirection=south;" vertex="1" parent="1">
+          <mxGeometry x="30" y="76" width="460" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="ii_3076460" value="📷" style="text;html=1;fontSize=36;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#D69E2E;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="240" y="346" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="il_3076460" value="社团活动照片" style="text;html=1;fontSize=12;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="50" y="386" width="420" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="is_3076460" value="活动现场 · 团队合作" style="text;html=1;fontSize=10;fontStyle=0;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="408" width="420" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ct" value="社团活动" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="510" y="86" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cdiv" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="128" width="660" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cc0" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="140" width="660" height="148" as="geometry" />
+        </mxCell>
+        <mxCell id="ce0" value="🤖" style="ellipse;whiteSpace=wrap;html=1;fillColor=#EBF4FF;strokeColor=none;fontSize=24;" vertex="1" parent="1">
+          <mxGeometry x="525" y="160" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cn0" value="机器人社团" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="590" y="152" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="cr0" value="核心成员 / 技术负责人" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#EBF4FF;strokeColor=none;fontColor=#3182CE;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="180" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cd0" value="负责机器人编程和机械设计，参加 VEX 机器人大赛" style="text;html=1;fontSize=12;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="590" y="214" width="500" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cs0" value="● 活跃" style="text;html=1;fontSize=11;fontStyle=1;align=right;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#38A169;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="152" width="100" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="cc1" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="300" width="660" height="148" as="geometry" />
+        </mxCell>
+        <mxCell id="ce1" value="💡" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FAF5FF;strokeColor=none;fontSize=24;" vertex="1" parent="1">
+          <mxGeometry x="525" y="320" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cn1" value="科技创新社" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="590" y="312" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="cr1" value="联合创始人" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#FAF5FF;strokeColor=none;fontColor=#805AD5;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="340" width="70" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cd1" value="创建校园科技创新平台，组织黑客松和创新工作坊" style="text;html=1;fontSize=12;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="590" y="374" width="500" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cs1" value="● 活跃" style="text;html=1;fontSize=11;fontStyle=1;align=right;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#38A169;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="312" width="100" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="cc2" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="460" width="660" height="148" as="geometry" />
+        </mxCell>
+        <mxCell id="ce2" value="🤝" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F0FFF4;strokeColor=none;fontSize=24;" vertex="1" parent="1">
+          <mxGeometry x="525" y="480" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cn2" value="社区志愿服务" style="text;html=1;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="590" y="472" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="cr2" value="志愿者" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#F0FFF4;strokeColor=none;fontColor=#38A169;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="500" width="50" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cd2" value="定期参与社区服务活动，包括环保清洁和敬老院探访" style="text;html=1;fontSize=12;fontStyle=0;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="590" y="534" width="500" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cs2" value="● 活跃" style="text;html=1;fontSize=11;fontStyle=1;align=right;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#38A169;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="472" width="100" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="cog" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="625" width="660" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cogt" value="📢 最新动态" style="text;html=1;fontSize=12;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#D69E2E;" vertex="1" parent="1">
+          <mxGeometry x="530" y="632" width="150" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="cogd" value="机器人社团正在进行新学期招新，已吸引30+新成员加入" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="530" y="655" width="600" height="18" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page_admin" name="09-后台管理">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="abg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="asb" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1A365D;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="220" height="900" as="geometry" />
+        </mxCell>
+        <mxCell id="asbt" value="⚙️ 管理面板" style="text;html=1;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="20" y="15" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="asbd" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2B4573;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="20" y="60" width="180" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sb0" value="📷 轮播图管理" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#2B4573;strokeColor=none;fontColor=#FFFFFF;fontSize=12;fontStyle=1;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="15" y="72" width="190" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="sbi0" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3182CE;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="15" y="72" width="4" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="sb1" value="📰 首页动态" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=none;strokeColor=none;fontColor=#A0AEC0;fontSize=12;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="15" y="112" width="190" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="sb2" value="👤 关于我" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=none;strokeColor=none;fontColor=#A0AEC0;fontSize=12;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="15" y="152" width="190" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="sb3" value="🏊 体育" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=none;strokeColor=none;fontColor=#A0AEC0;fontSize=12;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="15" y="192" width="190" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="sb4" value="📚 学术" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=none;strokeColor=none;fontColor=#A0AEC0;fontSize=12;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="15" y="232" width="190" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="sb5" value="🏔️ 西藏" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=none;strokeColor=none;fontColor=#A0AEC0;fontSize=12;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="15" y="272" width="190" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="sb6" value="🏛️ 社团" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=none;strokeColor=none;fontColor=#A0AEC0;fontSize=12;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="15" y="312" width="190" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="sb7" value="⚙️ 网站设置" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=none;strokeColor=none;fontColor=#A0AEC0;fontSize=12;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="15" y="352" width="190" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="sb8" value="🔑 修改密码" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=none;strokeColor=none;fontColor=#A0AEC0;fontSize=12;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="15" y="392" width="190" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="sblg" value="🚪 退出登录" style="text;html=1;fontSize=11;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#A0AEC0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="850" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ama" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="230" y="10" width="960" height="880" as="geometry" />
+        </mxCell>
+        <mxCell id="amh" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="15" width="940" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="amht" value="轮播图管理" style="text;html=1;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="260" y="22" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="amhs" value="板块选择:" style="text;html=1;fontSize=12;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="700" y="27" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="amhd" value="首页 ▾" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;fillColor=#FFFFFF;strokeColor=#CBD5E0;fontColor=#4A5568;fontSize=12;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="790" y="22" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="atb" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="82" width="940" height="730" as="geometry" />
+        </mxCell>
+        <mxCell id="ath" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDF2F7;strokeColor=#E2E8F0;fontColor=#4A5568;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="82" width="940" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="th_260" value="#" style="text;html=1;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="260" y="86" width="45" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="th_310" value="预览" style="text;html=1;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="310" y="86" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="th_410" value="说明文字" style="text;html=1;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="410" y="86" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="th_680" value="排序" style="text;html=1;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="680" y="86" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="th_780" value="操作" style="text;html=1;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#4A5568;" vertex="1" parent="1">
+          <mxGeometry x="780" y="86" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tr0" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E2E8F0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="125" width="940" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="tn0" value="1" style="text;html=1;fontSize=12;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="260" y="140" width="45" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="tp0" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;fillColor=#EBF4FF;strokeColor=#BEE3F8;" vertex="1" parent="1">
+          <mxGeometry x="325" y="133" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="tpi0" value="🖼" style="text;html=1;fontSize=16;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#3182CE;" vertex="1" parent="1">
+          <mxGeometry x="345" y="143" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tc0" value="探索学术前沿" style="text;html=1;fontSize=12;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="420" y="140" width="240" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="to0" value="1" style="text;html=1;fontSize=12;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="690" y="140" width="60" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="te0" value="编辑" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#3182CE;strokeColor=none;fontColor=#FFFFFF;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="143" width="60" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="tdel0" value="删除" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#E53E3E;strokeColor=none;fontColor=#FFFFFF;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="860" y="143" width="60" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="tld0" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="250" y="190" width="920" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tr1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=#E2E8F0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="195" width="940" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="tn1" value="2" style="text;html=1;fontSize=12;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="260" y="210" width="45" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="tp1" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;fillColor=#EBF4FF;strokeColor=#BEE3F8;" vertex="1" parent="1">
+          <mxGeometry x="325" y="203" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="tpi1" value="🖼" style="text;html=1;fontSize=16;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#3182CE;" vertex="1" parent="1">
+          <mxGeometry x="345" y="213" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tc1" value="泳池中的拼搏" style="text;html=1;fontSize=12;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="420" y="210" width="240" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="to1" value="2" style="text;html=1;fontSize=12;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="690" y="210" width="60" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="te1" value="编辑" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#3182CE;strokeColor=none;fontColor=#FFFFFF;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="213" width="60" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="tdel1" value="删除" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#E53E3E;strokeColor=none;fontColor=#FFFFFF;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="860" y="213" width="60" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="tld1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="250" y="260" width="920" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tr2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E2E8F0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="265" width="940" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="tn2" value="3" style="text;html=1;fontSize=12;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="260" y="280" width="45" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="tp2" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;fillColor=#EBF4FF;strokeColor=#BEE3F8;" vertex="1" parent="1">
+          <mxGeometry x="325" y="273" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="tpi2" value="🖼" style="text;html=1;fontSize=16;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#3182CE;" vertex="1" parent="1">
+          <mxGeometry x="345" y="283" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tc2" value="西藏公益之路" style="text;html=1;fontSize=12;align=left;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="420" y="280" width="240" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="to2" value="3" style="text;html=1;fontSize=12;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="690" y="280" width="60" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="te2" value="编辑" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#3182CE;strokeColor=none;fontColor=#FFFFFF;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="283" width="60" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="tdel2" value="删除" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#E53E3E;strokeColor=none;fontColor=#FFFFFF;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="860" y="283" width="60" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="tr3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=#E2E8F0;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="240" y="335" width="940" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="tn3" value="—" style="text;html=1;fontSize=12;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#CBD5E0;" vertex="1" parent="1">
+          <mxGeometry x="260" y="350" width="45" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="tr4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=#E2E8F0;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="240" y="405" width="940" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="tn4" value="—" style="text;html=1;fontSize=12;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#CBD5E0;" vertex="1" parent="1">
+          <mxGeometry x="260" y="420" width="45" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="tr5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=#E2E8F0;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="240" y="475" width="940" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="tn5" value="—" style="text;html=1;fontSize=12;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#CBD5E0;" vertex="1" parent="1">
+          <mxGeometry x="260" y="490" width="45" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="tr6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=#E2E8F0;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="240" y="545" width="940" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="tn6" value="—" style="text;html=1;fontSize=12;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#CBD5E0;" vertex="1" parent="1">
+          <mxGeometry x="260" y="560" width="45" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="abtn1" value="+ 添加图片" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#3182CE;strokeColor=none;fontColor=#FFFFFF;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="770" width="130" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="abtn2" value="保存排序" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#38A169;strokeColor=none;fontColor=#FFFFFF;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="395" y="770" width="130" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="abtn3" value="导出数据" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FFFFFF;strokeColor=#3182CE;fontColor=#3182CE;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="770" width="120" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="ast" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#E2E8F0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="830" y="770" width="340" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="astt" value="共 3 张图片  |  已排序" style="text;html=1;fontSize=11;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="850" y="775" width="300" height="28" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

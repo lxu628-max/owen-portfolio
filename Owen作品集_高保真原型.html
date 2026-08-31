@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1024">
+<title>Owen's Portfolio</title>
+<style>
+/* ========== DESIGN SYSTEM TOKENS ========== */
+:root {
+  /* Colors */
+  --c-primary: #0F172A;
+  --c-blue: #3B82F6;
+  --c-blue-dark: #2563EB;
+  --c-blue-light: #DBEAFE;
+  --c-emerald: #10B981;
+  --c-emerald-light: #D1FAE5;
+  --c-red: #EF4444;
+  --c-red-light: #FEE2E2;
+  --c-orange: #F59E0B;
+  --c-bg: #F8FAFC;
+  --c-card: #FFFFFF;
+  --c-title: #1E293B;
+  --c-text: #64748B;
+  --c-border: #E2E8F0;
+  --c-border-light: #F1F5F9;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --fs-hero: 2.75rem;
+  --fs-h1: 2rem;
+  --fs-h2: 1.5rem;
+  --fs-h3: 1.125rem;
+  --fs-body: 0.9375rem;
+  --fs-small: 0.8125rem;
+  --fs-xs: 0.75rem;
+  --fw-bold: 700;
+  --fw-semi: 600;
+  --fw-medium: 500;
+  --fw-regular: 400;
+
+  /* Spacing */
+  --sp-xs: 4px;
+  --sp-sm: 8px;
+  --sp-md: 16px;
+  --sp-lg: 24px;
+  --sp-xl: 32px;
+  --sp-2xl: 48px;
+  --sp-3xl: 64px;
+
+  /* Radius */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 12px;
+  --r-xl: 16px;
+  --r-full: 9999px;
+
+  /* Shadows */
+  --sh-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --sh-md: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+  --sh-lg: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  --sh-xl: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+
+  /* Transitions */
+  --tr-fast: 150ms ease;
+  --tr-normal: 300ms ease;
+  --tr-slow: 500ms ease;
+
+  /* Layout */
+  --nav-height: 64px;
+  --sidebar-width: 260px;
+}
+
+/* ========== RESET & BASE ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  color: var(--c-title);
+  background: var(--c-bg);
+  line-height: 1.6;
+  min-width: 1024px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--c-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; display: block; }
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--c-border-light); }
+::-webkit-scrollbar-thumb { background: var(--c-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--c-text); }
+
+/* ========== TYPOGRAPHY ========== */
+.hero-title { font-size: var(--fs-hero); font-weight: var(--fw-bold); line-height: 1.2; color: var(--c-primary); }
+.h1 { font-size: var(--fs-h1); font-weight: var(--fw-bold); color: var(--c-title); }
+.h2 { font-size: var(--fs-h2); font-weight: var(--fw-semi); color: var(--c-title); }
+.h3 { font-size: var(--fs-h3); font-weight: var(--fw-semi); color: var(--c-title); }
+.text-muted { color: var(--c-text); }
+.text-blue { color: var(--c-blue); }
+.text-emerald { color: var(--c-emerald); }
+
+/* ========== NAVIGATION ========== */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: var(--nav-height);
+  background: var(--c-primary);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--sp-xl);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.nav-logo {
+  font-size: 1.25rem; font-weight: var(--fw-bold); color: #fff;
+  letter-spacing: -0.5px; cursor: pointer;
+}
+.nav-logo span { color: var(--c-blue); }
+
+.nav-links { display: flex; align-items: center; gap: var(--sp-xs); }
+
+.nav-link {
+  color: rgba(255,255,255,0.7); font-size: var(--fs-small); font-weight: var(--fw-medium);
+  padding: var(--sp-sm) var(--sp-md); border-radius: var(--r-sm);
+  cursor: pointer; transition: all var(--tr-fast); user-select: none;
+}
+.nav-link:hover { color: #fff; background: rgba(255,255,255,0.1); }
+.nav-link.active { color: #fff; background: var(--c-blue); }
+
+.nav-admin-btn {
+  margin-left: var(--sp-md); padding: var(--sp-sm) var(--sp-lg);
+  background: var(--c-blue); color: #fff; border: none; border-radius: var(--r-sm);
+  font-size: var(--fs-small); font-weight: var(--fw-semi); cursor: pointer;
+  transition: background var(--tr-fast);
+}
+.nav-admin-btn:hover { background: var(--c-blue-dark); }
+
+/* ========== PAGE CONTAINER ========== */
+.page-container {
+  margin-top: var(--nav-height);
+  min-height: calc(100vh - var(--nav-height));
+}
+
+/* ========== FRONT PAGE ========== */
+.front-page {
+  max-width: 1200px; margin: 0 auto; padding: var(--sp-2xl) var(--sp-xl);
+  animation: fadeIn var(--tr-normal);
+}
+
+.page-section { display: none; }
+.page-section.active { display: block; animation: fadeIn var(--tr-normal); }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Two Column Layout */
+.two-col {
+  display: flex; gap: var(--sp-2xl); align-items: flex-start;
+}
+.two-col .col-left { flex: 55; min-width: 0; }
+.two-col .col-left-40 { flex: 40; min-width: 0; }
+.two-col .col-right { flex: 45; min-width: 0; }
+.two-col .col-right-60 { flex: 60; min-width: 0; }
+
+/* ========== CAROUSEL ========== */
+.carousel {
+  position: relative; border-radius: var(--r-lg); overflow: hidden;
+  background: var(--c-border-light); aspect-ratio: 16/10;
+}
+.carousel-slides { position: relative; width: 100%; height: 100%; }
+.carousel-slide {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity var(--tr-slow);
+}
+.carousel-slide.active { opacity: 1; }
+
+.carousel-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 10;
+  width: 36px; height: 36px; border-radius: 50%; border: none;
+  background: rgba(255,255,255,0.9); color: var(--c-primary);
+  font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: all var(--tr-fast); box-shadow: var(--sh-md);
+}
+.carousel-arrow:hover { background: #fff; box-shadow: var(--sh-lg); }
+.carousel-arrow.prev { left: 12px; }
+.carousel-arrow.next { right: 12px; }
+
+.carousel-dots {
+  position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 8px; z-index: 10;
+}
+.carousel-dot {
+  width: 8px; height: 8px; border-radius: 50%; border: none;
+  background: rgba(255,255,255,0.5); cursor: pointer; transition: all var(--tr-fast);
+  padding: 0;
+}
+.carousel-dot.active { background: #fff; width: 24px; border-radius: 4px; }
+
+/* SVG Placeholder */
+.placeholder-svg {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: var(--sp-sm); color: var(--c-text);
+}
+.placeholder-svg svg { width: 48px; height: 48px; opacity: 0.4; }
+.placeholder-svg .ph-label { font-size: var(--fs-small); opacity: 0.6; }
+
+/* ========== CARD ========== */
+.card {
+  background: var(--c-card); border-radius: var(--r-lg);
+  box-shadow: var(--sh-md); padding: var(--sp-lg);
+  transition: box-shadow var(--tr-fast), transform var(--tr-fast);
+  border: 1px solid var(--c-border);
+}
+.card:hover { box-shadow: var(--sh-lg); }
+.card.clickable:hover { transform: translateY(-2px); box-shadow: var(--sh-xl); cursor: pointer; }
+
+/* ========== TAG/BADGE ========== */
+.tag {
+  display: inline-flex; align-items: center; gap: var(--sp-xs);
+  padding: var(--sp-xs) var(--sp-md); border-radius: var(--r-full);
+  font-size: var(--fs-xs); font-weight: var(--fw-medium);
+}
+.tag-blue { background: var(--c-blue-light); color: var(--c-blue-dark); }
+.tag-emerald { background: var(--c-emerald-light); color: #065F46; }
+.tag-gray { background: var(--c-border-light); color: var(--c-text); }
+.tag-red { background: var(--c-red-light); color: #991B1B; }
+
+/* ========== BUTTONS ========== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-sm);
+  padding: var(--sp-sm) var(--sp-lg); border-radius: var(--r-sm);
+  font-size: var(--fs-small); font-weight: var(--fw-semi);
+  border: 1px solid transparent; cursor: pointer;
+  transition: all var(--tr-fast); user-select: none;
+}
+.btn-primary { background: var(--c-blue); color: #fff; border-color: var(--c-blue); }
+.btn-primary:hover { background: var(--c-blue-dark); }
+.btn-secondary { background: #fff; color: var(--c-blue); border-color: var(--c-blue); }
+.btn-secondary:hover { background: var(--c-blue-light); }
+.btn-danger { background: var(--c-red); color: #fff; border-color: var(--c-red); }
+.btn-danger:hover { background: #DC2626; }
+.btn-ghost { background: transparent; color: var(--c-text); border-color: var(--c-border); }
+.btn-ghost:hover { background: var(--c-border-light); }
+.btn-sm { padding: var(--sp-xs) var(--sp-md); font-size: var(--fs-xs); }
+
+/* ========== UPDATE LIST ========== */
+.update-list { display: flex; flex-direction: column; }
+.update-item {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: var(--sp-md) 0; border-bottom: 1px solid var(--c-border);
+}
+.update-item:last-child { border-bottom: none; }
+.update-item .update-title { font-weight: var(--fw-semi); font-size: var(--fs-body); color: var(--c-title); }
+.update-item .update-desc { font-size: var(--fs-small); color: var(--c-text); margin-top: 2px; }
+.update-item .update-date { font-size: var(--fs-xs); color: var(--c-text); white-space: nowrap; margin-left: var(--sp-md); }
+
+/* ========== INFO BLOCK ========== */
+.info-block { margin-bottom: var(--sp-lg); }
+.info-block .info-label {
+  font-size: var(--fs-xs); font-weight: var(--fw-semi); color: var(--c-text);
+  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--sp-xs);
+}
+.info-block .info-value { font-size: var(--fs-body); color: var(--c-title); line-height: 1.5; }
+
+/* ========== TRAIT TAGS ========== */
+.trait-tags { display: flex; flex-wrap: wrap; gap: var(--sp-sm); }
+.trait-tag {
+  padding: var(--sp-sm) var(--sp-lg); border-radius: var(--r-full);
+  font-size: var(--fs-small); font-weight: var(--fw-medium);
+  background: var(--c-blue-light); color: var(--c-blue-dark);
+  border: 1px solid rgba(59,130,246,0.2);
+}
+
+/* ========== RECORD CARD ========== */
+.record-card {
+  background: var(--c-card); border-radius: var(--r-lg);
+  box-shadow: var(--sh-md); padding: var(--sp-lg); margin-bottom: var(--sp-md);
+  border: 1px solid var(--c-border); cursor: pointer;
+  transition: all var(--tr-fast);
+}
+.record-card:hover { transform: translateY(-2px); box-shadow: var(--sh-xl); border-color: var(--c-blue); }
+.record-card .rc-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--sp-sm); }
+.record-card .rc-name { font-weight: var(--fw-semi); color: var(--c-title); }
+.record-card .rc-event { font-size: var(--fs-small); color: var(--c-text); }
+.record-card .rc-result { font-size: var(--fs-h3); font-weight: var(--fw-bold); color: var(--c-emerald); }
+.record-card .rc-meta { display: flex; gap: var(--sp-lg); margin-top: var(--sp-sm); font-size: var(--fs-small); color: var(--c-text); }
+
+/* ========== DETAIL PAGE ========== */
+.detail-page { display: none; }
+.detail-page.active { display: block; animation: fadeIn var(--tr-normal); }
+
+.detail-back {
+  display: inline-flex; align-items: center; gap: var(--sp-sm);
+  color: var(--c-blue); font-size: var(--fs-small); font-weight: var(--fw-medium);
+  cursor: pointer; margin-bottom: var(--sp-lg); padding: var(--sp-sm) 0;
+  transition: color var(--tr-fast);
+}
+.detail-back:hover { color: var(--c-blue-dark); text-decoration: none; }
+
+.detail-result-card {
+  background: var(--c-emerald-light); border: 1px solid rgba(16,185,129,0.3);
+  border-radius: var(--r-md); padding: var(--sp-md) var(--sp-lg);
+  display: inline-block; margin: var(--sp-md) 0;
+}
+.detail-result-card .dr-label { font-size: var(--fs-xs); color: #065F46; font-weight: var(--fw-medium); }
+.detail-result-card .dr-value { font-size: var(--fs-h2); font-weight: var(--fw-bold); color: var(--c-emerald); }
+
+/* ========== IMPACT STAT ========== */
+.impact-stat {
+  display: inline-flex; align-items: baseline; gap: var(--sp-xs);
+  margin-top: var(--sp-xs);
+}
+.impact-stat .is-number { font-size: var(--fs-h2); font-weight: var(--fw-bold); color: var(--c-emerald); }
+.impact-stat .is-unit { font-size: var(--fs-small); color: var(--c-text); }
+
+/* ========== CLUB CARD ========== */
+.club-card {
+  background: var(--c-card); border-radius: var(--r-lg);
+  box-shadow: var(--sh-md); padding: var(--sp-lg); margin-bottom: var(--sp-md);
+  border: 1px solid var(--c-border);
+  display: flex; justify-content: space-between; align-items: flex-start;
+}
+.club-card .club-info { flex: 1; }
+.club-card .club-name { font-weight: var(--fw-semi); font-size: var(--fs-body); }
+.club-card .club-role { font-size: var(--fs-small); color: var(--c-blue); font-weight: var(--fw-medium); margin: 2px 0; }
+.club-card .club-desc { font-size: var(--fs-small); color: var(--c-text); margin-top: var(--sp-sm); }
+
+/* ========== FOOTER ========== */
+.footer {
+  text-align: center; padding: var(--sp-2xl) var(--sp-xl);
+  color: var(--c-text); font-size: var(--fs-small);
+  border-top: 1px solid var(--c-border);
+  margin-top: var(--sp-3xl);
+}
+.footer a { color: var(--c-blue); }
+
+/* ========== ADMIN LOGIN ========== */
+.admin-login {
+  display: flex; align-items: center; justify-content: center;
+  min-height: calc(100vh - var(--nav-height));
+  background: var(--c-bg);
+}
+.login-card {
+  background: var(--c-card); border-radius: var(--r-xl);
+  box-shadow: var(--sh-xl); padding: var(--sp-2xl);
+  width: 400px; border: 1px solid var(--c-border);
+}
+.login-card h2 { text-align: center; margin-bottom: var(--sp-xl); }
+.form-group { margin-bottom: var(--sp-lg); }
+.form-group label {
+  display: block; font-size: var(--fs-small); font-weight: var(--fw-medium);
+  color: var(--c-title); margin-bottom: var(--sp-xs);
+}
+.form-input {
+  width: 100%; padding: var(--sp-sm) var(--sp-md); border: 1px solid var(--c-border);
+  border-radius: var(--r-sm); font-size: var(--fs-body); font-family: var(--font-sans);
+  transition: border-color var(--tr-fast); outline: none;
+}
+.form-input:focus { border-color: var(--c-blue); box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+.form-input.error { border-color: var(--c-red); box-shadow: 0 0 0 3px rgba(239,68,68,0.1); }
+.form-input.error:focus { border-color: var(--c-red); }
+
+.login-btn {
+  width: 100%; padding: var(--sp-md); margin-top: var(--sp-sm);
+}
+
+/* ========== ADMIN LAYOUT ========== */
+.admin-layout { display: none; min-height: calc(100vh - var(--nav-height)); }
+.admin-layout.active { display: flex; }
+
+.admin-sidebar {
+  width: var(--sidebar-width); background: var(--c-primary);
+  padding: var(--sp-lg) 0; flex-shrink: 0;
+  overflow-y: auto; height: calc(100vh - var(--nav-height));
+  position: sticky; top: var(--nav-height);
+}
+
+.sidebar-menu-item {
+  display: flex; align-items: center; gap: var(--sp-md);
+  padding: var(--sp-md) var(--sp-xl); color: rgba(255,255,255,0.65);
+  font-size: var(--fs-small); font-weight: var(--fw-medium);
+  cursor: pointer; transition: all var(--tr-fast); user-select: none;
+  border-left: 3px solid transparent;
+}
+.sidebar-menu-item:hover { color: #fff; background: rgba(255,255,255,0.05); }
+.sidebar-menu-item.active {
+  color: #fff; background: rgba(59,130,246,0.15);
+  border-left-color: var(--c-blue);
+}
+.sidebar-menu-item .menu-icon { font-size: 1.1rem; width: 24px; text-align: center; }
+
+.admin-content {
+  flex: 1; padding: var(--sp-xl); background: var(--c-bg);
+  overflow-y: auto;
+}
+
+.admin-panel { display: none; }
+.admin-panel.active { display: block; animation: fadeIn var(--tr-normal); }
+
+.admin-panel-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: var(--sp-xl);
+}
+.admin-panel-header h2 { margin: 0; }
+
+/* ========== STAT CARDS ========== */
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-lg); margin-bottom: var(--sp-xl); }
+.stat-card {
+  background: var(--c-card); border-radius: var(--r-lg);
+  box-shadow: var(--sh-md); padding: var(--sp-lg); border: 1px solid var(--c-border);
+}
+.stat-card .stat-icon {
+  width: 40px; height: 40px; border-radius: var(--r-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; margin-bottom: var(--sp-md);
+}
+.stat-card .stat-icon.blue { background: var(--c-blue-light); }
+.stat-card .stat-icon.emerald { background: var(--c-emerald-light); }
+.stat-card .stat-icon.orange { background: #FEF3C7; }
+.stat-card .stat-icon.red { background: var(--c-red-light); }
+.stat-card .stat-value { font-size: var(--fs-h1); font-weight: var(--fw-bold); color: var(--c-title); }
+.stat-card .stat-label { font-size: var(--fs-small); color: var(--c-text); margin-top: var(--sp-xs); }
+
+/* ========== TABLE ========== */
+.data-table-wrap {
+  background: var(--c-card); border-radius: var(--r-lg);
+  box-shadow: var(--sh-md); border: 1px solid var(--c-border); overflow: hidden;
+}
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table thead { background: var(--c-border-light); }
+.data-table th {
+  padding: var(--sp-md) var(--sp-lg); text-align: left;
+  font-size: var(--fs-xs); font-weight: var(--fw-semi);
+  color: var(--c-text); text-transform: uppercase; letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--c-border); position: sticky; top: 0;
+  background: var(--c-border-light);
+}
+.data-table td {
+  padding: var(--sp-md) var(--sp-lg); font-size: var(--fs-small);
+  border-bottom: 1px solid var(--c-border); vertical-align: middle;
+}
+.data-table tbody tr:nth-child(even) { background: var(--c-border-light); }
+.data-table tbody tr:hover { background: var(--c-blue-light); }
+.data-table .td-actions { display: flex; gap: var(--sp-sm); }
+
+/* ========== UPLOAD AREA ========== */
+.upload-area {
+  border: 2px dashed var(--c-border); border-radius: var(--r-lg);
+  padding: var(--sp-2xl); text-align: center; color: var(--c-text);
+  background: var(--c-border-light); cursor: pointer;
+  transition: all var(--tr-fast);
+}
+.upload-area:hover { border-color: var(--c-blue); background: var(--c-blue-light); }
+.upload-area .upload-icon { font-size: 2rem; margin-bottom: var(--sp-sm); }
+.upload-area .upload-text { font-size: var(--fs-small); }
+.upload-area .upload-hint { font-size: var(--fs-xs); margin-top: var(--sp-xs); }
+
+/* ========== MODAL ========== */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(0,0,0,0.5); display: none;
+  align-items: center; justify-content: center;
+  backdrop-filter: blur(2px);
+}
+.modal-overlay.active { display: flex; }
+.modal {
+  background: var(--c-card); border-radius: var(--r-xl);
+  box-shadow: var(--sh-xl); width: 600px; max-height: 80vh;
+  overflow-y: auto; animation: modalIn var(--tr-normal);
+}
+@keyframes modalIn { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+
+.modal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: var(--sp-lg) var(--sp-xl); border-bottom: 1px solid var(--c-border);
+}
+.modal-header h3 { margin: 0; font-size: var(--fs-h3); }
+.modal-close {
+  width: 32px; height: 32px; border-radius: var(--r-sm);
+  border: none; background: var(--c-border-light); color: var(--c-text);
+  font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: all var(--tr-fast);
+}
+.modal-close:hover { background: var(--c-red-light); color: var(--c-red); }
+
+.modal-body { padding: var(--sp-xl); }
+.modal-footer {
+  display: flex; justify-content: flex-end; gap: var(--sp-md);
+  padding: var(--sp-lg) var(--sp-xl); border-top: 1px solid var(--c-border);
+}
+
+/* ========== TOAST ========== */
+.toast-container {
+  position: fixed; top: 80px; right: 24px; z-index: 3000;
+  display: flex; flex-direction: column; gap: var(--sp-sm);
+}
+.toast {
+  background: var(--c-card); border-radius: var(--r-md);
+  box-shadow: var(--sh-xl); padding: var(--sp-md) var(--sp-lg);
+  display: flex; align-items: center; gap: var(--sp-md);
+  font-size: var(--fs-small); font-weight: var(--fw-medium);
+  border-left: 4px solid var(--c-emerald);
+  animation: toastIn var(--tr-normal);
+  min-width: 280px;
+}
+.toast.error { border-left-color: var(--c-red); }
+@keyframes toastIn { from { opacity: 0; transform: translateX(100%); } to { opacity: 1; transform: translateX(0); } }
+@keyframes toastOut { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(100%); } }
+
+/* ========== CONFIRM DIALOG ========== */
+.confirm-overlay {
+  position: fixed; inset: 0; z-index: 2500;
+  background: rgba(0,0,0,0.5); display: none;
+  align-items: center; justify-content: center;
+}
+.confirm-overlay.active { display: flex; }
+.confirm-dialog {
+  background: var(--c-card); border-radius: var(--r-xl);
+  box-shadow: var(--sh-xl); padding: var(--sp-xl); width: 400px;
+  text-align: center; animation: modalIn var(--tr-normal);
+}
+.confirm-dialog .confirm-icon { font-size: 2.5rem; margin-bottom: var(--sp-md); }
+.confirm-dialog .confirm-text { font-size: var(--fs-body); color: var(--c-title); margin-bottom: var(--sp-lg); }
+.confirm-dialog .confirm-actions { display: flex; gap: var(--sp-md); justify-content: center; }
+
+/* ========== SETTINGS FORM ========== */
+.settings-form { max-width: 600px; }
+.settings-form .form-group { margin-bottom: var(--sp-lg); }
+.settings-form .form-input, .settings-form textarea {
+  width: 100%; padding: var(--sp-sm) var(--sp-md); border: 1px solid var(--c-border);
+  border-radius: var(--r-sm); font-size: var(--fs-body); font-family: var(--font-sans);
+  transition: border-color var(--tr-fast); outline: none;
+}
+.settings-form textarea { min-height: 80px; resize: vertical; }
+.settings-form .form-input:focus, .settings-form textarea:focus { border-color: var(--c-blue); box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+
+/* ========== CAROUSEL MANAGEMENT ========== */
+.carousel-mgmt-list { display: flex; flex-direction: column; gap: var(--sp-md); margin-top: var(--sp-lg); }
+.carousel-mgmt-item {
+  display: flex; align-items: center; gap: var(--sp-md);
+  background: var(--c-card); border: 1px solid var(--c-border);
+  border-radius: var(--r-md); padding: var(--sp-md);
+}
+.carousel-mgmt-item .cmi-thumb {
+  width: 80px; height: 50px; border-radius: var(--r-sm);
+  background: var(--c-border-light); display: flex; align-items: center; justify-content: center;
+  font-size: var(--fs-xs); color: var(--c-text); flex-shrink: 0;
+}
+.carousel-mgmt-item .cmi-info { flex: 1; }
+.carousel-mgmt-item .cmi-label { font-size: var(--fs-small); font-weight: var(--fw-medium); }
+.carousel-mgmt-item .cmi-order { font-size: var(--fs-xs); color: var(--c-text); }
+
+/* ========== SELECT ========== */
+.form-select {
+  width: 100%; padding: var(--sp-sm) var(--sp-md); border: 1px solid var(--c-border);
+  border-radius: var(--r-sm); font-size: var(--fs-body); font-family: var(--font-sans);
+  background: #fff; outline: none; cursor: pointer;
+}
+.form-select:focus { border-color: var(--c-blue); box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+
+/* ========== IB COURSE DISPLAY ========== */
+.ib-courses { margin-bottom: var(--sp-xl); }
+.ib-courses .ib-row {
+  display: flex; gap: var(--sp-sm); flex-wrap: wrap; margin-bottom: var(--sp-sm);
+}
+.ib-courses .ib-label {
+  font-size: var(--fs-xs); font-weight: var(--fw-semi); color: var(--c-text);
+  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--sp-xs);
+}
+.ib-course-tag {
+  padding: var(--sp-xs) var(--sp-md); border-radius: var(--r-full);
+  font-size: var(--fs-small); font-weight: var(--fw-medium);
+}
+.ib-hl { background: var(--c-blue-light); color: var(--c-blue-dark); }
+.ib-sl { background: var(--c-emerald-light); color: #065F46; }
+</style>
+</head>
+<body>
+
+<!-- ==================== NAVIGATION ==================== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-logo" onclick="navigateTo('home')">Owen<span>'s</span> Portfolio</div>
+  <div class="nav-links" id="navLinks">
+    <div class="nav-link active" data-page="home" onclick="navigateTo('home')">Home</div>
+    <div class="nav-link" data-page="about" onclick="navigateTo('about')">About Me</div>
+    <div class="nav-link" data-page="athletics" onclick="navigateTo('athletics')">Athletics</div>
+    <div class="nav-link" data-page="academics" onclick="navigateTo('academics')">Academics</div>
+    <div class="nav-link" data-page="xizang" onclick="navigateTo('xizang')">Xizang</div>
+    <div class="nav-link" data-page="clubs" onclick="navigateTo('clubs')">Clubs</div>
+    <button class="nav-admin-btn" onclick="navigateTo('admin')">Admin</button>
+  </div>
+</nav>
+
+<!-- ==================== TOAST CONTAINER ==================== -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- ==================== CONFIRM DIALOG ==================== -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-dialog">
+    <div class="confirm-icon">&#9888;&#65039;</div>
+    <div class="confirm-text" id="confirmText">Are you sure you want to delete this item?</div>
+    <div class="confirm-actions">
+      <button class="btn btn-ghost" onclick="closeConfirm()">Cancel</button>
+      <button class="btn btn-danger" id="confirmBtn" onclick="confirmAction()">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== MODAL ==================== -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modalContent">
+    <div class="modal-header">
+      <h3 id="modalTitle">Edit Item</h3>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveModal()">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE CONTAINER ==================== -->
+<div class="page-container" id="pageContainer">
+
+  <!-- ==================== FRONT SITE ==================== -->
+  <div id="frontSite">
+
+    <!-- HOME -->
+    <div class="page-section active" id="page-home">
+      <div class="front-page">
+        <div class="two-col">
+          <div class="col-left">
+            <div style="margin-bottom: var(--sp-xl);">
+              <div class="hero-title">Hi, I'm Owen</div>
+              <div style="font-size: var(--fs-h3); color: var(--c-blue); font-weight: var(--fw-semi); margin-top: var(--sp-sm);">IB Student at YCIS Shanghai</div>
+              <p style="color: var(--c-text); margin-top: var(--sp-md); line-height: 1.7; max-width: 520px;">
+                A passionate and driven IB diploma candidate at Yew Chung International School Shanghai. 
+                Committed to academic excellence, athletic achievement, and meaningful community service. 
+                Aspiring to study Computer Science or Engineering at a top university.
+              </p>
+            </div>
+            <div class="carousel" id="homeCarousel">
+              <div class="carousel-slides">
+                <div class="carousel-slide active" style="background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);">
+                  <div class="placeholder-svg"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><div class="ph-label" style="color:white;">Campus Life at YCIS</div></div>
+                </div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #10B981 0%, #065F46 100%);">
+                  <div class="placeholder-svg"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg><div class="ph-label" style="color:white;">Academic Achievements</div></div>
+                </div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #F59E0B 0%, #B45309 100%);">
+                  <div class="placeholder-svg"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 6v6l4 2"/></svg><div class="ph-label" style="color:white;">Swimming Competitions</div></div>
+                </div>
+              </div>
+              <button class="carousel-arrow prev" onclick="carouselPrev('homeCarousel')">&#8249;</button>
+              <button class="carousel-arrow next" onclick="carouselNext('homeCarousel')">&#8250;</button>
+              <div class="carousel-dots" id="homeCarouselDots"></div>
+            </div>
+          </div>
+          <div class="col-right">
+            <div style="background: var(--c-card); border-radius: var(--r-lg); box-shadow: var(--sh-md); padding: var(--sp-xl); border: 1px solid var(--c-border);">
+              <h3 style="margin-bottom: var(--sp-lg); display: flex; align-items: center; gap: var(--sp-sm);">
+                <span style="color: var(--c-blue);">&#9889;</span> Latest Updates
+              </h3>
+              <div class="update-list">
+                <div class="update-item">
+                  <div><div class="update-title">New Competition Results</div><div class="update-desc">Achieved personal best at ISS Swimming Championship</div></div>
+                  <div class="update-date">Jul 5, 2026</div>
+                </div>
+                <div class="update-item">
+                  <div><div class="update-title">Tibet Project Update</div><div class="update-desc">Completed 3rd school partnership in remote Xizang</div></div>
+                  <div class="update-date">Jun 28, 2026</div>
+                </div>
+                <div class="update-item">
+                  <div><div class="update-title">Robotics Competition</div><div class="update-desc">Led team to regional finals with innovative design</div></div>
+                  <div class="update-date">Jun 15, 2026</div>
+                </div>
+                <div class="update-item">
+                  <div><div class="update-title">College Application Progress</div><div class="update-desc">Finalizing personal statement and portfolio</div></div>
+                  <div class="update-date">Jun 2, 2026</div>
+                </div>
+                <div class="update-item">
+                  <div><div class="update-title">Personal Best in Swimming</div><div class="update-desc">200m Freestyle: 2:05.3 &mdash; new record!</div></div>
+                  <div class="update-date">May 20, 2026</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          &copy; 2026 Owen's Portfolio. All rights reserved. &nbsp;|&nbsp; <a href="mailto:owen@aboutowen.cn">owen@aboutowen.cn</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT ME -->
+    <div class="page-section" id="page-about">
+      <div class="front-page">
+        <h1 class="h1" style="margin-bottom: var(--sp-xl);">About Me</h1>
+        <div class="two-col">
+          <div class="col-left">
+            <div class="carousel" id="aboutCarousel">
+              <div class="carousel-slides">
+                <div class="carousel-slide active" style="background: linear-gradient(135deg, #6366F1 0%, #4338CA 100%);">
+                  <div class="placeholder-svg"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><div class="ph-label" style="color:white;">Profile Photo 1</div></div>
+                </div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);">
+                  <div class="placeholder-svg"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><div class="ph-label" style="color:white;">Profile Photo 2</div></div>
+                </div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #A78BFA 0%, #7C3AED 100%);">
+                  <div class="placeholder-svg"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><div class="ph-label" style="color:white;">Profile Photo 3</div></div>
+                </div>
+              </div>
+              <button class="carousel-arrow prev" onclick="carouselPrev('aboutCarousel')">&#8249;</button>
+              <button class="carousel-arrow next" onclick="carouselNext('aboutCarousel')">&#8250;</button>
+              <div class="carousel-dots" id="aboutCarouselDots"></div>
+            </div>
+          </div>
+          <div class="col-right">
+            <div class="info-block">
+              <div class="info-label">School Background</div>
+              <div class="info-value">Shanghai YCIS (Yew Chung International School)<br><span class="text-muted">IB Diploma Candidate &bull; Class of 2027</span></div>
+            </div>
+            <div class="info-block">
+              <div class="info-label">University Goals</div>
+              <div class="info-value">Targeting top universities in the <strong>United States</strong> and <strong>Hong Kong</strong><br><span class="text-muted">Focus on research-oriented programs with strong STEM emphasis</span></div>
+            </div>
+            <div class="info-block">
+              <div class="info-label">Intended Majors</div>
+              <div class="info-value">
+                <span class="tag tag-blue" style="margin-right: var(--sp-sm);">Computer Science</span>
+                <span class="tag tag-blue">Engineering</span>
+              </div>
+            </div>
+            <div class="info-block">
+              <div class="info-label">Leadership Involvement</div>
+              <div class="info-value">Vice President of Student Council &bull; Core Member of Robotics Club<br><span class="text-muted">Leading initiatives in student governance and technology innovation</span></div>
+            </div>
+            <div class="info-block">
+              <div class="info-label">Personal Traits</div>
+              <div class="trait-tags">
+                <div class="trait-tag">Self-disciplined</div>
+                <div class="trait-tag" style="background: var(--c-emerald-light); color: #065F46; border-color: rgba(16,185,129,0.2);">Leadership</div>
+                <div class="trait-tag" style="background: #FEF3C7; color: #92400E; border-color: rgba(245,158,11,0.2);">Curiosity</div>
+                <div class="trait-tag" style="background: var(--c-red-light); color: #991B1B; border-color: rgba(239,68,68,0.2);">Resilience</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          &copy; 2026 Owen's Portfolio. All rights reserved. &nbsp;|&nbsp; <a href="mailto:owen@aboutowen.cn">owen@aboutowen.cn</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ATHLETICS -->
+    <div class="page-section" id="page-athletics">
+      <div class="front-page">
+        <h1 class="h1" style="margin-bottom: var(--sp-xl);">Athletics</h1>
+        <div id="athleticsList">
+          <div class="two-col">
+            <div class="col-left">
+              <div class="carousel" id="athleticsCarousel">
+                <div class="carousel-slides">
+                  <div class="carousel-slide active" style="background: linear-gradient(135deg, #0EA5E9 0%, #0369A1 100%);">
+                    <div class="placeholder-svg"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><div class="ph-label" style="color:white;">Swimming Competition 1</div></div>
+                  </div>
+                  <div class="carousel-slide" style="background: linear-gradient(135deg, #06B6D4 0%, #0E7490 100%);">
+                    <div class="placeholder-svg"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><div class="ph-label" style="color:white;">Swimming Competition 2</div></div>
+                  </div>
+                  <div class="carousel-slide" style="background: linear-gradient(135deg, #14B8A6 0%, #0F766E 100%);">
+                    <div class="placeholder-svg"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg><div class="ph-label" style="color:white;">Swimming Competition 3</div></div>
+                  </div>
+                </div>
+                <button class="carousel-arrow prev" onclick="carouselPrev('athleticsCarousel')">&#8249;</button>
+                <button class="carousel-arrow next" onclick="carouselNext('athleticsCarousel')">&#8250;</button>
+                <div class="carousel-dots" id="athleticsCarouselDots"></div>
+              </div>
+            </div>
+            <div class="col-right">
+              <div class="record-card" onclick="showAthleticsDetail(0)">
+                <div class="rc-header"><div><div class="rc-name">200m Freestyle</div><div class="rc-event">ISS Swimming Championship</div></div><div class="tag tag-emerald">Silver</div></div>
+                <div class="rc-result">2:05.3</div>
+                <div class="rc-meta"><span>&#128197; Mar 15, 2026</span><span>&#128205; Shanghai</span></div>
+              </div>
+              <div class="record-card" onclick="showAthleticsDetail(1)">
+                <div class="rc-header"><div><div class="rc-name">100m Backstroke</div><div class="rc-event">ACAMIS Swimming Meet</div></div><div class="tag tag-blue">Bronze</div></div>
+                <div class="rc-result">1:02.8</div>
+                <div class="rc-meta"><span>&#128197; Feb 8, 2026</span><span>&#128205; Beijing</span></div>
+              </div>
+              <div class="record-card" onclick="showAthleticsDetail(2)">
+                <div class="rc-header"><div><div class="rc-name">50m Freestyle</div><div class="rc-event">SISAC Swimming Gala</div></div><div class="tag tag-emerald">Gold</div></div>
+                <div class="rc-result">24.3s</div>
+                <div class="rc-meta"><span>&#128197; Jan 20, 2026</span><span>&#128205; Shanghai</span></div>
+              </div>
+              <div class="record-card" onclick="showAthleticsDetail(3)">
+                <div class="rc-header"><div><div class="rc-name">400m Freestyle</div><div class="rc-event">Shanghai Youth Championships</div></div><div class="tag tag-gray">5th</div></div>
+                <div class="rc-result">4:32.1</div>
+                <div class="rc-meta"><span>&#128197; Dec 5, 2025</span><span>&#128205; Shanghai</span></div>
+              </div>
+              <div class="record-card" onclick="showAthleticsDetail(4)">
+                <div class="rc-header"><div><div class="rc-name">200m Individual Medley</div><div class="rc-event">ISS Swimming Championship</div></div><div class="tag tag-blue">Bronze</div></div>
+                <div class="rc-result">2:18.5</div>
+                <div class="rc-meta"><span>&#128197; Nov 12, 2025</span><span>&#128205; Shanghai</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Athletics Detail -->
+        <div class="detail-page" id="athleticsDetail">
+          <div class="detail-back" onclick="hideAthleticsDetail()">&#8592; Back to Athletics</div>
+          <div class="two-col">
+            <div class="col-left-40">
+              <div style="background: linear-gradient(135deg, #0EA5E9 0%, #0369A1 100%); border-radius: var(--r-lg); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;">
+                <div class="placeholder-svg"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" style="width:64px;height:64px;"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg><div class="ph-label" style="color:white;" id="athleticsDetailImgLabel">Competition Photo</div></div>
+              </div>
+            </div>
+            <div class="col-right-60">
+              <h2 id="athleticsDetailName">200m Freestyle</h2>
+              <div style="display: flex; gap: var(--sp-md); margin-top: var(--sp-md);">
+                <span class="tag tag-blue" id="athleticsDetailEvent">ISS Swimming Championship</span>
+              </div>
+              <div style="display: flex; gap: var(--sp-lg); margin-top: var(--sp-md); color: var(--c-text); font-size: var(--fs-small);">
+                <span id="athleticsDetailDate">&#128197; Mar 15, 2026</span>
+                <span id="athleticsDetailLocation">&#128205; Shanghai</span>
+              </div>
+              <div class="detail-result-card">
+                <div class="dr-label">Result</div>
+                <div class="dr-value" id="athleticsDetailResult">2:05.3</div>
+              </div>
+              <div class="info-block" style="margin-top: var(--sp-lg);">
+                <div class="info-label">Race Description</div>
+                <div class="info-value" id="athleticsDetailDesc">Competed in the 200m Freestyle final against top swimmers from international schools across China. Maintained strong pace throughout the race with a powerful final 50m sprint.</div>
+              </div>
+              <div class="info-block">
+                <div class="info-label">Technical Progress</div>
+                <div class="info-value" id="athleticsDetailProgress">Improved flip turn efficiency by 0.8 seconds compared to previous competition. Enhanced breathing pattern consistency and increased stroke rate in the final lap.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          &copy; 2026 Owen's Portfolio. All rights reserved. &nbsp;|&nbsp; <a href="mailto:owen@aboutowen.cn">owen@aboutowen.cn</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACADEMICS -->
+    <div class="page-section" id="page-academics">
+      <div class="front-page">
+        <h1 class="h1" style="margin-bottom: var(--sp-xl);">Academics</h1>
+        <div id="academicsList">
+          <div class="two-col">
+            <div class="col-left">
+              <div class="carousel" id="academicsCarousel">
+                <div class="carousel-slides">
+                  <div class="carousel-slide active" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
+                    <div class="placeholder-svg"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 15l-2 5-3-1 1-4m4 0l2 5 3-1-1-4m-4 0V9"/><circle cx="12" cy="6" r="3"/><path d="M8 21h8"/></svg><div class="ph-label" style="color:white;">Academic Certificate 1</div></div>
+                  </div>
+                  <div class="carousel-slide" style="background: linear-gradient(135deg, #EAB308 0%, #CA8A04 100%);">
+                    <div class="placeholder-svg"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><div class="ph-label" style="color:white;">Academic Certificate 2</div></div>
+                  </div>
+                  <div class="carousel-slide" style="background: linear-gradient(135deg, #FBBF24 0%, #B45309 100%);">
+                    <div class="placeholder-svg"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><div class="ph-label" style="color:white;">Academic Certificate 3</div></div>
+                  </div>
+                </div>
+                <button class="carousel-arrow prev" onclick="carouselPrev('academicsCarousel')">&#8249;</button>
+                <button class="carousel-arrow next" onclick="carouselNext('academicsCarousel')">&#8250;</button>
+                <div class="carousel-dots" id="academicsCarouselDots"></div>
+              </div>
+            </div>
+            <div class="col-right">
+              <div class="ib-courses">
+                <div class="ib-label">Higher Level (HL)</div>
+                <div class="ib-row">
+                  <span class="ib-course-tag ib-hl">Math AA</span>
+                  <span class="ib-course-tag ib-hl">Physics</span>
+                  <span class="ib-course-tag ib-hl">Economics</span>
+                  <span class="ib-course-tag ib-hl">Chemistry</span>
+                </div>
+                <div class="ib-label" style="margin-top: var(--sp-md);">Standard Level (SL)</div>
+                <div class="ib-row">
+                  <span class="ib-course-tag ib-sl">English A</span>
+                  <span class="ib-course-tag ib-sl">Chinese A</span>
+                  <span class="ib-course-tag ib-sl">History</span>
+                </div>
+              </div>
+              <h3 style="margin-bottom: var(--sp-md);">Academic Projects</h3>
+              <div class="record-card" onclick="showAcademicDetail(0)">
+                <div class="rc-header"><div><div class="rc-name">AI-Powered Study Scheduler</div><div class="rc-event">Computer Science Project</div></div><span class="tag tag-emerald">Completed</span></div>
+                <div class="rc-meta"><span>&#128197; May 2026</span><span>&#128205; YCIS Shanghai</span></div>
+              </div>
+              <div class="record-card" onclick="showAcademicDetail(1)">
+                <div class="rc-header"><div><div class="rc-name">Renewable Energy Feasibility Study</div><div class="rc-event">Physics Extended Essay</div></div><span class="tag tag-blue">In Progress</span></div>
+                <div class="rc-meta"><span>&#128197; Apr 2026</span><span>&#128205; YCIS Shanghai</span></div>
+              </div>
+              <div class="record-card" onclick="showAcademicDetail(2)">
+                <div class="rc-header"><div><div class="rc-name">Market Dynamics Simulation</div><div class="rc-event">Economics IA</div></div><span class="tag tag-emerald">Completed</span></div>
+                <div class="rc-meta"><span>&#128197; Mar 2026</span><span>&#128205; YCIS Shanghai</span></div>
+              </div>
+              <div class="record-card" onclick="showAcademicDetail(3)">
+                <div class="rc-header"><div><div class="rc-name">Water Quality Analysis</div><div class="rc-event">Chemistry Lab Report</div></div><span class="tag tag-emerald">Completed</span></div>
+                <div class="rc-meta"><span>&#128197; Feb 2026</span><span>&#128205; YCIS Lab</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Academic Detail -->
+        <div class="detail-page" id="academicDetail">
+          <div class="detail-back" onclick="hideAcademicDetail()">&#8592; Back to Academics</div>
+          <div class="two-col">
+            <div class="col-left-40">
+              <div style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); border-radius: var(--r-lg); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;">
+                <div class="placeholder-svg"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" style="width:64px;height:64px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><div class="ph-label" style="color:white;" id="academicDetailImgLabel">Project Photo</div></div>
+              </div>
+            </div>
+            <div class="col-right-60">
+              <h2 id="academicDetailName">AI-Powered Study Scheduler</h2>
+              <div style="display: flex; gap: var(--sp-md); margin-top: var(--sp-md);">
+                <span class="tag tag-blue" id="academicDetailType">Computer Science Project</span>
+              </div>
+              <div style="display: flex; gap: var(--sp-lg); margin-top: var(--sp-md); color: var(--c-text); font-size: var(--fs-small);">
+                <span id="academicDetailDate">&#128197; May 2026</span>
+                <span id="academicDetailLocation">&#128205; YCIS Shanghai</span>
+              </div>
+              <div class="info-block" style="margin-top: var(--sp-lg);">
+                <div class="info-label">Participants</div>
+                <div class="info-value" id="academicDetailParticipants">Owen Zhang (Solo Project)</div>
+              </div>
+              <div class="info-block">
+                <div class="info-label">Project Description</div>
+                <div class="info-value" id="academicDetailDesc">Developed a machine learning-based study scheduling application that analyzes student work patterns and optimizes study time allocation. The app uses a neural network to predict peak productivity hours and suggests personalized study plans.</div>
+              </div>
+              <div class="info-block">
+                <div class="info-label">Outcomes & Learnings</div>
+                <div class="info-value" id="academicDetailOutcomes">Achieved 92% prediction accuracy for productivity patterns. Gained deep understanding of ML model training, data preprocessing, and user experience design. Presented at the school's annual tech fair.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          &copy; 2026 Owen's Portfolio. All rights reserved. &nbsp;|&nbsp; <a href="mailto:owen@aboutowen.cn">owen@aboutowen.cn</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- XIZANG -->
+    <div class="page-section" id="page-xizang">
+      <div class="front-page">
+        <h1 class="h1" style="margin-bottom: var(--sp-xl);">Xizang (Tibet) Project</h1>
+        <div class="two-col">
+          <div class="col-left">
+            <div class="carousel" id="xizangCarousel">
+              <div class="carousel-slides">
+                <div class="carousel-slide active" style="background: linear-gradient(135deg, #8B5CF6 0%, #5B21B6 100%);">
+                  <div class="placeholder-svg"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M2 20h20"/><path d="M5 20l5-8 4 4 4-8 4 12"/><path d="M12 4v4"/><path d="M10 6h4"/></svg><div class="ph-label" style="color:white;">Remote Teaching Session</div></div>
+                </div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #7C3AED 0%, #4C1D95 100%);">
+                  <div class="placeholder-svg"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><div class="ph-label" style="color:white;">Material Collection Drive</div></div>
+                </div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #6D28D9 0%, #4C1D95 100%);">
+                  <div class="placeholder-svg"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9h1"/><path d="M9 13h1"/><path d="M9 17h1"/></svg><div class="ph-label" style="color:white;">Field Visit to Xizang</div></div>
+                </div>
+              </div>
+              <button class="carousel-arrow prev" onclick="carouselPrev('xizangCarousel')">&#8249;</button>
+              <button class="carousel-arrow next" onclick="carouselNext('xizangCarousel')">&#8250;</button>
+              <div class="carousel-dots" id="xizangCarouselDots"></div>
+            </div>
+          </div>
+          <div class="col-right">
+            <div class="info-block">
+              <div class="info-label">Project Overview</div>
+              <div class="info-value">A community service initiative dedicated to supporting educational development in remote Xizang (Tibet) region. Through remote teaching, material collection, and field visits, the project aims to bridge the educational gap and create lasting partnerships with local schools.</div>
+            </div>
+            <div class="card" style="margin-bottom: var(--sp-md);">
+              <div class="h3">Remote Teaching Program</div>
+              <p class="text-muted" style="margin-top: var(--sp-sm); font-size: var(--fs-small);">Conducted weekly online English and Math classes for students in rural Xizang schools. Developed curriculum and teaching materials tailored to local needs.</p>
+              <div style="display: flex; gap: var(--sp-xl); margin-top: var(--sp-md);">
+                <div><div class="impact-stat"><span class="is-number">50</span><span class="is-unit">students</span></div></div>
+                <div><div class="impact-stat"><span class="is-number">100+</span><span class="is-unit">hours</span></div></div>
+              </div>
+            </div>
+            <div class="card" style="margin-bottom: var(--sp-md);">
+              <div class="h3">Material Collection Drive</div>
+              <p class="text-muted" style="margin-top: var(--sp-sm); font-size: var(--fs-small);">Organized school-wide donation campaigns to collect books, stationery, and educational supplies for Xizang schools. Coordinated logistics for shipping and distribution.</p>
+              <div style="display: flex; gap: var(--sp-xl); margin-top: var(--sp-md);">
+                <div><div class="impact-stat"><span class="is-number">500+</span><span class="is-unit">books</span></div></div>
+                <div><div class="impact-stat"><span class="is-number">200</span><span class="is-unit">stationery sets</span></div></div>
+              </div>
+            </div>
+            <div class="card" style="margin-bottom: var(--sp-md);">
+              <div class="h3">Field Visit & Partnership</div>
+              <p class="text-muted" style="margin-top: var(--sp-sm); font-size: var(--fs-small);">Traveled to Xizang to visit partner schools, meet students and teachers, and establish long-term collaboration frameworks for continued support.</p>
+              <div style="display: flex; gap: var(--sp-xl); margin-top: var(--sp-md);">
+                <div><div class="impact-stat"><span class="is-number">3</span><span class="is-unit">schools</span></div></div>
+                <div><div class="impact-stat"><span class="is-number">1</span><span class="is-unit">ongoing partnership</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          &copy; 2026 Owen's Portfolio. All rights reserved. &nbsp;|&nbsp; <a href="mailto:owen@aboutowen.cn">owen@aboutowen.cn</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLUBS -->
+    <div class="page-section" id="page-clubs">
+      <div class="front-page">
+        <h1 class="h1" style="margin-bottom: var(--sp-xl);">Clubs & Activities</h1>
+        <div class="two-col">
+          <div class="col-left">
+            <div style="background: linear-gradient(135deg, #EC4899 0%, #BE185D 100%); border-radius: var(--r-lg); aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center;">
+              <div class="placeholder-svg"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" style="width:64px;height:64px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><div class="ph-label" style="color:white;">Club Activities</div></div>
+            </div>
+          </div>
+          <div class="col-right">
+            <div class="club-card">
+              <div class="club-info">
+                <div class="club-name">Robotics Club</div>
+                <div class="club-role">Core Member</div>
+                <div class="club-desc">Led the design and programming of competition robots. Organized workshops for new members and represented the school at regional robotics competitions.</div>
+              </div>
+              <span class="tag tag-emerald">Active</span>
+            </div>
+            <div class="club-card">
+              <div class="club-info">
+                <div class="club-name">Student Council</div>
+                <div class="club-role">Vice President</div>
+                <div class="club-desc">Coordinated student events, managed budget allocations, and served as liaison between students and administration. Initiated the campus sustainability program.</div>
+              </div>
+              <span class="tag tag-emerald">Active</span>
+            </div>
+            <div class="club-card">
+              <div class="club-info">
+                <div class="club-name">Model United Nations</div>
+                <div class="club-role">Delegate</div>
+                <div class="club-desc">Participated in MUN conferences representing various countries. Developed skills in public speaking, negotiation, and resolution drafting.</div>
+              </div>
+              <span class="tag tag-emerald">Active</span>
+            </div>
+            <div class="club-card">
+              <div class="club-info">
+                <div class="club-name">Community Service Club</div>
+                <div class="club-role">Member</div>
+                <div class="club-desc">Volunteered at local shelters and organized fundraising events. Contributed to the Xizang education project through this club.</div>
+              </div>
+              <span class="tag tag-gray">Ended</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          &copy; 2026 Owen's Portfolio. All rights reserved. &nbsp;|&nbsp; <a href="mailto:owen@aboutowen.cn">owen@aboutowen.cn</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end frontSite -->
+
+  <!-- ==================== ADMIN LOGIN ==================== -->
+  <div id="adminLogin" style="display:none;">
+    <div class="admin-login">
+      <div class="login-card">
+        <h2 style="color: var(--c-primary);">&#128272; Admin Login</h2>
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" class="form-input" id="loginUsername" placeholder="Enter username" value="">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-input" id="loginPassword" placeholder="Enter password" value="">
+        </div>
+        <button class="btn btn-primary login-btn" onclick="doLogin()">Sign In</button>
+        <div style="text-align: center; margin-top: var(--sp-md);">
+          <a href="#" onclick="navigateTo('home'); return false;" style="font-size: var(--fs-small);">Back to Portfolio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ADMIN PANEL ==================== -->
+  <div class="admin-layout" id="adminPanel">
+    <div class="admin-sidebar">
+      <div class="sidebar-menu-item active" data-panel="dashboard" onclick="switchAdminPanel('dashboard', this)">
+        <span class="menu-icon">&#128202;</span> Dashboard
+      </div>
+      <div class="sidebar-menu-item" data-panel="carousel-mgmt" onclick="switchAdminPanel('carousel-mgmt', this)">
+        <span class="menu-icon">&#128444;&#65039;</span> Carousel Management
+      </div>
+      <div class="sidebar-menu-item" data-panel="updates-mgmt" onclick="switchAdminPanel('updates-mgmt', this)">
+        <span class="menu-icon">&#128240;</span> Homepage Updates
+      </div>
+      <div class="sidebar-menu-item" data-panel="about-mgmt" onclick="switchAdminPanel('about-mgmt', this)">
+        <span class="menu-icon">&#128100;</span> About Me
+      </div>
+      <div class="sidebar-menu-item" data-panel="athletics-mgmt" onclick="switchAdminPanel('athletics-mgmt', this)">
+        <span class="menu-icon">&#127946;</span> Athletics
+      </div>
+      <div class="sidebar-menu-item" data-panel="academics-mgmt" onclick="switchAdminPanel('academics-mgmt', this)">
+        <span class="menu-icon">&#127891;</span> Academics
+      </div>
+      <div class="sidebar-menu-item" data-panel="xizang-mgmt" onclick="switchAdminPanel('xizang-mgmt', this)">
+        <span class="menu-icon">&#127956;&#65039;</span> Xizang
+      </div>
+      <div class="sidebar-menu-item" data-panel="clubs-mgmt" onclick="switchAdminPanel('clubs-mgmt', this)">
+        <span class="menu-icon">&#127979;</span> Clubs
+      </div>
+      <div class="sidebar-menu-item" data-panel="settings" onclick="switchAdminPanel('settings', this)">
+        <span class="menu-icon">&#9881;&#65039;</span> Website Settings
+      </div>
+      <div class="sidebar-menu-item" data-panel="password" onclick="switchAdminPanel('password', this)">
+        <span class="menu-icon">&#128273;</span> Change Password
+      </div>
+    </div>
+    <div class="admin-content">
+
+      <!-- Dashboard -->
+      <div class="admin-panel active" id="panel-dashboard">
+        <div class="admin-panel-header"><h2>Dashboard</h2></div>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-icon blue">&#128196;</div>
+            <div class="stat-value">42</div>
+            <div class="stat-label">Total Content Items</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon emerald">&#128200;</div>
+            <div class="stat-value">8</div>
+            <div class="stat-label">Updates This Month</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon orange">&#128444;&#65039;</div>
+            <div class="stat-value">18</div>
+            <div class="stat-label">Total Images</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon red">&#128065;</div>
+            <div class="stat-value">1,247</div>
+            <div class="stat-label">Page Visits</div>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom: var(--sp-md);">Recent Activity</h3>
+          <div class="update-list">
+            <div class="update-item"><div><div class="update-title">Updated swimming competition results</div><div class="update-desc">Athletics section</div></div><div class="update-date">2 hours ago</div></div>
+            <div class="update-item"><div><div class="update-title">Added new carousel images</div><div class="update-desc">Homepage</div></div><div class="update-date">Yesterday</div></div>
+            <div class="update-item"><div><div class="update-title">Published Tibet project update</div><div class="update-desc">Xizang section</div></div><div class="update-date">3 days ago</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Management -->
+      <div class="admin-panel" id="panel-carousel-mgmt">
+        <div class="admin-panel-header"><h2>Carousel Management</h2></div>
+        <div class="form-group" style="max-width:300px;">
+          <label>Section</label>
+          <select class="form-select" id="carouselSectionSelect" onchange="updateCarouselList()">
+            <option value="home">Home</option>
+            <option value="about">About Me</option>
+            <option value="athletics">Athletics</option>
+            <option value="academics">Academics</option>
+            <option value="xizang">Xizang</option>
+          </select>
+        </div>
+        <div class="carousel-mgmt-list" id="carouselMgmtList">
+          <div class="carousel-mgmt-item">
+            <div class="cmi-thumb" style="background: linear-gradient(135deg, #3B82F6, #1E40AF); color: white; font-size: var(--fs-xs);">Img</div>
+            <div class="cmi-info"><div class="cmi-label">Campus Life at YCIS</div><div class="cmi-order">Order: 1</div></div>
+            <div class="td-actions"><button class="btn btn-ghost btn-sm">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="showConfirm('Delete this carousel image?', function(){})">Delete</button></div>
+          </div>
+          <div class="carousel-mgmt-item">
+            <div class="cmi-thumb" style="background: linear-gradient(135deg, #10B981, #065F46); color: white; font-size: var(--fs-xs);">Img</div>
+            <div class="cmi-info"><div class="cmi-label">Academic Achievements</div><div class="cmi-order">Order: 2</div></div>
+            <div class="td-actions"><button class="btn btn-ghost btn-sm">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="showConfirm('Delete this carousel image?', function(){})">Delete</button></div>
+          </div>
+          <div class="carousel-mgmt-item">
+            <div class="cmi-thumb" style="background: linear-gradient(135deg, #F59E0B, #B45309); color: white; font-size: var(--fs-xs);">Img</div>
+            <div class="cmi-info"><div class="cmi-label">Swimming Competitions</div><div class="cmi-order">Order: 3</div></div>
+            <div class="td-actions"><button class="btn btn-ghost btn-sm">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="showConfirm('Delete this carousel image?', function(){})">Delete</button></div>
+          </div>
+        </div>
+        <div style="margin-top: var(--sp-xl);">
+          <h3 style="margin-bottom: var(--sp-md);">Upload New Image</h3>
+          <div class="upload-area">
+            <div class="upload-icon">&#128228;</div>
+            <div class="upload-text">Drag & drop images here, or click to browse</div>
+            <div class="upload-hint">Supports JPG, PNG, WebP &bull; Max 5MB per file</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Updates Management -->
+      <div class="admin-panel" id="panel-updates-mgmt">
+        <div class="admin-panel-header">
+          <h2>Homepage Updates</h2>
+          <button class="btn btn-primary" onclick="openUpdateModal()">+ Add Update</button>
+        </div>
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Title</th><th>Description</th><th>Date</th><th>Order</th><th>Actions</th></tr></thead>
+            <tbody id="updatesTableBody">
+              <tr><td>New Competition Results</td><td>Achieved personal best at ISS Swimming Championship</td><td>Jul 5, 2026</td><td>1</td><td class="td-actions"><button class="btn btn-ghost btn-sm" onclick="openUpdateModal(0)">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="deleteUpdate(0)">Delete</button></td></tr>
+              <tr><td>Tibet Project Update</td><td>Completed 3rd school partnership in remote Xizang</td><td>Jun 28, 2026</td><td>2</td><td class="td-actions"><button class="btn btn-ghost btn-sm" onclick="openUpdateModal(1)">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="deleteUpdate(1)">Delete</button></td></tr>
+              <tr><td>Robotics Competition</td><td>Led team to regional finals with innovative design</td><td>Jun 15, 2026</td><td>3</td><td class="td-actions"><button class="btn btn-ghost btn-sm" onclick="openUpdateModal(2)">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="deleteUpdate(2)">Delete</button></td></tr>
+              <tr><td>College Application Progress</td><td>Finalizing personal statement and portfolio</td><td>Jun 2, 2026</td><td>4</td><td class="td-actions"><button class="btn btn-ghost btn-sm" onclick="openUpdateModal(3)">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="deleteUpdate(3)">Delete</button></td></tr>
+              <tr><td>Personal Best in Swimming</td><td>200m Freestyle: 2:05.3 — new record!</td><td>May 20, 2026</td><td>5</td><td class="td-actions"><button class="btn btn-ghost btn-sm" onclick="openUpdateModal(4)">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="deleteUpdate(4)">Delete</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- About Me Management -->
+      <div class="admin-panel" id="panel-about-mgmt">
+        <div class="admin-panel-header"><h2>About Me</h2></div>
+        <div class="settings-form">
+          <div class="form-group"><label>School</label><input class="form-input" value="Shanghai YCIS (Yew Chung International School)"></div>
+          <div class="form-group"><label>University Goals</label><textarea>Targeting top universities in the United States and Hong Kong. Focus on research-oriented programs with strong STEM emphasis.</textarea></div>
+          <div class="form-group"><label>Intended Majors</label><input class="form-input" value="Computer Science, Engineering"></div>
+          <div class="form-group"><label>Leadership Involvement</label><textarea>Vice President of Student Council, Core Member of Robotics Club. Leading initiatives in student governance and technology innovation.</textarea></div>
+          <div class="form-group"><label>Personal Traits</label><input class="form-input" value="Self-disciplined, Leadership, Curiosity, Resilience"></div>
+          <button class="btn btn-primary" onclick="showToast('About Me section saved successfully!')">Save Changes</button>
+        </div>
+      </div>
+
+      <!-- Athletics Management -->
+      <div class="admin-panel" id="panel-athletics-mgmt">
+        <div class="admin-panel-header">
+          <h2>Athletics</h2>
+          <button class="btn btn-primary" onclick="openAthleticsModal()">+ Add Record</button>
+        </div>
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Event</th><th>Discipline</th><th>Result</th><th>Date</th><th>Location</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>ISS Swimming Championship</td><td>200m Freestyle</td><td style="color:var(--c-emerald);font-weight:600;">2:05.3</td><td>Mar 15, 2026</td><td>Shanghai</td><td class="td-actions"><button class="btn btn-ghost btn-sm" onclick="openAthleticsModal(0)">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="showConfirm('Delete this record?', function(){showToast('Record deleted');})">Delete</button></td></tr>
+              <tr><td>ACAMIS Swimming Meet</td><td>100m Backstroke</td><td style="color:var(--c-emerald);font-weight:600;">1:02.8</td><td>Feb 8, 2026</td><td>Beijing</td><td class="td-actions"><button class="btn btn-ghost btn-sm" onclick="openAthleticsModal(1)">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="showConfirm('Delete this record?', function(){showToast('Record deleted');})">Delete</button></td></tr>
+              <tr><td>SISAC Swimming Gala</td><td>50m Freestyle</td><td style="color:var(--c-emerald);font-weight:600;">24.3s</td><td>Jan 20, 2026</td><td>Shanghai</td><td class="td-actions"><button class="btn btn-ghost btn-sm" onclick="openAthleticsModal(2)">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="showConfirm('Delete this record?', function(){showToast('Record deleted');})">Delete</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Academics Management -->
+      <div class="admin-panel" id="panel-academics-mgmt">
+        <div class="admin-panel-header">
+          <h2>Academics</h2>
+          <button class="btn btn-primary" onclick="openAcademicModal()">+ Add Project</button>
+        </div>
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Title</th><th>Type</th><th>Date</th><th>Location</th><th>Order</th><th>Actions</th></tr></thead>
+            <tbody id="academicsTableBody">
+              <tr><td>AI-Powered Study Scheduler</td><td>CS Project</td><td>May 2026</td><td>YCIS Shanghai</td><td>1</td><td class="td-actions"><button class="btn btn-ghost btn-sm" onclick="openAcademicModal(0)">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="deleteAcademic(0)">Delete</button></td></tr>
+              <tr><td>Renewable Energy Feasibility Study</td><td>Physics EE</td><td>Apr 2026</td><td>YCIS Shanghai</td><td>2</td><td class="td-actions"><button class="btn btn-ghost btn-sm" onclick="openAcademicModal(1)">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="deleteAcademic(1)">Delete</button></td></tr>
+              <tr><td>Market Dynamics Simulation</td><td>Economics IA</td><td>Mar 2026</td><td>YCIS Shanghai</td><td>3</td><td class="td-actions"><button class="btn btn-ghost btn-sm" onclick="openAcademicModal(2)">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="deleteAcademic(2)">Delete</button></td></tr>
+              <tr><td>Water Quality Analysis</td><td>Chemistry Lab</td><td>Feb 2026</td><td>YCIS Lab</td><td>4</td><td class="td-actions"><button class="btn btn-ghost btn-sm" onclick="openAcademicModal(3)">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="deleteAcademic(3)">Delete</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Xizang Management -->
+      <div class="admin-panel" id="panel-xizang-mgmt">
+        <div class="admin-panel-header">
+          <h2>Xizang Project</h2>
+          <button class="btn btn-primary" onclick="showToast('Add activity form would open here')">+ Add Activity</button>
+        </div>
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Activity</th><th>Impact Data</th><th>Date</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>Remote Teaching Program</td><td>50 students, 100+ hours</td><td>Ongoing</td><td class="td-actions"><button class="btn btn-ghost btn-sm">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="showConfirm('Delete this activity?', function(){showToast('Activity deleted');})">Delete</button></td></tr>
+              <tr><td>Material Collection Drive</td><td>500+ books, 200 stationery sets</td><td>Apr 2026</td><td class="td-actions"><button class="btn btn-ghost btn-sm">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="showConfirm('Delete this activity?', function(){showToast('Activity deleted');})">Delete</button></td></tr>
+              <tr><td>Field Visit & Partnership</td><td>3 schools partnership</td><td>Jan 2026</td><td class="td-actions"><button class="btn btn-ghost btn-sm">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="showConfirm('Delete this activity?', function(){showToast('Activity deleted');})">Delete</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Clubs Management -->
+      <div class="admin-panel" id="panel-clubs-mgmt">
+        <div class="admin-panel-header">
+          <h2>Clubs</h2>
+          <button class="btn btn-primary" onclick="showToast('Add club form would open here')">+ Add Club</button>
+        </div>
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Club Name</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>Robotics Club</td><td>Core Member</td><td><span class="tag tag-emerald">Active</span></td><td class="td-actions"><button class="btn btn-ghost btn-sm">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="showConfirm('Delete this club?', function(){showToast('Club deleted');})">Delete</button></td></tr>
+              <tr><td>Student Council</td><td>Vice President</td><td><span class="tag tag-emerald">Active</span></td><td class="td-actions"><button class="btn btn-ghost btn-sm">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="showConfirm('Delete this club?', function(){showToast('Club deleted');})">Delete</button></td></tr>
+              <tr><td>Model United Nations</td><td>Delegate</td><td><span class="tag tag-emerald">Active</span></td><td class="td-actions"><button class="btn btn-ghost btn-sm">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="showConfirm('Delete this club?', function(){showToast('Club deleted');})">Delete</button></td></tr>
+              <tr><td>Community Service Club</td><td>Member</td><td><span class="tag tag-gray">Ended</span></td><td class="td-actions"><button class="btn btn-ghost btn-sm">Edit</button><button class="btn btn-ghost btn-sm" style="color:var(--c-red);" onclick="showConfirm('Delete this club?', function(){showToast('Club deleted');})">Delete</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Website Settings -->
+      <div class="admin-panel" id="panel-settings">
+        <div class="admin-panel-header"><h2>Website Settings</h2></div>
+        <div class="settings-form">
+          <div class="form-group"><label>Website Name</label><input class="form-input" value="Owen's Portfolio"></div>
+          <div class="form-group"><label>Hero Title</label><input class="form-input" value="Hi, I'm Owen"></div>
+          <div class="form-group"><label>Hero Subtitle</label><input class="form-input" value="IB Student at YCIS Shanghai"></div>
+          <div class="form-group"><label>Hero Description</label><textarea>A passionate and driven IB diploma candidate at Yew Chung International School Shanghai. Committed to academic excellence, athletic achievement, and meaningful community service.</textarea></div>
+          <div class="form-group"><label>Footer Text</label><input class="form-input" value="&copy; 2026 Owen's Portfolio. All rights reserved."></div>
+          <div class="form-group"><label>Contact Email</label><input class="form-input" value="owen@aboutowen.cn"></div>
+          <button class="btn btn-primary" onclick="showToast('Settings saved successfully!')">Save Settings</button>
+        </div>
+      </div>
+
+      <!-- Change Password -->
+      <div class="admin-panel" id="panel-password">
+        <div class="admin-panel-header"><h2>Change Password</h2></div>
+        <div class="settings-form">
+          <div class="form-group"><label>Current Password</label><input type="password" class="form-input" placeholder="Enter current password"></div>
+          <div class="form-group"><label>New Password</label><input type="password" class="form-input" placeholder="Enter new password"></div>
+          <div class="form-group"><label>Confirm New Password</label><input type="password" class="form-input" placeholder="Confirm new password"></div>
+          <button class="btn btn-primary" onclick="showToast('Password updated successfully!')">Update Password</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- end pageContainer -->
+
+<script>
+// ==================== DATA ====================
+const athleticsData = [
+  { name: '200m Freestyle', event: 'ISS Swimming Championship', result: '2:05.3', medal: 'Silver', date: 'Mar 15, 2026', location: 'Shanghai', desc: 'Competed in the 200m Freestyle final against top swimmers from international schools across China. Maintained strong pace throughout the race with a powerful final 50m sprint.', progress: 'Improved flip turn efficiency by 0.8 seconds compared to previous competition. Enhanced breathing pattern consistency and increased stroke rate in the final lap.' },
+  { name: '100m Backstroke', event: 'ACAMIS Swimming Meet', result: '1:02.8', medal: 'Bronze', date: 'Feb 8, 2026', location: 'Beijing', desc: 'Competed in the 100m Backstroke at the ACAMIS inter-school meet in Beijing. Showed strong underwater dolphin kicks off the start and turns.', progress: 'Reduced transition time from backstroke to freestyle by 0.5s. Focused on improving stroke length and body rotation consistency.' },
+  { name: '50m Freestyle', event: 'SISAC Swimming Gala', result: '24.3s', medal: 'Gold', date: 'Jan 20, 2026', location: 'Shanghai', desc: 'Won gold in the 50m Freestyle sprint at the Shanghai International Schools Athletic Conference gala. Explosive start and maintained top speed throughout.', progress: 'Achieved fastest reaction time off the blocks (0.62s). Optimized breakout distance and maintained stroke efficiency at maximum effort.' },
+  { name: '400m Freestyle', event: 'Shanghai Youth Championships', result: '4:32.1', medal: '5th', date: 'Dec 5, 2025', location: 'Shanghai', desc: 'Competed in the grueling 400m Freestyle at the city-wide youth championships. Maintained consistent pace through the first 300m.', progress: 'Improved pacing strategy — negative split by 2.1 seconds. Need to work on endurance in the final 100m for next competition.' },
+  { name: '200m Individual Medley', event: 'ISS Swimming Championship', result: '2:18.5', medal: 'Bronze', date: 'Nov 12, 2025', location: 'Shanghai', desc: 'Competed in the 200m IM, demonstrating versatility across all four strokes. Strong butterfly and backstroke legs set up a competitive position.', progress: 'Improved breaststroke leg by 1.2 seconds through technique refinement. Transition times between strokes reduced significantly.' }
+];
+
+const academicsData = [
+  { name: 'AI-Powered Study Scheduler', type: 'Computer Science Project', date: 'May 2026', location: 'YCIS Shanghai', participants: 'Owen Zhang (Solo Project)', desc: 'Developed a machine learning-based study scheduling application that analyzes student work patterns and optimizes study time allocation. The app uses a neural network to predict peak productivity hours and suggests personalized study plans.', outcomes: 'Achieved 92% prediction accuracy for productivity patterns. Gained deep understanding of ML model training, data preprocessing, and user experience design. Presented at the school\'s annual tech fair.' },
+  { name: 'Renewable Energy Feasibility Study', type: 'Physics Extended Essay', date: 'Apr 2026', location: 'YCIS Shanghai', participants: 'Owen Zhang, supervised by Dr. Li', desc: 'Investigating the feasibility of implementing solar panel arrays on school buildings in Shanghai. Analyzing energy output data, cost-benefit ratios, and environmental impact over a 10-year period.', outcomes: 'Preliminary analysis shows 34% energy cost reduction potential. Currently finalizing data analysis and writing the extended essay for IB submission.' },
+  { name: 'Market Dynamics Simulation', type: 'Economics IA', date: 'Mar 2026', location: 'YCIS Shanghai', participants: 'Owen Zhang', desc: 'Created a computational model simulating supply and demand dynamics in the Shanghai housing market. Incorporated variables including government policy changes, population growth, and interest rates.', outcomes: 'Model accurately predicted 87% of quarterly price movements. Developed strong quantitative analysis and data visualization skills. Scored 7/7 on the internal assessment.' },
+  { name: 'Water Quality Analysis', type: 'Chemistry Lab Report', date: 'Feb 2026', location: 'YCIS Lab', participants: 'Owen Zhang, Lisa Wang, Tom Chen', desc: 'Conducted comprehensive water quality testing across 5 locations along the Huangpu River. Measured pH, dissolved oxygen, heavy metal concentrations, and bacterial content using spectrophotometry and titration methods.', outcomes: 'Identified concerning lead levels at 2 downstream locations. Report submitted to the local environmental bureau. Developed proficiency in analytical chemistry techniques and scientific report writing.' }
+];
+
+const updatesData = [
+  { title: 'New Competition Results', desc: 'Achieved personal best at ISS Swimming Championship', date: 'Jul 5, 2026' },
+  { title: 'Tibet Project Update', desc: 'Completed 3rd school partnership in remote Xizang', date: 'Jun 28, 2026' },
+  { title: 'Robotics Competition', desc: 'Led team to regional finals with innovative design', date: 'Jun 15, 2026' },
+  { title: 'College Application Progress', desc: 'Finalizing personal statement and portfolio', date: 'Jun 2, 2026' },
+  { title: 'Personal Best in Swimming', desc: '200m Freestyle: 2:05.3 — new record!', date: 'May 20, 2026' }
+];
+
+// ==================== NAVIGATION ====================
+let currentPage = 'home';
+
+function navigateTo(page) {
+  const frontSite = document.getElementById('frontSite');
+  const adminLogin = document.getElementById('adminLogin');
+  const adminPanel = document.getElementById('adminPanel');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  // Reset all
+  frontSite.style.display = 'none';
+  adminLogin.style.display = 'none';
+  adminPanel.classList.remove('active');
+
+  navLinks.forEach(l => l.classList.remove('active'));
+
+  if (page === 'admin') {
+    adminLogin.style.display = 'block';
+    currentPage = 'admin';
+  } else {
+    frontSite.style.display = 'block';
+    currentPage = page;
+
+    // Switch front page sections
+    document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+    const target = document.getElementById('page-' + page);
+    if (target) target.classList.add('active');
+
+    // Hide detail pages
+    document.getElementById('athleticsDetail').classList.remove('active');
+    document.getElementById('athleticsList').style.display = 'block';
+    document.getElementById('academicDetail').classList.remove('active');
+    document.getElementById('academicsList').style.display = 'block';
+
+    // Highlight nav
+    const activeLink = document.querySelector(`.nav-link[data-page="${page}"]`);
+    if (activeLink) activeLink.classList.add('active');
+  }
+}
+
+// ==================== CAROUSEL ====================
+const carousels = {};
+
+function initCarousel(id) {
+  const container = document.getElementById(id);
+  if (!container) return;
+  const slides = container.querySelectorAll('.carousel-slide');
+  const dotsContainer = document.getElementById(id + 'Dots');
+
+  carousels[id] = { current: 0, total: slides.length, timer: null };
+
+  // Create dots
+  if (dotsContainer) {
+    dotsContainer.innerHTML = '';
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.onclick = () => goToSlide(id, i);
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  // Auto-play
+  startAutoPlay(id);
+}
+
+function goToSlide(id, index) {
+  const c = carousels[id];
+  if (!c) return;
+  const container = document.getElementById(id);
+  const slides = container.querySelectorAll('.carousel-slide');
+  const dots = container.querySelectorAll('.carousel-dot');
+
+  slides[c.current].classList.remove('active');
+  if (dots[c.current]) dots[c.current].classList.remove('active');
+
+  c.current = index;
+  slides[c.current].classList.add('active');
+  if (dots[c.current]) dots[c.current].classList.add('active');
+}
+
+function carouselNext(id) {
+  const c = carousels[id];
+  if (!c) return;
+  const next = (c.current + 1) % c.total;
+  goToSlide(id, next);
+  resetAutoPlay(id);
+}
+
+function carouselPrev(id) {
+  const c = carousels[id];
+  if (!c) return;
+  const prev = (c.current - 1 + c.total) % c.total;
+  goToSlide(id, prev);
+  resetAutoPlay(id);
+}
+
+function startAutoPlay(id) {
+  const c = carousels[id];
+  if (!c) return;
+  if (c.timer) clearInterval(c.timer);
+  c.timer = setInterval(() => carouselNext(id), 5000);
+}
+
+function resetAutoPlay(id) {
+  startAutoPlay(id);
+}
+
+// ==================== ATHLETICS DETAIL ====================
+function showAthleticsDetail(index) {
+  const data = athleticsData[index];
+  document.getElementById('athleticsDetailName').textContent = data.name;
+  document.getElementById('athleticsDetailEvent').textContent = data.event;
+  document.getElementById('athleticsDetailDate').innerHTML = '&#128197; ' + data.date;
+  document.getElementById('athleticsDetailLocation').innerHTML = '&#128205; ' + data.location;
+  document.getElementById('athleticsDetailResult').textContent = data.result;
+  document.getElementById('athleticsDetailDesc').textContent = data.desc;
+  document.getElementById('athleticsDetailProgress').textContent = data.progress;
+  document.getElementById('athleticsDetailImgLabel').textContent = data.event;
+
+  document.getElementById('athleticsList').style.display = 'none';
+  document.getElementById('athleticsDetail').classList.add('active');
+}
+
+function hideAthleticsDetail() {
+  document.getElementById('athleticsDetail').classList.remove('active');
+  document.getElementById('athleticsList').style.display = 'block';
+}
+
+// ==================== ACADEMIC DETAIL ====================
+function showAcademicDetail(index) {
+  const data = academicsData[index];
+  document.getElementById('academicDetailName').textContent = data.name;
+  document.getElementById('academicDetailType').textContent = data.type;
+  document.getElementById('academicDetailDate').innerHTML = '&#128197; ' + data.date;
+  document.getElementById('academicDetailLocation').innerHTML = '&#128205; ' + data.location;
+  document.getElementById('academicDetailParticipants').textContent = data.participants;
+  document.getElementById('academicDetailDesc').textContent = data.desc;
+  document.getElementById('academicDetailOutcomes').textContent = data.outcomes;
+  document.getElementById('academicDetailImgLabel').textContent = data.name;
+
+  document.getElementById('academicsList').style.display = 'none';
+  document.getElementById('academicDetail').classList.add('active');
+}
+
+function hideAcademicDetail() {
+  document.getElementById('academicDetail').classList.remove('active');
+  document.getElementById('academicsList').style.display = 'block';
+}
+
+// ==================== ADMIN LOGIN ====================
+function doLogin() {
+  const username = document.getElementById('loginUsername');
+  const password = document.getElementById('loginPassword');
+  let valid = true;
+
+  if (!username.value.trim()) {
+    username.classList.add('error');
+    valid = false;
+  } else {
+    username.classList.remove('error');
+  }
+  if (!password.value.trim()) {
+    password.classList.add('error');
+    valid = false;
+  } else {
+    password.classList.remove('error');
+  }
+
+  if (!valid) return;
+
+  // Simulated login
+  document.getElementById('adminLogin').style.display = 'none';
+  document.getElementById('adminPanel').classList.add('active');
+  showToast('Welcome back, Admin!');
+}
+
+// ==================== ADMIN PANEL SWITCH ====================
+function switchAdminPanel(panelId, element) {
+  document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.sidebar-menu-item').forEach(m => m.classList.remove('active'));
+
+  const panel = document.getElementById('panel-' + panelId);
+  if (panel) panel.classList.add('active');
+  if (element) element.classList.add('active');
+}
+
+// ==================== TOAST ====================
+function showToast(message, isError) {
+  const container = document.getElementById('toastContainer');
+  const toast = document.createElement('div');
+  toast.className = 'toast' + (isError ? ' error' : '');
+  toast.innerHTML = '<span>' + (isError ? '&#10060;' : '&#9989;') + '</span> ' + message;
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.style.animation = 'toastOut 300ms ease forwards';
+    setTimeout(() => toast.remove(), 300);
+  }, 2000);
+}
+
+// ==================== CONFIRM DIALOG ====================
+let pendingConfirmAction = null;
+
+function showConfirm(message, action) {
+  document.getElementById('confirmText').textContent = message;
+  document.getElementById('confirmOverlay').classList.add('active');
+  pendingConfirmAction = action;
+}
+
+function confirmAction() {
+  document.getElementById('confirmOverlay').classList.remove('active');
+  if (pendingConfirmAction) pendingConfirmAction();
+  pendingConfirmAction = null;
+  showToast('Item deleted successfully');
+}
+
+function closeConfirm() {
+  document.getElementById('confirmOverlay').classList.remove('active');
+  pendingConfirmAction = null;
+}
+
+// ==================== MODAL ====================
+let currentModalSaveAction = null;
+
+function openModal(title, bodyHTML, saveAction) {
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalBody').innerHTML = bodyHTML;
+  document.getElementById('modalOverlay').classList.add('active');
+  currentModalSaveAction = saveAction;
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('active');
+  currentModalSaveAction = null;
+}
+
+function closeModalOutside(event) {
+  if (event.target === document.getElementById('modalOverlay')) {
+    closeModal();
+  }
+}
+
+function saveModal() {
+  // Validate required fields
+  const requiredFields = document.querySelectorAll('#modalBody [required]');
+  let valid = true;
+  requiredFields.forEach(f => {
+    if (!f.value.trim()) {
+      f.classList.add('error');
+      valid = false;
+    } else {
+      f.classList.remove('error');
+    }
+  });
+
+  if (!valid) {
+    showToast('Please fill in all required fields', true);
+    return;
+  }
+
+  if (currentModalSaveAction) currentModalSaveAction();
+  closeModal();
+  showToast('Saved successfully!');
+}
+
+// ==================== UPDATE MODAL ====================
+function openUpdateModal(index) {
+  const data = index !== undefined ? updatesData[index] : null;
+  const html = `
+    <div class="form-group"><label>Title <span style="color:var(--c-red)">*</span></label><input class="form-input" required value="${data ? data.title : ''}" placeholder="Update title"></div>
+    <div class="form-group"><label>Description <span style="color:var(--c-red)">*</span></label><textarea class="form-input" required style="min-height:80px;" placeholder="Brief description">${data ? data.desc : ''}</textarea></div>
+    <div class="form-group"><label>Date <span style="color:var(--c-red)">*</span></label><input class="form-input" required value="${data ? data.date : ''}" placeholder="e.g. Jul 5, 2026"></div>
+  `;
+  openModal(data ? 'Edit Update' : 'Add Update', html, () => {
+    showToast(data ? 'Update modified successfully!' : 'New update added!');
+  });
+}
+
+function deleteUpdate(index) {
+  showConfirm('Are you sure you want to delete this update?', () => {});
+}
+
+// ==================== ATHLETICS MODAL ====================
+function openAthleticsModal(index) {
+  const data = index !== undefined ? athleticsData[index] : null;
+  const html = `
+    <div class="form-group"><label>Competition Name <span style="color:var(--c-red)">*</span></label><input class="form-input" required value="${data ? data.event : ''}" placeholder="e.g. ISS Swimming Championship"></div>
+    <div class="form-group"><label>Discipline <span style="color:var(--c-red)">*</span></label><input class="form-input" required value="${data ? data.name : ''}" placeholder="e.g. 200m Freestyle"></div>
+    <div class="form-group"><label>Result <span style="color:var(--c-red)">*</span></label><input class="form-input" required value="${data ? data.result : ''}" placeholder="e.g. 2:05.3"></div>
+    <div class="form-group"><label>Date</label><input class="form-input" value="${data ? data.date : ''}" placeholder="e.g. Mar 15, 2026"></div>
+    <div class="form-group"><label>Location</label><input class="form-input" value="${data ? data.location : ''}" placeholder="e.g. Shanghai"></div>
+    <div class="form-group"><label>Race Description</label><textarea class="form-input" style="min-height:80px;" placeholder="Describe the race...">${data ? data.desc : ''}</textarea></div>
+    <div class="form-group"><label>Technical Progress</label><textarea class="form-input" style="min-height:80px;" placeholder="Describe technical improvements...">${data ? data.progress : ''}</textarea></div>
+  `;
+  openModal(data ? 'Edit Athletics Record' : 'Add Athletics Record', html, () => {
+    showToast(data ? 'Record updated!' : 'New record added!');
+  });
+}
+
+// ==================== ACADEMIC MODAL ====================
+function openAcademicModal(index) {
+  const data = index !== undefined ? academicsData[index] : null;
+  const html = `
+    <div class="form-group"><label>Project Title <span style="color:var(--c-red)">*</span></label><input class="form-input" required value="${data ? data.name : ''}" placeholder="e.g. AI-Powered Study Scheduler"></div>
+    <div class="form-group"><label>Project Type <span style="color:var(--c-red)">*</span></label><input class="form-input" required value="${data ? data.type : ''}" placeholder="e.g. Computer Science Project"></div>
+    <div class="form-group"><label>Date</label><input class="form-input" value="${data ? data.date : ''}" placeholder="e.g. May 2026"></div>
+    <div class="form-group"><label>Location</label><input class="form-input" value="${data ? data.location : ''}" placeholder="e.g. YCIS Shanghai"></div>
+    <div class="form-group"><label>Participants</label><input class="form-input" value="${data ? data.participants : ''}" placeholder="e.g. Owen Zhang (Solo)"></div>
+    <div class="form-group"><label>Detailed Content <span style="color:var(--c-red)">*</span></label><textarea class="form-input" required style="min-height:100px;" placeholder="Describe the project...">${data ? data.desc : ''}</textarea></div>
+    <div class="form-group"><label>Outcomes & Learnings</label><textarea class="form-input" style="min-height:80px;" placeholder="What did you achieve?">${data ? data.outcomes : ''}</textarea></div>
+    <div class="form-group"><label>Project Images</label>
+      <div class="upload-area" style="padding: var(--sp-lg);">
+        <div class="upload-icon" style="font-size:1.5rem;">&#128228;</div>
+        <div class="upload-text">Click to upload images</div>
+      </div>
+    </div>
+  `;
+  openModal(data ? 'Edit Academic Project' : 'Add Academic Project', html, () => {
+    showToast(data ? 'Project updated!' : 'New project added!');
+  });
+}
+
+function deleteAcademic(index) {
+  showConfirm('Are you sure you want to delete this project?', () => {});
+}
+
+// ==================== CAROUSEL MANAGEMENT ====================
+function updateCarouselList() {
+  // Simulated — in a real app, this would load data for the selected section
+  showToast('Carousel section updated');
+}
+
+// ==================== INIT ====================
+document.addEventListener('DOMContentLoaded', () => {
+  initCarousel('homeCarousel');
+  initCarousel('aboutCarousel');
+  initCarousel('athleticsCarousel');
+  initCarousel('academicsCarousel');
+  initCarousel('xizangCarousel');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+node_modules/
+db/
+.env
+*.log
+backups/
+backup-pre-stats/
+.DS_Store
+backup_db.py
+backup_db.sh
+ecosystem.config.js
