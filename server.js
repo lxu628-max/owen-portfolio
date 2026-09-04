@@ -15,7 +15,9 @@ const rateLimit = require('express-rate-limit');
 const path = require('path');
 const fs = require('fs');
 const { createClient } = require('@supabase/supabase-js');
-const geoip = require('geoip-lite');
+// IP 地理解析：ip2region 离线库（精度到省/市/运营商，比原 geoip-lite 仅到国家级更好）
+const IP2Region = require('ip2region').default; // 该库默认导出在 .default
+const ip2region = new IP2Region(); // 默认指向 node_modules/ip2region/data
 
 // ============ 配置 ============
 const PORT = process.env.PORT || 3000;
@@ -326,6 +328,9 @@ function initDatabase() {
 
 // ============ Express 应用 ============
 const app = express();
+// 信任一层代理（nginx/Cloudflare），让 req.ip / visitor IP 取到真实客户端而非代理 IP
+// 阿里云前端若加反向代理必须保留此项，否则 IP 列会一直是代理内网地址
+app.set('trust proxy', 1);
 
 // 中间件
 // 安全头：防点击劫持 / 窃听等（CSP 暂关闭以免破坏既有内联脚本，后续可细化）
@@ -381,14 +386,22 @@ app.use((req, res, next) => {
   try {
     let cleanIp = ip.replace('::ffff:', '');
     let city = '', region = '', country = '';
-    if (cleanIp && cleanIp !== '::1' && cleanIp !== '127.0.0.1') {
-      const geo = geoip.lookup(cleanIp);
-      if (geo) { city = geo.city || ''; region = geo.region || ''; country = geo.country || ''; }
-    } else if (cleanIp === '::1' || cleanIp === '127.0.0.1') {
-      city = '本地'; country = '中国';
+    // 本机/私网地址统一标"本地"，不走外部 DB
+    if (!cleanIp || cleanIp === '::1' || cleanIp === '127.0.0.1' || cleanIp.startsWith('::1') || /^(10|192\.168|172\.(1[6-9]|2\d|3[01]))\./.test(cleanIp)) {
+      city = '本地'; region = ''; country = '';
+    } else {
+      try {
+        const geo = ip2region.search(cleanIp);
+        if (geo) {
+          // ip2region 返回 { country, province, city, isp }；省/市/ISP 都展示更有用
+          country = (geo.country || '').replace(/0/g, '') || '中国';
+          region = geo.province || '';     // 省/直辖市
+          city = geo.city || '';           // 市/区
+        }
+      } catch (_) { /* 解析失败不影响访问统计 */ }
     }
     db.prepare('INSERT INTO page_views (page_path, page_name, visitor_ip, user_agent, view_type, city, region, country) VALUES (?, ?, ?, ?, ?, ?, ?, ?)').run(
-      pagePath, pageName, ip, ua, viewType, city, region, country);
+      pagePath, pageName, cleanIp || ip, ua, viewType, city, region, country);
   } catch(e) { /* silent */ }
   next();
 });
@@ -973,13 +986,24 @@ app.get('/api/admin/stats', authMiddleware, (req, res) => {
       LIMIT 20
     `).all();
     
-    // 最近20条访问记录
-    const recentViews = db.prepare(`
+    // 最近20条访问记录（顺带把"省 · 市"拼接好，前端直接展示）
+    const recentViewsRaw = db.prepare(`
       SELECT page_path, page_name, visitor_ip, city, region, country, view_type, created_at
       FROM page_views
       ORDER BY created_at DESC
       LIMIT 20
     `).all();
+    const recentViews = recentViewsRaw.map(v => {
+      const parts = [];
+      // 本地访问特殊显示
+      if (v.city === '本地') {
+        parts.push('本地');
+      } else {
+        if (v.region) parts.push(v.region);
+        if (v.city && v.city !== v.region) parts.push(v.city);
+      }
+      return { ...v, location: parts.join(' · ') || v.country || '未知' };
+    });
     
     // 本周 vs 上周对比
     const thisWeek = db.prepare(`

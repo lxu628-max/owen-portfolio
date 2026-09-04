@@ -822,7 +822,7 @@ async function loadStatsPanel() {
       <td><code>${esc(v.page_path)}</code></td>
       <td><span class="badge ${v.view_type === 'admin' ? 'badge-admin' : 'badge-frontend'}">${v.view_type === 'admin' ? '后台' : '前台'}</span></td>
       <td>${esc(v.visitor_ip || '-')}</td>
-      <td>${esc([v.city, v.region, v.country].filter(x => x).join(', ') || '-')}</td>
+      <td>${esc(v.location || '-')}</td>
       <td>${formatTime(v.created_at)}</td>
     </tr>
   `).join('');
