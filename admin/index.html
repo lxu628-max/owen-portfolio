@@ -7,24 +7,49 @@
   <link rel="stylesheet" href="/admin/css/admin.css">
 </head>
 <body class="login-body">
-  <div class="login-container">
-    <div class="login-card">
-      <h1>后台管理</h1>
-      <p class="login-subtitle">Owen Portfolio CMS</p>
-      <form id="loginForm">
-        <div class="form-group">
-          <label>用户名</label>
-          <input type="text" id="username" placeholder="请输入用户名" required>
+  <div class="login-shell">
+    <!-- 左侧品牌故事 -->
+    <div class="login-brand">
+      <div class="login-brand-top">
+        <div class="lb-logo">O</div>
+        <span class="lb-name">Owen Portfolio</span>
+      </div>
+      <div class="lb-copy">
+        <h2>把一路走来的成长，<br>整理得足够漂亮。</h2>
+        <p>这是 Owen 的大学申请作品集后台。在这里管理履历、故事、影像与每一次被看见的数据。</p>
+        <div class="lb-stats">
+          <div class="lb-stat"><b>9</b><span>内容板块</span></div>
+          <div class="lb-stat"><b>12</b><span>国家访客</span></div>
+          <div class="lb-stat"><b>24/7</b><span>稳定在线</span></div>
         </div>
-        <div class="form-group">
-          <label>密码</label>
-          <input type="password" id="password" placeholder="请输入密码" required>
+      </div>
+      <div class="lb-foot">© 2026 Owen Portfolio · Admin</div>
+    </div>
+
+    <!-- 右侧登录表单 -->
+    <div class="login-panel">
+      <div class="login-form">
+        <div class="lf-head">
+          <div class="lf-logo">O</div>
+          <h3>欢迎回来</h3>
+          <p>登录以继续管理你的作品集</p>
         </div>
-        <button type="submit" class="btn btn-primary btn-block">登 录</button>
-        <div class="login-error" id="loginError"></div>
-      </form>
+        <form id="loginForm" novalidate>
+          <div class="form-group">
+            <label for="username">用户名</label>
+            <input type="text" id="username" placeholder="请输入用户名" required>
+          </div>
+          <div class="form-group">
+            <label for="password">密码</label>
+            <input type="password" id="password" placeholder="请输入密码" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">登 录</button>
+          <div class="login-error" id="loginError"></div>
+        </form>
+      </div>
     </div>
   </div>
+
   <script>
     // 如果已登录，直接跳转
     if (localStorage.getItem('admin_token')) {

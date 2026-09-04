@@ -10,111 +10,164 @@
   <!-- 顶部栏 -->
   <header class="admin-header">
     <div class="admin-header-left">
+      <div class="admin-logo-mark">O</div>
       <a href="/" class="admin-logo">Owen Portfolio</a>
       <span class="admin-badge">管理后台</span>
     </div>
     <div class="admin-header-right">
-      <span id="adminUser"></span>
-      <a href="/" target="_blank">查看前台</a>
-      <button class="btn btn-sm btn-outline" id="logoutBtn">退出</button>
+      <a href="/" class="header-link" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+        查看前台
+      </a>
+      <span class="header-user"><span id="adminUser"></span></span>
+      <button class="btn btn-outline btn-sm" id="logoutBtn">退出登录</button>
     </div>
   </header>
 
   <div class="admin-layout">
-    <!-- 左侧菜单 -->
+    <!-- 左侧分组菜单 -->
     <aside class="admin-sidebar">
       <nav class="sidebar-nav">
-        <a href="#" class="sidebar-link" data-panel="stats">📊 访问统计</a>
-        <a href="#" class="sidebar-link" data-panel="carousel">🖼️ 轮播图管理</a>
-        <a href="#" class="sidebar-link active" data-panel="news">📰 首页动态</a>
-        <a href="#" class="sidebar-link" data-panel="about">👤 关于我</a>
-        <a href="#" class="sidebar-link" data-panel="sports">🏊 体育（竞技）</a>
-        <a href="#" class="sidebar-link" data-panel="academic">📚 学术成就</a>
-        <a href="#" class="sidebar-link" data-panel="tibet">🏔️ 西藏项目</a>
-        <a href="#" class="sidebar-link" data-panel="clubs">🤝 社团活动</a>
-        <a href="#" class="sidebar-link" data-panel="settings">⚙️ 网站设置</a>
-        <a href="#" class="sidebar-link" data-panel="password">🔑 修改密码</a>
+
+        <div class="nav-group">
+          <div class="ng-label">数据洞察</div>
+          <a href="#" class="sidebar-link" data-panel="stats">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            <span class="sl-text">数据看板</span>
+          </a>
+        </div>
+
+        <div class="nav-group">
+          <div class="ng-label">内容管理</div>
+          <a href="#" class="sidebar-link" data-panel="carousel">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            <span class="sl-text">轮播图</span>
+          </a>
+          <a href="#" class="sidebar-link active" data-panel="news">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span class="sl-text">首页动态</span>
+          </a>
+          <a href="#" class="sidebar-link" data-panel="about">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>
+            <span class="sl-text">关于我</span>
+          </a>
+          <a href="#" class="sidebar-link" data-panel="academic">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6.5 12 13 2 6.5V3l10 6.5L22 3z"/><path d="M22 6.5V21l-10-6.5L2 21V6.5"/></svg>
+            <span class="sl-text">学术成果</span>
+          </a>
+          <a href="#" class="sidebar-link" data-panel="sports">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></svg>
+            <span class="sl-text">体育竞技</span>
+          </a>
+          <a href="#" class="sidebar-link" data-panel="tibet">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m8 3 4 8 4-8M6 21l6-10 6 10"/></svg>
+            <span class="sl-text">西藏项目</span>
+          </a>
+          <a href="#" class="sidebar-link" data-panel="clubs">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 6-2 7-2 9h6M6 22h12M12 13a3 3 0 0 1 3 3"/><circle cx="12" cy="12" r="1"/></svg>
+            <span class="sl-text">社团活动</span>
+          </a>
+        </div>
+
+        <div class="nav-group">
+          <div class="ng-label">系统配置</div>
+          <a href="#" class="sidebar-link" data-panel="settings">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span class="sl-text">网站设置</span>
+          </a>
+          <a href="#" class="sidebar-link" data-panel="password">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span class="sl-text">修改密码</span>
+          </a>
+        </div>
+
       </nav>
+      <div class="sidebar-foot">
+        <div class="sf-avatar">AD</div>
+        <div class="sf-meta"><div class="sf-name">Admin</div><div class="sf-role">管理员 · 在线</div></div>
+      </div>
     </aside>
 
     <!-- 主内容区 -->
     <main class="admin-main">
 
-      <!-- 访问统计 -->
+      <!-- ===================== 数据看板 ===================== -->
       <div class="admin-panel" id="panel-stats">
-        <div class="panel-header">
-          <h2>访问统计</h2>
-          <button class="btn btn-outline" onclick="loadStatsPanel()">🔄 刷新数据</button>
+        <div class="panel-head">
+          <div>
+            <h2>数据看板</h2>
+            <p class="ph-sub">这里汇总访问数据与地理位置分布，帮助你了解作品集被看见的情况。</p>
+          </div>
+          <button class="btn btn-soft" onclick="loadStatsPanel()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-2.64-6.36L21 8"/><path d="M21 3v5h-5"/></svg>
+            刷新数据
+          </button>
         </div>
-        
+
         <!-- 概览卡片 -->
         <div class="stats-cards" id="statsCards">
-          <div class="stat-card">
-            <div class="stat-value" id="statTotal">-</div>
+          <div class="stat-card is-hero">
             <div class="stat-label">总访问量</div>
+            <div class="stat-value" id="statTotal">-</div>
           </div>
           <div class="stat-card">
-            <div class="stat-value" id="statToday">-</div>
             <div class="stat-label">今日访问</div>
+            <div class="stat-value" id="statToday">-</div>
           </div>
           <div class="stat-card">
-            <div class="stat-value" id="statFrontend">-</div>
             <div class="stat-label">前台访问</div>
+            <div class="stat-value" id="statFrontend">-</div>
           </div>
           <div class="stat-card">
-            <div class="stat-value" id="statAdmin">-</div>
             <div class="stat-label">后台访问</div>
+            <div class="stat-value" id="statAdmin">-</div>
           </div>
           <div class="stat-card">
-            <div class="stat-value" id="statWeekChange">-</div>
             <div class="stat-label">本周 vs 上周</div>
+            <div class="stat-value" id="statWeekChange">-</div>
           </div>
         </div>
 
         <!-- 近7天趋势 -->
-        <div class="stats-section">
-          <h3>近7天访问趋势</h3>
+        <div class="card">
+          <div class="card-h"><span class="t">近 7 天访问趋势</span></div>
           <div class="stats-chart" id="statsChart"></div>
         </div>
 
         <!-- 页面访问排行 -->
-        <div class="stats-section">
-          <h3>页面访问排行</h3>
-          <table class="stats-table" id="pageStatsTable">
-            <thead>
-              <tr>
-                <th>页面</th>
-                <th>路径</th>
-                <th>类型</th>
-                <th>访问量</th>
-              </tr>
-            </thead>
-            <tbody id="pageStatsBody"></tbody>
-          </table>
+        <div class="card">
+          <div class="card-h"><span class="t">页面访问排行</span></div>
+          <div class="table-wrap">
+            <table class="stats-table" id="pageStatsTable">
+              <thead>
+                <tr><th>页面</th><th>路径</th><th>类型</th><th>访问量</th></tr>
+              </thead>
+              <tbody id="pageStatsBody"></tbody>
+            </table>
+          </div>
         </div>
 
         <!-- 最近访问记录 -->
-        <div class="stats-section">
-          <h3>最近访问记录</h3>
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-            <input type="text" id="viewsKeyword" class="search-input" placeholder="搜索页面/路径/IP…"
-                   style="padding:6px 10px;border:1px solid var(--border,#e2e8f0);border-radius:6px;font-size:13px;width:260px;"
-                   onkeydown="if(event.key==='Enter')loadViewsPage(1)">
-            <button class="btn btn-outline btn-sm" onclick="loadViewsPage(1)" style="padding:6px 12px;font-size:13px;">搜索</button>
+        <div class="card">
+          <div class="card-h">
+            <span class="t">最近访问记录</span>
           </div>
-          <table class="stats-table" id="recentViewsTable">
-            <thead>
-              <tr>
-                <th>页面</th>
-                <th>路径</th>
-                <th>类型</th>
-                <th>IP</th>
-                <th>位置</th>
-                <th>时间</th>
-              </tr>
-            </thead>
-            <tbody id="recentViewsBody"></tbody>
-          </table>
+          <div class="table-wrap">
+            <div class="table-toolbar">
+              <div class="search-input-wrap">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg>
+                <input type="text" id="viewsKeyword" class="search-input" placeholder="搜索 页面 / 路径 / IP…"
+                       onkeydown="if(event.key==='Enter')loadViewsPage(1)">
+              </div>
+              <button class="btn btn-soft btn-sm" onclick="loadViewsPage(1)">搜索</button>
+            </div>
+            <table class="stats-table" id="recentViewsTable">
+              <thead>
+                <tr><th>页面</th><th>路径</th><th>类型</th><th>IP</th><th>地理位置</th><th>时间</th></tr>
+              </thead>
+              <tbody id="recentViewsBody"></tbody>
+            </table>
+          </div>
           <!-- 分页控件 -->
           <div class="pagination" id="viewsPagination" style="display:none;">
             <button class="page-btn" id="viewsPrev" onclick="loadViewsPage(currentViewsPage - 1)" title="上一页">‹</button>
@@ -133,22 +186,37 @@
         </div>
       </div>
 
-      <!-- 首页动态 -->
+      <!-- ===================== 首页动态 ===================== -->
       <div class="admin-panel active" id="panel-news">
-        <div class="panel-header">
-          <h2>首页动态管理</h2>
-          <button class="btn btn-primary" onclick="addNewsItem()">+ 添加动态</button>
+        <div class="panel-head">
+          <div>
+            <h2>首页动态</h2>
+            <p class="ph-sub">按展示顺序维护首页动态，可用 ↑↓ 调整顺序后保存。</p>
+          </div>
+          <button class="btn btn-primary" onclick="addNewsItem()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+            添加动态
+          </button>
         </div>
         <div id="newsList" class="item-list"></div>
-        <button class="btn btn-success" onclick="saveNews()">💾 保存更改</button>
+        <div class="save-bar">
+          <span class="save-tip">改动会在保存后生效</span>
+          <button class="btn btn-success" onclick="saveNews()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+            保存更改
+          </button>
+        </div>
       </div>
 
-      <!-- 关于我 -->
+      <!-- ===================== 关于我 ===================== -->
       <div class="admin-panel" id="panel-about">
-        <div class="panel-header">
-          <h2>关于我 - 内容编辑</h2>
+        <div class="panel-head">
+          <div>
+            <h2>关于我</h2>
+            <p class="ph-sub">编辑首页「关于我」板块的内容。</p>
+          </div>
         </div>
-        <form id="aboutForm" class="edit-form">
+        <form id="aboutForm" class="edit-form card-form">
           <div class="form-group">
             <label>个人背景</label>
             <textarea rows="3" data-field="background"></textarea>
@@ -169,83 +237,154 @@
             <label>个人特质</label>
             <textarea rows="3" data-field="traits"></textarea>
           </div>
-          <button type="submit" class="btn btn-success">💾 保存</button>
+          <div class="save-bar">
+            <span class="save-tip">内容保存后即在前台生效</span>
+            <button type="submit" class="btn btn-success">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+              保存更改
+            </button>
+          </div>
         </form>
       </div>
 
-      <!-- 学术 -->
+      <!-- ===================== 学术 ===================== -->
       <div class="admin-panel" id="panel-academic">
-        <div class="panel-header">
-          <h2>学术项目管理</h2>
-          <button class="btn btn-primary" onclick="addAcademicItem()">+ 添加项目</button>
+        <div class="panel-head">
+          <div>
+            <h2>学术成果</h2>
+            <p class="ph-sub">管理学术项目，可用 ↑↓ 调整顺序后保存。</p>
+          </div>
+          <button class="btn btn-primary" onclick="addAcademicItem()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+            添加项目
+          </button>
         </div>
         <div id="academicList" class="item-list"></div>
-        <button class="btn btn-success" onclick="saveAcademic()">💾 保存更改</button>
+        <div class="save-bar">
+          <span class="save-tip">改动会在保存后生效</span>
+          <button class="btn btn-success" onclick="saveAcademic()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+            保存更改
+          </button>
+        </div>
       </div>
 
-      <!-- 体育 -->
+      <!-- ===================== 体育 ===================== -->
       <div class="admin-panel" id="panel-sports">
-        <div class="panel-header">
-          <h2>运动记录管理</h2>
-          <button class="btn btn-primary" onclick="addSportsItem()">+ 添加记录</button>
+        <div class="panel-head">
+          <div>
+            <h2>体育竞技</h2>
+            <p class="ph-sub">管理运动记录，可用 ↑↓ 调整顺序后保存。</p>
+          </div>
+          <button class="btn btn-primary" onclick="addSportsItem()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+            添加记录
+          </button>
         </div>
         <div id="sportsList" class="item-list"></div>
-        <button class="btn btn-success" onclick="saveSports()">💾 保存更改</button>
+        <div class="save-bar">
+          <span class="save-tip">改动会在保存后生效</span>
+          <button class="btn btn-success" onclick="saveSports()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+            保存更改
+          </button>
+        </div>
       </div>
 
-      <!-- 西藏 -->
+      <!-- ===================== 西藏 ===================== -->
       <div class="admin-panel" id="panel-tibet">
-        <div class="panel-header">
-          <h2>西藏活动管理</h2>
-          <button class="btn btn-primary" onclick="addTibetItem()">+ 添加活动</button>
+        <div class="panel-head">
+          <div>
+            <h2>西藏项目</h2>
+            <p class="ph-sub">管理西藏公益活动记录，可用 ↑↓ 调整顺序后保存。</p>
+          </div>
+          <button class="btn btn-primary" onclick="addTibetItem()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+            添加活动
+          </button>
         </div>
         <div id="tibetList" class="item-list"></div>
-        <button class="btn btn-success" onclick="saveTibet()">💾 保存更改</button>
+        <div class="save-bar">
+          <span class="save-tip">改动会在保存后生效</span>
+          <button class="btn btn-success" onclick="saveTibet()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+            保存更改
+          </button>
+        </div>
       </div>
 
-      <!-- 社团 -->
+      <!-- ===================== 社团 ===================== -->
       <div class="admin-panel" id="panel-clubs">
-        <div class="panel-header">
-          <h2>社团活动管理</h2>
-          <button class="btn btn-primary" onclick="addClubItem()">+ 添加活动</button>
+        <div class="panel-head">
+          <div>
+            <h2>社团活动</h2>
+            <p class="ph-sub">管理社团活动，可用 ↑↓ 调整顺序后保存。</p>
+          </div>
+          <button class="btn btn-primary" onclick="addClubItem()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+            添加活动
+          </button>
         </div>
         <div id="clubsList" class="item-list"></div>
-        <button class="btn btn-success" onclick="saveClubs()">💾 保存更改</button>
+        <div class="save-bar">
+          <span class="save-tip">改动会在保存后生效</span>
+          <button class="btn btn-success" onclick="saveClubs()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+            保存更改
+          </button>
+        </div>
       </div>
 
-      <!-- 轮播图 -->
+      <!-- ===================== 轮播图 ===================== -->
       <div class="admin-panel" id="panel-carousel">
-        <div class="panel-header">
-          <h2>轮播图管理</h2>
+        <div class="panel-head">
+          <div>
+            <h2>轮播图</h2>
+            <p class="ph-sub">管理各板块顶部的轮播大图。</p>
+          </div>
         </div>
-        <div class="carousel-section-select">
-          <label>选择板块：</label>
-          <select id="carouselSection" onchange="loadCarouselPanel()">
-            <option value="home">首页</option>
-            <option value="about">关于我</option>
-            <option value="academic">学术</option>
-            <option value="sports">体育</option>
-            <option value="tibet">西藏</option>
-            <option value="clubs">社团</option>
-          </select>
-          <button class="btn btn-primary" onclick="addCarouselItem()">+ 添加图片</button>
+        <div class="card card-form">
+          <div class="toolbar-row">
+            <label class="toolbar-label">选择板块：</label>
+            <select id="carouselSection" onchange="loadCarouselPanel()">
+              <option value="home">首页</option>
+              <option value="about">关于我</option>
+              <option value="academic">学术</option>
+              <option value="sports">体育</option>
+              <option value="tibet">西藏</option>
+              <option value="clubs">社团</option>
+            </select>
+            <button class="btn btn-primary btn-sm" onclick="addCarouselItem()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+              添加图片
+            </button>
+          </div>
+          <div id="carouselList" class="item-list"></div>
+          <div class="save-bar">
+            <span class="save-tip">保存后前台板块轮播即更新</span>
+            <button class="btn btn-success" onclick="saveCarousel()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+              保存更改
+            </button>
+          </div>
         </div>
-        <div id="carouselList" class="item-list"></div>
-        <button class="btn btn-success" onclick="saveCarousel()">💾 保存更改</button>
       </div>
 
-      <!-- 网站设置 -->
+      <!-- ===================== 网站设置 ===================== -->
       <div class="admin-panel" id="panel-settings">
-        <div class="panel-header">
-          <h2>网站设置</h2>
+        <div class="panel-head">
+          <div>
+            <h2>网站设置</h2>
+            <p class="ph-sub">修改后会自动应用到前台页面。</p>
+          </div>
         </div>
-        <form id="settingsForm" class="edit-form">
+        <form id="settingsForm" class="edit-form card-form">
           <div class="form-group">
             <label>网站名称</label>
             <input type="text" data-key="site_name">
           </div>
           <div class="form-group">
-            <label>首页标题</label>
+            <label>首页大标题</label>
             <input type="text" data-key="hero_title">
           </div>
           <div class="form-group">
@@ -264,29 +403,44 @@
             <label>联系邮箱</label>
             <input type="email" data-key="contact_email">
           </div>
-          <button type="submit" class="btn btn-success">💾 保存设置</button>
+          <div class="save-bar">
+            <span class="save-tip">设置保存后前端即更新</span>
+            <button type="submit" class="btn btn-success">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+              保存设置
+            </button>
+          </div>
         </form>
       </div>
 
-      <!-- 修改密码 -->
+      <!-- ===================== 修改密码 ===================== -->
       <div class="admin-panel" id="panel-password">
-        <div class="panel-header">
-          <h2>修改密码</h2>
+        <div class="panel-head">
+          <div>
+            <h2>修改密码</h2>
+            <p class="ph-sub">定期更换密码，保护你的后台安全。</p>
+          </div>
         </div>
-        <form id="passwordForm" class="edit-form" style="max-width:400px">
+        <form id="passwordForm" class="edit-form card-form card-form-sm">
           <div class="form-group">
-            <label>原密码</label>
+            <label for="oldPassword">原密码</label>
             <input type="password" id="oldPassword" placeholder="输入当前密码">
           </div>
           <div class="form-group">
-            <label>新密码</label>
-            <input type="password" id="newPassword" placeholder="至少6个字符">
+            <label for="newPassword">新密码</label>
+            <input type="password" id="newPassword" placeholder="至少 6 个字符">
           </div>
           <div class="form-group">
-            <label>确认新密码</label>
+            <label for="confirmPassword">确认新密码</label>
             <input type="password" id="confirmPassword" placeholder="再次输入新密码">
           </div>
-          <button type="submit" class="btn btn-success">🔑 修改密码</button>
+          <div class="save-bar">
+            <span class="save-tip">修改成功后需重新登录</span>
+            <button type="submit" class="btn btn-success">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+              修改密码
+            </button>
+          </div>
         </form>
       </div>
 
@@ -302,7 +456,9 @@
       </div>
       <div class="modal-body">
         <div class="upload-area" id="uploadArea">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 16V4m0 0 4 4m-4-4-4 4"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
           <p>点击或拖拽图片到此处</p>
+          <span class="up-hint">支持 JPG / PNG，建议宽度不低于 1200px</span>
           <input type="file" id="uploadInput" accept="image/*" style="display:none">
         </div>
         <div class="upload-preview" id="uploadPreview" style="display:none">
