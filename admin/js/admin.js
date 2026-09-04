@@ -814,9 +814,17 @@ async function loadStatsPanel() {
     </tr>
   `).join('');
 
-  // 最近访问记录
-  const recentBody = document.getElementById('recentViewsBody');
-  recentBody.innerHTML = d.recentViews.map(v => `
+  // 最近访问记录（改为独立分页加载）
+  loadViewsPage(1);
+}
+
+// ============ 最近访问记录分页 ============
+let currentViewsPage = 1;
+let currentViewsKeyword = '';
+
+// 渲染单行
+function viewsRowHtml(v) {
+  return `
     <tr>
       <td>${esc(v.page_name) || '-'}</td>
       <td><code>${esc(v.page_path)}</code></td>
@@ -824,8 +832,41 @@ async function loadStatsPanel() {
       <td>${esc(v.visitor_ip || '-')}</td>
       <td>${esc(v.location || '-')}</td>
       <td>${formatTime(v.created_at)}</td>
-    </tr>
-  `).join('');
+    </tr>`;
+}
+
+// 加载指定页
+async function loadViewsPage(page) {
+  const pageSize = parseInt(document.getElementById('viewsPageSize')?.value, 10) || 20;
+  const kw = (document.getElementById('viewsKeyword')?.value || '').trim();
+  currentViewsKeyword = kw;
+  const q = new URLSearchParams({ page, pageSize, keyword: kw });
+  const res = await api('/api/admin/views?' + q.toString());
+  if (!res || !res.success) return;
+  const d = res.data;
+
+  currentViewsPage = d.page;
+
+  const body = document.getElementById('recentViewsBody');
+  body.innerHTML = d.views.length
+    ? d.views.map(viewsRowHtml).join('')
+    : '<tr><td colspan="6" style="text-align:center;color:var(--gray-500);padding:20px;">暂无访问记录</td></tr>';
+
+  // 分页信息
+  const pag = document.getElementById('viewsPagination');
+  if (d.totalPages > 1) {
+    pag.style.display = 'flex';
+  } else {
+    pag.style.display = 'none';
+  }
+  document.getElementById('viewsPageInfo').textContent = `共 ${d.total.toLocaleString()} 条 · 第 ${d.page}/${d.totalPages} 页`;
+  document.getElementById('viewsPrev').disabled = d.page <= 1;
+  document.getElementById('viewsNext').disabled = d.page >= d.totalPages;
+}
+
+// 每页条数改变时回到第 1 页
+function changeViewsPageSize() {
+  loadViewsPage(1);
 }
 
 function renderDailyChart(dailyStats) {

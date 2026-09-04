@@ -986,24 +986,13 @@ app.get('/api/admin/stats', authMiddleware, (req, res) => {
       LIMIT 20
     `).all();
     
-    // 最近20条访问记录（顺带把"省 · 市"拼接好，前端直接展示）
-    const recentViewsRaw = db.prepare(`
+    // 最近20条访问记录（首页概览用；完整列表走分页接口 /api/admin/views）
+    const recentViews = db.prepare(`
       SELECT page_path, page_name, visitor_ip, city, region, country, view_type, created_at
       FROM page_views
-      ORDER BY created_at DESC
+      ORDER BY id DESC
       LIMIT 20
-    `).all();
-    const recentViews = recentViewsRaw.map(v => {
-      const parts = [];
-      // 本地访问特殊显示
-      if (v.city === '本地') {
-        parts.push('本地');
-      } else {
-        if (v.region) parts.push(v.region);
-        if (v.city && v.city !== v.region) parts.push(v.city);
-      }
-      return { ...v, location: parts.join(' · ') || v.country || '未知' };
-    });
+    `).all().map(v => ({ ...v, location: formatLocation(v) }));
     
     // 本周 vs 上周对比
     const thisWeek = db.prepare(`
@@ -1035,9 +1024,63 @@ app.get('/api/admin/stats', authMiddleware, (req, res) => {
   }
 });
 
+// ============ 访问记录分页接口 ============
+// 把一行原始访问记录拼成可读位置（"省 · 市"），本地显示"本地"
+function formatLocation(row) {
+  const parts = [];
+  if (row.city === '本地') {
+    return '本地';
+  }
+  if (row.region) parts.push(row.region);
+  if (row.city && row.city !== row.region) parts.push(row.city);
+  return parts.join(' · ') || row.country || '未知';
+}
+
+// 分页查询 page_views，支持按关键词过滤（页面名/路径/IP）
+app.get('/api/admin/views', authMiddleware, (req, res) => {
+  try {
+    const page = Math.max(1, parseInt(req.query.page, 10) || 1);
+    const pageSize = Math.min(100, Math.max(1, parseInt(req.query.pageSize, 10) || 20));
+    const keyword = (req.query.keyword || '').trim();
+    const offset = (page - 1) * pageSize;
+
+    // 构造 WHERE（支持搜索页面名/路径/IP，且大小写不敏感）
+    const where = [];
+    const params = {};
+    if (keyword) {
+      where.push('(page_name LIKE @kw OR page_path LIKE @kw OR visitor_ip LIKE @kw)');
+      params.kw = `%${keyword}%`;
+    }
+    const whereSql = where.length ? 'WHERE ' + where.join(' AND ') : '';
+    // SQLite 的 LIKE 默认对 ASCII 不区分大小写，中文无关，够了
+
+    const total = db.prepare(`SELECT COUNT(*) as cnt FROM page_views ${whereSql}`).get(params).cnt;
+    const rows = db.prepare(`
+      SELECT page_path, page_name, visitor_ip, city, region, country, view_type, created_at
+      FROM page_views
+      ${whereSql}
+      ORDER BY id DESC
+      LIMIT @limit OFFSET @offset
+    `).all({ ...params, limit: pageSize, offset });
+
+    const views = rows.map(v => ({ ...v, location: formatLocation(v) }));
+    res.json({
+      success: true,
+      data: {
+        views,
+        total,
+        page,
+        pageSize,
+        totalPages: Math.ceil(total / pageSize)
+      }
+    });
+  } catch (err) {
+    res.status(500).json({ error: '服务器内部错误' });
+  }
+});
+
 // SPA fallback - 所有其他路由返回 index.html
-app.get('*', (req, res) => {
-  if (req.path.startsWith('/admin')) {
+app.get('*', (req, res) => {  if (req.path.startsWith('/admin')) {
     return res.sendFile(path.join(__dirname, 'admin', 'index.html'));
   }
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
