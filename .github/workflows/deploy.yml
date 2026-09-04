@@ -34,6 +34,7 @@ jobs:
           host: ${{ secrets.ALIYUN_HOST }}
           username: ${{ secrets.ALIYUN_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
           envs: DEPLOY_ENV
           script: |
             set -e
