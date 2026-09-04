@@ -1,0 +1,46 @@
+# Owen Portfolio - 生产部署（GitHub Actions → 阿里云 ECS）
+#
+# 触发：push 到 main 分支
+# 动作：SSH 登录阿里云 ECS，拉取最新代码，安装生产依赖，重启服务
+#
+# ⚠️ 使用前需在 GitHub 仓库 Settings → Secrets and variables → Actions 中配置：
+#   ALIYUN_HOST      ECS 公网 IP 或域名（如 47.x.x.x）
+#   ALIYUN_USER      SSH 登录用户名（如 root 或 ecs-user）
+#   SSH_PRIVATE_KEY  部署用 SSH 私钥（建议专用 deploy key，勿用你本人密钥）
+#   DEPLOY_ENV       生产环境变量文件内容（多行），会写入服务器 /var/www/owen-portfolio/.env
+#                   至少包含：JWT_SECRET / ADMIN_USERNAME / ADMIN_PASSWORD / ALLOWED_ORIGIN
+#
+# 服务器需提前准备：Node.js(>=18)、pm2（npm i -g pm2）、git、开放 22/3000(或经 Nginx 反代 80/443)
+# 首次部署前请在服务器执行：
+#   mkdir -p /var/www/owen-portfolio && cd /var/www/owen-portfolio && git clone <repo> .
+
+name: Deploy to Aliyun ECS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy over SSH
+        uses: appleboy/ssh-action@v1.0.3
+        env:
+          # 通过环境变量传递，避免 secret 内联进脚本文本被 shell 展开（防 $ ` " 造成注入或内容损坏）
+          DEPLOY_ENV: ${{ secrets.DEPLOY_ENV }}
+        with:
+          host: ${{ secrets.ALIYUN_HOST }}
+          username: ${{ secrets.ALIYUN_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          envs: DEPLOY_ENV
+          script: |
+            set -e
+            cd /var/www/owen-portfolio
+            git pull origin main
+            npm install --production
+            printf '%s\n' "$DEPLOY_ENV" > .env
+            chmod 600 .env
+            pm2 restart owen-portfolio || pm2 start server.js --name owen-portfolio
+            pm2 save

@@ -8,3 +8,13 @@ backup-pre-stats/
 backup_db.py
 backup_db.sh
 ecosystem.config.js
+
+# 上传文件（用户内容，不入库，生产用对象存储）
+uploads/
+
+# 数据库产物（含误提交的 data.db）
+*.db
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+data.db

@@ -1,9 +1,10 @@
 /**
  * JWT 认证中间件
+ * 注意：当前 server.js 使用内联 authMiddleware，本文件保留作备用。
+ * JWT_SECRET 统一从 config.js 读取（缺失即拒绝启动，不再写死默认值）。
  */
 const jwt = require('jsonwebtoken');
-
-const JWT_SECRET = process.env.JWT_SECRET || 'owen-portfolio-secret-key-2024';
+const { JWT_SECRET } = require('../config');
 
 function authMiddleware(req, res, next) {
   const authHeader = req.headers.authorization;

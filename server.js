@@ -10,6 +10,8 @@ const multer = require('multer');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const path = require('path');
 const fs = require('fs');
 const { createClient } = require('@supabase/supabase-js');
@@ -17,7 +19,8 @@ const geoip = require('geoip-lite');
 
 // ============ 配置 ============
 const PORT = process.env.PORT || 3000;
-const JWT_SECRET = process.env.JWT_SECRET || 'owen-portfolio-secret-key-2024';
+// 安全相关配置集中管理；缺失关键密钥 / 密码时 config.js 会拒绝启动（不再写死默认值）
+const { JWT_SECRET, ADMIN_USERNAME, ADMIN_PASSWORD, ALLOWED_ORIGIN, SESSION_EXPIRE } = require('./config');
 
 // Supabase Storage 配置
 const SUPABASE_URL = process.env.SUPABASE_URL || '';
@@ -180,6 +183,9 @@ function initDatabase() {
       page_name TEXT NOT NULL DEFAULT '',
       visitor_ip TEXT DEFAULT '',
       user_agent TEXT DEFAULT '',
+      city TEXT DEFAULT '',
+      region TEXT DEFAULT '',
+      country TEXT DEFAULT '',
       view_type TEXT DEFAULT 'frontend',
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
@@ -187,12 +193,12 @@ function initDatabase() {
     CREATE INDEX IF NOT EXISTS idx_page_views_page_path ON page_views(page_path);
   `);
 
-  // 创建默认管理员
-  const admin = db.prepare('SELECT id FROM users WHERE username = ?').get('admin');
+  // 创建默认管理员（用户名 / 密码来自环境变量，禁止默认弱密码）
+  const admin = db.prepare('SELECT id FROM users WHERE username = ?').get(ADMIN_USERNAME);
   if (!admin) {
-    const hash = bcrypt.hashSync('admin123', 10);
-    db.prepare('INSERT INTO users (username, password_hash) VALUES (?, ?)').run('admin', hash);
-    console.log('[初始化] 默认管理员已创建: admin / admin123');
+    const hash = bcrypt.hashSync(ADMIN_PASSWORD, 12);
+    db.prepare('INSERT INTO users (username, password_hash) VALUES (?, ?)').run(ADMIN_USERNAME, hash);
+    console.log(`[初始化] 默认管理员已创建: ${ADMIN_USERNAME}（初始密码来自环境变量 ADMIN_PASSWORD）`);
   }
 
   // 插入默认板块
@@ -322,9 +328,30 @@ function initDatabase() {
 const app = express();
 
 // 中间件
-app.use(cors());
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+// 安全头：防点击劫持 / 窃听等（CSP 暂关闭以免破坏既有内联脚本，后续可细化）
+app.use(helmet({ contentSecurityPolicy: false }));
+// 后台禁止被 iframe 嵌套（防点击劫持拿后台）
+app.use('/admin', (req, res, next) => { res.setHeader('X-Frame-Options', 'DENY'); next(); });
+
+// CORS：生产环境用 ALLOWED_ORIGIN 限制来源；未配置时放开（仅本地开发，并给出告警）
+const corsOptions = ALLOWED_ORIGIN
+  ? { origin: ALLOWED_ORIGIN.split(',').map(s => s.trim()), credentials: true }
+  : { origin: true };
+if (!ALLOWED_ORIGIN) {
+  console.warn('[安全] ALLOWED_ORIGIN 未设置，CORS 已放开（生产环境请配置为你的域名）');
+}
+app.use(cors(corsOptions));
+app.use(express.json({ limit: '2mb' }));
+app.use(express.urlencoded({ extended: true, limit: '2mb' }));
+
+// 登录限流：15 分钟内同一 IP 最多 10 次，防弱密码暴破
+const loginRateLimit = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: '登录尝试过于频繁，请 15 分钟后再试' }
+});
 
 // ============ 访问追踪中间件 ============
 const pageNameMap = {
@@ -387,11 +414,12 @@ const upload = multer({
   storage,
   limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
   fileFilter: (req, file, cb) => {
-    const allowed = /jpeg|jpg|png|gif|webp|svg/;
+    // 注意：明确禁止 svg —— SVG 可内嵌脚本，上传后同源返回会被浏览器执行，造成存储型 XSS 进而窃取后台 token
+    const allowed = /jpeg|jpg|png|gif|webp/;
     const ext = allowed.test(path.extname(file.originalname).toLowerCase());
     const mime = allowed.test(file.mimetype);
     if (ext && mime) return cb(null, true);
-    cb(new Error('仅支持图片文件上传'));
+    cb(new Error('仅支持 jpeg/jpg/png/gif/webp 图片上传'));
   }
 });
 
@@ -461,7 +489,7 @@ app.get('/api/news', (req, res) => {
     const rows = db.prepare('SELECT * FROM news_items ORDER BY sort_order ASC, date DESC LIMIT 5').all();
     res.json(rows);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -472,7 +500,7 @@ app.get('/api/section/:key', (req, res) => {
     if (!row) return res.status(404).json({ error: '板块不存在' });
     res.json(row);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -482,7 +510,7 @@ app.get('/api/academic', (req, res) => {
     const rows = db.prepare('SELECT id, title, description, date, location, image, sort_order FROM academic_projects ORDER BY sort_order ASC').all();
     res.json(rows);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -493,7 +521,7 @@ app.get('/api/academic/:id', (req, res) => {
     if (!row) return res.status(404).json({ error: '项目不存在' });
     res.json(row);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -503,7 +531,7 @@ app.get('/api/sports', (req, res) => {
     const rows = db.prepare('SELECT id, competition_name, event, result, date, location, image, sort_order FROM sports_records ORDER BY sort_order ASC').all();
     res.json(rows);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -514,7 +542,7 @@ app.get('/api/sports/:id', (req, res) => {
     if (!row) return res.status(404).json({ error: '记录不存在' });
     res.json(row);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -524,7 +552,7 @@ app.get('/api/tibet', (req, res) => {
     const rows = db.prepare('SELECT * FROM tibet_activities ORDER BY sort_order ASC').all();
     res.json(rows);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -534,7 +562,7 @@ app.get('/api/clubs', (req, res) => {
     const rows = db.prepare('SELECT * FROM club_activities ORDER BY sort_order ASC').all();
     res.json(rows);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -545,7 +573,7 @@ app.get('/api/tibet/:id', (req, res) => {
     if (!row) return res.status(404).json({ error: '活动不存在' });
     res.json(row);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -556,7 +584,7 @@ app.get('/api/clubs/:id', (req, res) => {
     if (!row) return res.status(404).json({ error: '活动不存在' });
     res.json(row);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -566,7 +594,7 @@ app.get('/api/carousel/:section_key', (req, res) => {
     const rows = db.prepare('SELECT * FROM carousel_images WHERE section_key = ? ORDER BY sort_order ASC').all(req.params.section_key);
     res.json(rows);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -578,14 +606,14 @@ app.get('/api/settings', (req, res) => {
     rows.forEach(s => obj[s.key] = s.value);
     res.json(obj);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
 // ============ 管理 API（需认证）============
 
 // 登录
-app.post('/api/admin/login', (req, res) => {
+app.post('/api/admin/login', loginRateLimit, (req, res) => {
   try {
     const { username, password } = req.body;
     if (!username || !password) {
@@ -595,10 +623,10 @@ app.post('/api/admin/login', (req, res) => {
     if (!user || !bcrypt.compareSync(password, user.password_hash)) {
       return res.status(401).json({ error: '用户名或密码错误' });
     }
-    const token = jwt.sign({ id: user.id, username: user.username }, JWT_SECRET, { expiresIn: '24h' });
+    const token = jwt.sign({ id: user.id, username: user.username }, JWT_SECRET, { expiresIn: SESSION_EXPIRE });
     res.json({ token, username: user.username });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -620,7 +648,7 @@ app.post('/api/admin/change-password', authMiddleware, (req, res) => {
     db.prepare('UPDATE users SET password_hash = ? WHERE id = ?').run(newHash, user.id);
     res.json({ message: '密码修改成功' });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -650,7 +678,7 @@ app.post('/api/admin/upload', authMiddleware, upload.single('image'), async (req
     const url = `/uploads/${filename}`;
     res.json({ url, filename });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -678,7 +706,7 @@ app.put('/api/admin/news', authMiddleware, (req, res) => {
     const rows = db.prepare('SELECT * FROM news_items ORDER BY sort_order ASC').all();
     res.json({ success: true, data: rows });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -695,7 +723,7 @@ app.put('/api/admin/section/:key', authMiddleware, (req, res) => {
     const row = db.prepare('SELECT * FROM sections WHERE section_key = ?').get(key);
     res.json({ success: true, data: row });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -734,7 +762,7 @@ app.put('/api/admin/academic', authMiddleware, async (req, res) => {
     const rows = db.prepare('SELECT * FROM academic_projects ORDER BY sort_order ASC').all();
     res.json({ success: true, data: rows });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -770,7 +798,7 @@ app.put('/api/admin/sports', authMiddleware, async (req, res) => {
     const rows = db.prepare('SELECT * FROM sports_records ORDER BY sort_order ASC').all();
     res.json({ success: true, data: rows });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -806,7 +834,7 @@ app.put('/api/admin/tibet', authMiddleware, async (req, res) => {
     const rows = db.prepare('SELECT * FROM tibet_activities ORDER BY sort_order ASC').all();
     res.json({ success: true, data: rows });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -842,7 +870,7 @@ app.put('/api/admin/clubs', authMiddleware, async (req, res) => {
     const rows = db.prepare('SELECT * FROM club_activities ORDER BY sort_order ASC').all();
     res.json({ success: true, data: rows });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -879,7 +907,7 @@ app.put('/api/admin/carousel/:section_key', authMiddleware, async (req, res) => 
     const rows = db.prepare('SELECT * FROM carousel_images WHERE section_key = ? ORDER BY sort_order ASC').all(sectionKey);
     res.json({ success: true, data: rows });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -906,7 +934,7 @@ app.put('/api/admin/settings', authMiddleware, (req, res) => {
     rows.forEach(s => obj[s.key] = s.value);
     res.json({ success: true, data: obj });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -979,7 +1007,7 @@ app.get('/api/admin/stats', authMiddleware, (req, res) => {
       }
     });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
@@ -989,6 +1017,18 @@ app.get('*', (req, res) => {
     return res.sendFile(path.join(__dirname, 'admin', 'index.html'));
   }
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// ============ 统一错误处理（不向客户端泄露内部信息）============
+// 放在所有路由之后。multer 的文件过滤/大小错误转 400；其余统一 500 且不回显 err.message
+app.use((err, req, res, next) => {
+  if (res.headersSent) return next(err);
+  const msg = err && err.message ? err.message : '';
+  if (err instanceof multer.MulterError || /仅支持|文件|上传/.test(msg)) {
+    return res.status(400).json({ error: msg || '文件上传被拒绝' });
+  }
+  console.error('[未处理错误]', err);
+  res.status(500).json({ error: '服务器内部错误' });
 });
 
 // ============ 启动服务器 ============
@@ -1003,7 +1043,7 @@ async function start() {
       console.log(`\n🚀 Owen Portfolio 服务器已启动`);
       console.log(`📍 前端: http://localhost:${PORT}`);
       console.log(`🔧 后台: http://localhost:${PORT}/admin`);
-      console.log(`👤 默认账号: admin / admin123\n`);
+      console.log(`👤 后台账号: ${ADMIN_USERNAME}（初始密码见环境变量 ADMIN_PASSWORD）\n`);
     });
   } catch (err) {
     console.error('启动失败:', err);
