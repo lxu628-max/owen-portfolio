@@ -195,6 +195,42 @@ function initDatabase() {
     CREATE INDEX IF NOT EXISTS idx_page_views_page_path ON page_views(page_path);
   `);
 
+  // 迁移：体育子页面新增「日期与地点」字段（适配导航页差异化需求）
+  try {
+    const sc = db.prepare("PRAGMA table_info(sports_records)").all().map(c => c.name);
+    if (!sc.includes('competition_date_location')) {
+      db.exec("ALTER TABLE sports_records ADD COLUMN competition_date_location TEXT NOT NULL DEFAULT ''");
+    }
+  } catch (e) { console.warn('[迁移] sports_records 迁移跳过:', e.message); }
+
+  // 迁移：学术子页面 4 必填字段（适配导航页差异化需求）
+  try {
+    const ac = db.prepare("PRAGMA table_info(academic_projects)").all().map(c => c.name);
+    if (!ac.includes('competition_name')) {
+      db.exec("ALTER TABLE academic_projects ADD COLUMN competition_name TEXT NOT NULL DEFAULT ''");
+      db.exec("UPDATE academic_projects SET competition_name = title WHERE title IS NOT NULL AND title <> ''");
+    }
+    if (!ac.includes('intro')) {
+      db.exec("ALTER TABLE academic_projects ADD COLUMN intro TEXT NOT NULL DEFAULT ''");
+      db.exec("UPDATE academic_projects SET intro = description WHERE description IS NOT NULL AND description <> ''");
+    }
+    if (!ac.includes('achievement')) db.exec("ALTER TABLE academic_projects ADD COLUMN achievement TEXT NOT NULL DEFAULT ''");
+    if (!ac.includes('reflection')) db.exec("ALTER TABLE academic_projects ADD COLUMN reflection TEXT NOT NULL DEFAULT ''");
+  } catch (e) { console.warn('[迁移] academic_projects 迁移跳过:', e.message); }
+
+  // 迁移：体育子页面 比赛成绩 / 技术进步与复盘 字段
+  try {
+    const sc2 = db.prepare("PRAGMA table_info(sports_records)").all().map(c => c.name);
+    if (!sc2.includes('performance_results')) {
+      db.exec("ALTER TABLE sports_records ADD COLUMN performance_results TEXT NOT NULL DEFAULT ''");
+      db.exec("UPDATE sports_records SET performance_results = result WHERE result IS NOT NULL AND result <> ''");
+    }
+    if (!sc2.includes('technical_progress')) {
+      db.exec("ALTER TABLE sports_records ADD COLUMN technical_progress TEXT NOT NULL DEFAULT ''");
+      db.exec("UPDATE sports_records SET technical_progress = progress WHERE progress IS NOT NULL AND progress <> ''");
+    }
+  } catch (e) { console.warn('[迁移] sports_records 迁移跳过:', e.message); }
+
   // 创建默认管理员（用户名 / 密码来自环境变量，禁止默认弱密码）
   const admin = db.prepare('SELECT id FROM users WHERE username = ?').get(ADMIN_USERNAME);
   if (!admin) {
@@ -520,7 +556,7 @@ app.get('/api/section/:key', (req, res) => {
 // 学术项目列表
 app.get('/api/academic', (req, res) => {
   try {
-    const rows = db.prepare('SELECT id, title, description, date, location, image, sort_order FROM academic_projects ORDER BY sort_order ASC').all();
+    const rows = db.prepare('SELECT id, competition_name, image, sort_order FROM academic_projects ORDER BY sort_order ASC').all();
     res.json(rows);
   } catch (err) {
     res.status(500).json({ error: '服务器内部错误' });
@@ -541,7 +577,7 @@ app.get('/api/academic/:id', (req, res) => {
 // 运动记录列表
 app.get('/api/sports', (req, res) => {
   try {
-    const rows = db.prepare('SELECT id, competition_name, event, result, date, location, image, sort_order FROM sports_records ORDER BY sort_order ASC').all();
+    const rows = db.prepare('SELECT id, competition_name, image, sort_order FROM sports_records ORDER BY sort_order ASC').all();
     res.json(rows);
   } catch (err) {
     res.status(500).json({ error: '服务器内部错误' });
@@ -757,16 +793,16 @@ app.put('/api/admin/academic', authMiddleware, async (req, res) => {
           }
           db.prepare('DELETE FROM academic_projects WHERE id = ?').run(item.id);
         } else if (item._action === 'add') {
-          db.prepare('INSERT INTO academic_projects (title, description, date, location, participants, details, achievements, image, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)').run(
-            item.title, item.description || '', item.date || '', item.location || '', item.participants || '', item.details || '', item.achievements || '', item.image || '', item.sort_order || 0);
+          db.prepare('INSERT INTO academic_projects (title, competition_name, intro, achievement, reflection, image, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?)').run(
+            item.competition_name || '未命名学术成果', item.competition_name || '', item.intro || '', item.achievement || '', item.reflection || '', item.image || '', item.sort_order || 0);
         } else if (item._action === 'update' && item.id) {
           // 检查图片是否变更，若变更则删除旧图
           const old = db.prepare('SELECT image FROM academic_projects WHERE id = ?').get(item.id);
           if (old && old.image && item.image && old.image !== item.image && useSupabaseStorage) {
             deleteImageFromSupabase(old.image).catch(() => {});
           }
-          db.prepare('UPDATE academic_projects SET title=?, description=?, date=?, location=?, participants=?, details=?, achievements=?, image=?, sort_order=? WHERE id=?').run(
-            item.title, item.description || '', item.date || '', item.location || '', item.participants || '', item.details || '', item.achievements || '', item.image || '', item.sort_order || 0, item.id);
+          db.prepare('UPDATE academic_projects SET competition_name=?, intro=?, achievement=?, reflection=?, image=?, sort_order=? WHERE id=?').run(
+            item.competition_name || '', item.intro || '', item.achievement || '', item.reflection || '', item.image || '', item.sort_order || 0, item.id);
         }
       }
     });
@@ -794,15 +830,15 @@ app.put('/api/admin/sports', authMiddleware, async (req, res) => {
           }
           db.prepare('DELETE FROM sports_records WHERE id = ?').run(item.id);
         } else if (item._action === 'add') {
-          db.prepare('INSERT INTO sports_records (competition_name, event, result, date, location, description, progress, image, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)').run(
-            item.competition_name, item.event || '', item.result || '', item.date || '', item.location || '', item.description || '', item.progress || '', item.image || '', item.sort_order || 0);
+          db.prepare('INSERT INTO sports_records (competition_name, competition_date_location, performance_results, technical_progress, image, sort_order) VALUES (?, ?, ?, ?, ?, ?)').run(
+            item.competition_name, item.competition_date_location || '', item.performance_results || '', item.technical_progress || '', item.image || '', item.sort_order || 0);
         } else if (item._action === 'update' && item.id) {
           const old = db.prepare('SELECT image FROM sports_records WHERE id = ?').get(item.id);
           if (old && old.image && item.image && old.image !== item.image && useSupabaseStorage) {
             deleteImageFromSupabase(old.image).catch(() => {});
           }
-          db.prepare('UPDATE sports_records SET competition_name=?, event=?, result=?, date=?, location=?, description=?, progress=?, image=?, sort_order=? WHERE id=?').run(
-            item.competition_name, item.event || '', item.result || '', item.date || '', item.location || '', item.description || '', item.progress || '', item.image || '', item.sort_order || 0, item.id);
+          db.prepare('UPDATE sports_records SET competition_name=?, competition_date_location=?, performance_results=?, technical_progress=?, image=?, sort_order=? WHERE id=?').run(
+            item.competition_name, item.competition_date_location || '', item.performance_results || '', item.technical_progress || '', item.image || '', item.sort_order || 0, item.id);
         }
       }
     });

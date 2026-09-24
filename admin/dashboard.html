@@ -271,14 +271,37 @@
 
       <!-- ===================== 体育 ===================== -->
       <div class="admin-panel" id="panel-sports">
+        <form id="sportsMainForm" class="edit-form card-form" style="margin-bottom:20px;">
+          <div class="panel-head" style="padding:0 0 8px;">
+            <div>
+              <h3 style="margin:0;">主页面固定内容</h3>
+              <p class="ph-sub" style="margin:4px 0 0;">简短介绍 / 成长轨迹，仅主页面展示，不随子页面变动。</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>简短介绍（泳姿、经历、外部链接等）</label>
+            <textarea rows="3" data-field="intro"></textarea>
+          </div>
+          <div class="form-group">
+            <label>成长轨迹</label>
+            <textarea rows="3" data-field="growth_track"></textarea>
+          </div>
+          <div class="save-bar">
+            <span class="save-tip">保存后前台主页面即更新</span>
+            <button type="submit" class="btn btn-success">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+              保存主页面内容
+            </button>
+          </div>
+        </form>
         <div class="panel-head">
           <div>
             <h2>体育竞技</h2>
-            <p class="ph-sub">管理运动记录，可用 ↑↓ 调整顺序后保存。</p>
+            <p class="ph-sub">竞赛子页面管理，可用 ↑↓ 调整顺序后保存。</p>
           </div>
           <button class="btn btn-primary" onclick="addSportsItem()">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
-            添加记录
+            添加竞赛
           </button>
         </div>
         <div id="sportsList" class="item-list"></div>
@@ -295,22 +318,27 @@
       <div class="admin-panel" id="panel-tibet">
         <div class="panel-head">
           <div>
-            <h2>西藏项目</h2>
-            <p class="ph-sub">管理西藏公益活动记录，可用 ↑↓ 调整顺序后保存。</p>
+            <h2>西藏纪实</h2>
+            <p class="ph-sub">固定图文内容（轮播图请在「轮播图」面板按板块管理）。已关闭子页面新增。</p>
           </div>
-          <button class="btn btn-primary" onclick="addTibetItem()">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
-            添加活动
-          </button>
         </div>
-        <div id="tibetList" class="item-list"></div>
-        <div class="save-bar">
-          <span class="save-tip">改动会在保存后生效</span>
-          <button class="btn btn-success" onclick="saveTibet()">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
-            保存更改
-          </button>
-        </div>
+        <form id="tibetForm" class="edit-form card-form">
+          <div class="form-group">
+            <label>简介</label>
+            <textarea rows="3" data-field="intro"></textarea>
+          </div>
+          <div class="form-group">
+            <label>使命 / 影响</label>
+            <textarea rows="3" data-field="mission"></textarea>
+          </div>
+          <div class="save-bar">
+            <span class="save-tip">保存后前台即生效</span>
+            <button type="submit" class="btn btn-success">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+              保存更改
+            </button>
+          </div>
+        </form>
       </div>
 
       <!-- ===================== 社团 ===================== -->
@@ -318,21 +346,26 @@
         <div class="panel-head">
           <div>
             <h2>社团活动</h2>
-            <p class="ph-sub">管理社团活动，可用 ↑↓ 调整顺序后保存。</p>
+            <p class="ph-sub">固定图文内容（轮播图请在「轮播图」面板按板块管理）。已关闭子页面新增。</p>
           </div>
-          <button class="btn btn-primary" onclick="addClubItem()">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
-            添加活动
-          </button>
         </div>
-        <div id="clubsList" class="item-list"></div>
-        <div class="save-bar">
-          <span class="save-tip">改动会在保存后生效</span>
-          <button class="btn btn-success" onclick="saveClubs()">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
-            保存更改
-          </button>
-        </div>
+        <form id="clubsForm" class="edit-form card-form">
+          <div class="form-group">
+            <label>简介</label>
+            <textarea rows="3" data-field="intro"></textarea>
+          </div>
+          <div class="form-group">
+            <label>亮点</label>
+            <textarea rows="3" data-field="highlights"></textarea>
+          </div>
+          <div class="save-bar">
+            <span class="save-tip">保存后前台即生效</span>
+            <button type="submit" class="btn btn-success">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>
+              保存更改
+            </button>
+          </div>
+        </form>
       </div>
 
       <!-- ===================== 轮播图 ===================== -->

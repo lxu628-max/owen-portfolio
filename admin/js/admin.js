@@ -44,6 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // 表单提交
   document.getElementById('aboutForm').addEventListener('submit', saveAbout);
   document.getElementById('settingsForm').addEventListener('submit', saveSettings);
+  // 西藏 / 社团：关闭子页面新增，仅保留富文本 + 轮播（表单提交）
+  if (document.getElementById('tibetForm')) document.getElementById('tibetForm').addEventListener('submit', saveTibet);
+  if (document.getElementById('clubsForm')) document.getElementById('clubsForm').addEventListener('submit', saveClubs);
+  // 体育主页面固定富文本
+  if (document.getElementById('sportsMainForm')) document.getElementById('sportsMainForm').addEventListener('submit', saveSportsMain);
 
   // 初始化上传区域
   initUpload();
@@ -234,7 +239,7 @@ function renderAcademicList() {
   list.innerHTML = academicData.map((item, index) => `
     <div class="list-item" data-index="${index}">
       <div class="list-item-header">
-        <h4>${esc(item.title) || '新项目'}</h4>
+        <h4>${esc(item.competition_name) || '新项目'}</h4>
         <div class="list-item-actions">
           <button class="btn btn-xs btn-outline" onclick="moveItem('academic', ${index}, -1)" ${index === 0 ? 'disabled' : ''}>↑</button>
           <button class="btn btn-xs btn-outline" onclick="moveItem('academic', ${index}, 1)" ${index === academicData.length - 1 ? 'disabled' : ''}>↓</button>
@@ -242,34 +247,20 @@ function renderAcademicList() {
         </div>
       </div>
       <div class="form-group">
-        <label>标题</label>
-        <input type="text" value="${esc(item.title)}" onchange="academicData[${index}].title=this.value">
+        <label>比赛名称 *</label>
+        <input type="text" value="${esc(item.competition_name)}" onchange="academicData[${index}].competition_name=this.value" placeholder="如：2024 国际数学建模挑战赛">
       </div>
       <div class="form-group">
-        <label>描述</label>
-        <textarea rows="2" onchange="academicData[${index}].description=this.value">${esc(item.description)}</textarea>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-        <div class="form-group">
-          <label>日期</label>
-          <input type="date" value="${item.date || ''}" onchange="academicData[${index}].date=this.value">
-        </div>
-        <div class="form-group">
-          <label>地点</label>
-          <input type="text" value="${esc(item.location)}" onchange="academicData[${index}].location=this.value">
-        </div>
+        <label>比赛介绍 *</label>
+        <textarea rows="3" onchange="academicData[${index}].intro=this.value" placeholder="赛事背景、参赛规模等">${esc(item.intro)}</textarea>
       </div>
       <div class="form-group">
-        <label>参与人员</label>
-        <input type="text" value="${esc(item.participants)}" onchange="academicData[${index}].participants=this.value">
+        <label>个人参赛与成果 *</label>
+        <textarea rows="3" onchange="academicData[${index}].achievement=this.value" placeholder="担任角色、具体产出、获奖情况">${esc(item.achievement)}</textarea>
       </div>
       <div class="form-group">
-        <label>详细内容</label>
-        <textarea rows="3" onchange="academicData[${index}].details=this.value">${esc(item.details)}</textarea>
-      </div>
-      <div class="form-group">
-        <label>成果</label>
-        <textarea rows="2" onchange="academicData[${index}].achievements=this.value">${esc(item.achievements)}</textarea>
+        <label>参赛感悟 *</label>
+        <textarea rows="3" onchange="academicData[${index}].reflection=this.value" placeholder="收获与成长">${esc(item.reflection)}</textarea>
       </div>
       <div class="form-group">
         <label>图片</label>
@@ -284,7 +275,7 @@ function renderAcademicList() {
 }
 
 function addAcademicItem() {
-  academicData.push({ title: '', description: '', date: '', location: '', participants: '', details: '', achievements: '', image: '', _action: 'add', sort_order: academicData.length + 1 });
+  academicData.push({ competition_name: '', intro: '', achievement: '', reflection: '', image: '', _action: 'add', sort_order: academicData.length + 1 });
   renderAcademicList();
 }
 
@@ -309,6 +300,22 @@ async function loadSportsPanel() {
   const detailPromises = res.map(item => fetch(`/api/sports/${item.id}`).then(r => r.json()));
   sportsData = await Promise.all(detailPromises);
   renderSportsList();
+  // 主页面固定富文本（简短介绍 / 成长轨迹）
+  try {
+    const sres = await fetch('/api/section/sports');
+    const section = await sres.json();
+    let data;
+    try { data = typeof section.content === 'string' ? JSON.parse(section.content) : section.content; } catch { data = {}; }
+    document.querySelectorAll('#sportsMainForm [data-field]').forEach(el => { el.value = data[el.dataset.field] || ''; });
+  } catch (e) { /* ignore */ }
+}
+
+async function saveSportsMain(e) {
+  e.preventDefault();
+  const content = {};
+  document.querySelectorAll('#sportsMainForm [data-field]').forEach(el => { content[el.dataset.field] = el.value; });
+  const res = await api('/api/admin/section/sports', { method: 'PUT', body: { title: '体育竞技', content } });
+  if (res && res.success) showToast('体育主页面内容已保存');
 }
 
 function renderSportsList() {
@@ -320,44 +327,28 @@ function renderSportsList() {
   list.innerHTML = sportsData.map((item, index) => `
     <div class="list-item" data-index="${index}">
       <div class="list-item-header">
-        <h4>${esc(item.competition_name) || '新记录'}</h4>
+        <h4>${esc(item.competition_name) || '新竞赛'}</h4>
         <div class="list-item-actions">
           <button class="btn btn-xs btn-outline" onclick="moveItem('sports', ${index}, -1)" ${index === 0 ? 'disabled' : ''}>↑</button>
           <button class="btn btn-xs btn-outline" onclick="moveItem('sports', ${index}, 1)" ${index === sportsData.length - 1 ? 'disabled' : ''}>↓</button>
           <button class="btn btn-xs btn-danger" onclick="deleteItem('sports', ${index})">删除</button>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-        <div class="form-group">
-          <label>比赛名称</label>
-          <input type="text" value="${esc(item.competition_name)}" onchange="sportsData[${index}].competition_name=this.value">
-        </div>
-        <div class="form-group">
-          <label>项目</label>
-          <input type="text" value="${esc(item.event)}" onchange="sportsData[${index}].event=this.value">
-        </div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-        <div class="form-group">
-          <label>成绩</label>
-          <input type="text" value="${esc(item.result)}" onchange="sportsData[${index}].result=this.value">
-        </div>
-        <div class="form-group">
-          <label>日期</label>
-          <input type="date" value="${item.date || ''}" onchange="sportsData[${index}].date=this.value">
-        </div>
+      <div class="form-group">
+        <label>竞赛名称 *</label>
+        <input type="text" value="${esc(item.competition_name)}" onchange="sportsData[${index}].competition_name=this.value" placeholder="如：2024 上海市中小学生游泳锦标赛">
       </div>
       <div class="form-group">
-        <label>地点</label>
-        <input type="text" value="${esc(item.location)}" onchange="sportsData[${index}].location=this.value">
+        <label>日期与地点 *</label>
+        <input type="text" value="${esc(item.competition_date_location)}" onchange="sportsData[${index}].competition_date_location=this.value" placeholder="如：2024-08-15 上海东方体育中心">
       </div>
       <div class="form-group">
-        <label>描述</label>
-        <textarea rows="2" onchange="sportsData[${index}].description=this.value">${esc(item.description)}</textarea>
+        <label>比赛成绩（富文本）*</label>
+        <textarea rows="3" onchange="sportsData[${index}].performance_results=this.value" placeholder="成绩、获奖情况等核心数据">${esc(item.performance_results)}</textarea>
       </div>
       <div class="form-group">
-        <label>成长轨迹</label>
-        <textarea rows="2" onchange="sportsData[${index}].progress=this.value">${esc(item.progress)}</textarea>
+        <label>技术进步与复盘（富文本）*</label>
+        <textarea rows="3" onchange="sportsData[${index}].technical_progress=this.value" placeholder="技术总结、不足改进、成长复盘">${esc(item.technical_progress)}</textarea>
       </div>
       <div class="form-group">
         <label>图片</label>
@@ -372,7 +363,7 @@ function renderSportsList() {
 }
 
 function addSportsItem() {
-  sportsData.push({ competition_name: '', event: '', result: '', date: '', location: '', description: '', progress: '', image: '', _action: 'add', sort_order: sportsData.length + 1 });
+  sportsData.push({ competition_name: '', competition_date_location: '', performance_results: '', technical_progress: '', image: '', _action: 'add', sort_order: sportsData.length + 1 });
   renderSportsList();
 }
 
@@ -391,11 +382,13 @@ async function saveSports() {
   }
 }
 
-// ============ 西藏 ============
+// ============ 西藏（关闭子页面新增，仅富文本 + 轮播） ============
 async function loadTibetPanel() {
-  const res = await fetch('/api/tibet');
-  tibetData = await res.json();
-  renderTibetList();
+  const res = await fetch('/api/section/tibet');
+  const section = await res.json();
+  let data;
+  try { data = typeof section.content === 'string' ? JSON.parse(section.content) : section.content; } catch { data = {}; }
+  document.querySelectorAll('#tibetForm [data-field]').forEach(el => { el.value = data[el.dataset.field] || ''; });
 }
 
 function renderTibetList() {
@@ -447,26 +440,21 @@ function addTibetItem() {
   renderTibetList();
 }
 
-async function saveTibet() {
-  const items = tibetData.map((d, i) => ({
-    ...d,
-    sort_order: i + 1,
-    _action: d._action || (d.id ? 'update' : 'add')
-  }));
-
-  const res = await api('/api/admin/tibet', { method: 'PUT', body: { items } });
-  if (res && res.success) {
-    tibetData = res.data;
-    renderTibetList();
-    showToast('西藏活动已保存');
-  }
+async function saveTibet(e) {
+  e.preventDefault();
+  const content = {};
+  document.querySelectorAll('#tibetForm [data-field]').forEach(el => { content[el.dataset.field] = el.value; });
+  const res = await api('/api/admin/section/tibet', { method: 'PUT', body: { title: '西藏纪实', content } });
+  if (res && res.success) showToast('西藏内容已保存');
 }
 
-// ============ 社团 ============
+// ============ 社团（关闭子页面新增，仅富文本 + 轮播） ============
 async function loadClubsPanel() {
-  const res = await fetch('/api/clubs');
-  clubsData = await res.json();
-  renderClubsList();
+  const res = await fetch('/api/section/clubs');
+  const section = await res.json();
+  let data;
+  try { data = typeof section.content === 'string' ? JSON.parse(section.content) : section.content; } catch { data = {}; }
+  document.querySelectorAll('#clubsForm [data-field]').forEach(el => { el.value = data[el.dataset.field] || ''; });
 }
 
 function renderClubsList() {
@@ -521,19 +509,12 @@ function addClubItem() {
   renderClubsList();
 }
 
-async function saveClubs() {
-  const items = clubsData.map((d, i) => ({
-    ...d,
-    sort_order: i + 1,
-    _action: d._action || (d.id ? 'update' : 'add')
-  }));
-
-  const res = await api('/api/admin/clubs', { method: 'PUT', body: { items } });
-  if (res && res.success) {
-    clubsData = res.data;
-    renderClubsList();
-    showToast('社团活动已保存');
-  }
+async function saveClubs(e) {
+  e.preventDefault();
+  const content = {};
+  document.querySelectorAll('#clubsForm [data-field]').forEach(el => { content[el.dataset.field] = el.value; });
+  const res = await api('/api/admin/section/clubs', { method: 'PUT', body: { title: '社团活动', content } });
+  if (res && res.success) showToast('社团内容已保存');
 }
 
 // ============ 轮播图 ============

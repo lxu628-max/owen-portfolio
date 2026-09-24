@@ -833,3 +833,62 @@ img { max-width: 100%; height: auto; display: block; }
     font-size: 0.8rem;
   }
 }
+
+/* ===== 导航页差异化：体育四区块 / 名称列表 ===== */
+.sports-block { margin-bottom: 22px; }
+.sports-block > h3 {
+  font-size: 1rem;
+  color: var(--primary);
+  margin-bottom: 10px;
+  padding-left: 10px;
+  border-left: 3px solid var(--primary);
+}
+.sports-name-list { list-style: none; margin: 0; padding: 0; }
+.sports-name-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 14px;
+  background: var(--bg-soft, #f7f8fc);
+  border: 1px solid var(--border, #eef0f6);
+  border-radius: var(--radius-md, 12px);
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  font-weight: 500;
+  color: var(--text-body);
+}
+.sports-name-item:hover {
+  border-color: var(--primary);
+  background: #fff;
+  transform: translateX(3px);
+  box-shadow: 0 4px 14px rgba(79,107,255,0.12);
+}
+.sports-name-item .arrow { color: var(--primary); font-size: 1.2rem; font-weight: 700; }
+.empty-tip { color: var(--gray-500); font-size: 0.9rem; padding: 8px 0; }
+
+/* ===== 详情弹窗：结构化字段表 + 富文本 ===== */
+.detail-hero {
+  width: 100%;
+  border-radius: var(--radius-md, 12px);
+  margin-bottom: 18px;
+  max-height: 320px;
+  object-fit: cover;
+}
+.detail-table { width: 100%; border-collapse: collapse; }
+.detail-table th, .detail-table td {
+  padding: 14px 16px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border, #eef0f6);
+  font-size: 0.92rem;
+}
+.detail-table th {
+  width: 130px;
+  background: var(--bg-soft, #f7f8fc);
+  color: var(--text-primary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.detail-table td { color: var(--text-body); }
+.rich-text { white-space: pre-wrap; line-height: 1.7; }

@@ -192,45 +192,34 @@ function renderSports(records, section) {
     data = typeof section.content === 'string' ? JSON.parse(section.content) : section.content;
   } catch { data = {}; }
 
-  content.innerHTML = `
-    <div style="margin-bottom:20px;">
-      <p style="color:var(--gray-700);line-height:1.7;">${esc(data.intro || '')}</p>
-      <p style="color:var(--gray-600);margin-top:8px;font-size:0.9rem;">${esc(data.highlights || '')}</p>
-    </div>
-    <table class="sports-table">
-      <thead>
-        <tr>
-          <th>比赛</th>
-          <th>项目</th>
-          <th>成绩</th>
-          <th>日期</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${records.map(r => `
-          <tr onclick="showSportsDetail(${r.id})">
-            <td>${esc(r.competition_name)}</td>
-            <td>${esc(r.event)}</td>
-            <td><span class="result-badge ${getResultClass(r.result)}">${esc(r.result)}</span></td>
-            <td>${formatDate(r.date)}</td>
-          </tr>
-        `).join('')}
-      </tbody>
-    </table>
-    ${records[0] && records[0].progress ? `
-      <div class="progress-text">
-        <strong>成长轨迹：</strong>${esc(records[0].progress)}
-      </div>
-    ` : ''}
-  `;
-}
+  // 右侧第一块：简短介绍（固定富文本）
+  const introHtml = (data.intro || '') ? `
+    <div class="sports-block">
+      <h3>简短介绍</h3>
+      <p class="rich-text">${esc(data.intro)}</p>
+    </div>` : '';
 
-function getResultClass(result) {
-  if (!result) return '';
-  if (result.includes('金')) return 'result-gold';
-  if (result.includes('银')) return 'result-silver';
-  if (result.includes('铜')) return 'result-bronze';
-  return '';
+  // 右侧第二块：竞赛名称列表（仅展示名称，点击跳转子页面）
+  const listHtml = records.length ? `
+    <div class="sports-block">
+      <h3>竞赛记录</h3>
+      <ul class="sports-name-list">
+        ${records.map(r => `
+          <li class="sports-name-item" onclick="showSportsDetail(${r.id})">
+            <span>${esc(r.competition_name)}</span>
+            <span class="arrow">›</span>
+          </li>`).join('')}
+      </ul>
+    </div>` : `<div class="sports-block"><h3>竞赛记录</h3><p class="empty-tip">暂无竞赛，可在后台「体育竞技」添加</p></div>`;
+
+  // 右侧第三/四块：成长轨迹（固定富文本）
+  const growthHtml = (data.growth_track || '') ? `
+    <div class="sports-block">
+      <h3>成长轨迹</h3>
+      <p class="rich-text">${esc(data.growth_track)}</p>
+    </div>` : '';
+
+  content.innerHTML = `${introHtml}${listHtml}${growthHtml}`;
 }
 
 async function showSportsDetail(id) {
@@ -241,23 +230,15 @@ async function showSportsDetail(id) {
     const detailContent = document.getElementById('sportsDetailContent');
     detailContent.innerHTML = `
       <h2>${esc(item.competition_name)}</h2>
-      <div class="detail-meta">
-        <span>📅 ${formatDate(item.date)}</span>
-        <span>📍 ${esc(item.location)}</span>
-        <span>🏊 ${esc(item.event)}</span>
-        <span class="result-badge ${getResultClass(item.result)}">${esc(item.result)}</span>
-      </div>
-      ${item.image ? `<img src="${item.image}" alt="" style="width:100%;border-radius:var(--radius-md);margin-bottom:20px;max-height:300px;object-fit:cover;">` : ''}
-      <div class="detail-section">
-        <h4>比赛描述</h4>
-        <p>${esc(item.description)}</p>
-      </div>
-      ${item.progress ? `
-        <div class="detail-section">
-          <h4>成长轨迹</h4>
-          <p>${esc(item.progress)}</p>
-        </div>
-      ` : ''}
+      ${item.image ? `<img src="${item.image}" alt="" class="detail-hero">` : ''}
+      <table class="detail-table">
+        <tbody>
+          <tr><th>竞赛名称</th><td>${esc(item.competition_name)}</td></tr>
+          <tr><th>日期与地点</th><td>${esc(item.competition_date_location)}</td></tr>
+          <tr><th>比赛成绩</th><td class="rich-text">${esc(item.performance_results)}</td></tr>
+          <tr><th>技术进步与复盘</th><td class="rich-text">${esc(item.technical_progress)}</td></tr>
+        </tbody>
+      </table>
     `;
 
     document.getElementById('sportsDetail').classList.add('show');
@@ -292,22 +273,18 @@ function renderAcademic(projects, section) {
     data = typeof section.content === 'string' ? JSON.parse(section.content) : section.content;
   } catch { data = {}; }
 
-  content.innerHTML = `
+    content.innerHTML = `
     <div style="margin-bottom:20px;">
       <p style="color:var(--gray-700);line-height:1.7;">${esc(data.intro || '')}</p>
       <p style="color:var(--gray-600);margin-top:8px;font-size:0.9rem;">${esc(data.courses || '')}</p>
     </div>
-    <h3 style="font-size:1.1rem;color:var(--primary);margin-bottom:12px;">学术项目</h3>
-    ${projects.map(p => `
+    <h3 style="font-size:1.1rem;color:var(--primary);margin-bottom:12px;">学术成果</h3>
+    ${projects.length ? projects.map(p => `
       <div class="academic-card" onclick="showAcademicDetail(${p.id})">
-        <h3>${esc(p.title)}</h3>
-        <p>${esc(p.description)}</p>
-        <div class="card-meta">
-          <span>📅 ${formatDate(p.date)}</span>
-          <span>📍 ${esc(p.location)}</span>
-        </div>
+        <h3>${esc(p.competition_name)}</h3>
+        <p>${esc(p.intro)}</p>
       </div>
-    `).join('')}
+    `).join('') : '<p class="empty-tip">暂无学术成果，可在后台「学术成果」添加子页面</p>'}
   `;
 }
 
@@ -318,29 +295,16 @@ async function showAcademicDetail(id) {
 
     const detailContent = document.getElementById('academicDetailContent');
     detailContent.innerHTML = `
-      <h2>${esc(item.title)}</h2>
-      <div class="detail-meta">
-        <span>📅 ${formatDate(item.date)}</span>
-        <span>📍 ${esc(item.location)}</span>
-        <span>👥 ${esc(item.participants)}</span>
-      </div>
-      ${item.image ? `<img src="${item.image}" alt="" style="width:100%;border-radius:var(--radius-md);margin-bottom:20px;max-height:300px;object-fit:cover;">` : ''}
-      <div class="detail-section">
-        <h4>项目描述</h4>
-        <p>${esc(item.description)}</p>
-      </div>
-      ${item.details ? `
-        <div class="detail-section">
-          <h4>详细内容</h4>
-          <p>${esc(item.details)}</p>
-        </div>
-      ` : ''}
-      ${item.achievements ? `
-        <div class="detail-section">
-          <h4>成果</h4>
-          <p>${esc(item.achievements)}</p>
-        </div>
-      ` : ''}
+      <h2>${esc(item.competition_name)}</h2>
+      ${item.image ? `<img src="${item.image}" alt="" class="detail-hero">` : ''}
+      <table class="detail-table">
+        <tbody>
+          <tr><th>比赛名称</th><td>${esc(item.competition_name)}</td></tr>
+          <tr><th>比赛介绍</th><td class="rich-text">${esc(item.intro)}</td></tr>
+          <tr><th>个人参赛与成果</th><td class="rich-text">${esc(item.achievement)}</td></tr>
+          <tr><th>参赛感悟</th><td class="rich-text">${esc(item.reflection)}</td></tr>
+        </tbody>
+      </table>
     `;
 
     document.getElementById('academicDetail').classList.add('show');
@@ -352,24 +316,19 @@ async function showAcademicDetail(id) {
 // ============ 西藏 ============
 async function loadTibet() {
   try {
-    const [activitiesRes, sectionRes] = await Promise.all([
-      fetch('/api/tibet'),
-      fetch('/api/section/tibet')
-    ]);
-    const activities = await activitiesRes.json();
+    const sectionRes = await fetch('/api/section/tibet');
     const section = await sectionRes.json();
 
-    renderTibet(activities, section);
+    renderTibet(section);
     await loadCarousel('tibetCarousel', 'tibet');
   } catch (err) {
     console.error('加载西藏数据失败:', err);
   }
 }
 
-function renderTibet(activities, section) {
+function renderTibet(section) {
   const intro = document.getElementById('tibetIntro');
-  const timeline = document.getElementById('tibetTimeline');
-  if (!intro || !timeline) return;
+  if (!intro) return;
 
   let data;
   try {
@@ -377,19 +336,10 @@ function renderTibet(activities, section) {
   } catch { data = {}; }
 
   intro.innerHTML = `
-    <h2>${esc(section.title || '西藏项目')}</h2>
+    <h2>${esc(section.title || '西藏纪实')}</h2>
     <p>${esc(data.intro || '')}</p>
-    <p style="margin-top:8px;">${esc(data.mission || '')}</p>
+    ${data.mission ? `<p style="margin-top:8px;">${esc(data.mission)}</p>` : ''}
   `;
-
-  timeline.innerHTML = activities.map(a => `
-    <div class="timeline-item" onclick="showTibetDetail(${a.id})" style="cursor:pointer">
-      <div class="timeline-date">${formatDate(a.date)}</div>
-      <h3>${esc(a.title)}</h3>
-      <p>${esc(a.description)}</p>
-      <div class="timeline-impact">📊 ${esc(a.impact)}</div>
-    </div>
-  `).join('');
 }
 
 async function showTibetDetail(id) {
@@ -441,21 +391,17 @@ async function showClubsDetail(id) {
 // ============ 社团 ============
 async function loadClubs() {
   try {
-    const [clubsRes, sectionRes] = await Promise.all([
-      fetch('/api/clubs'),
-      fetch('/api/section/clubs')
-    ]);
-    const clubs = await clubsRes.json();
+    const sectionRes = await fetch('/api/section/clubs');
     const section = await sectionRes.json();
 
-    renderClubs(clubs, section);
+    renderClubs(section);
     await loadCarousel('clubsCarousel', 'clubs');
   } catch (err) {
     console.error('加载社团数据失败:', err);
   }
 }
 
-function renderClubs(clubs, section) {
+function renderClubs(section) {
   const content = document.getElementById('clubsContent');
   if (!content) return;
 
@@ -465,18 +411,8 @@ function renderClubs(clubs, section) {
   } catch { data = {}; }
 
   content.innerHTML = `
-    <div style="margin-bottom:20px;">
-      <p style="color:var(--gray-700);line-height:1.7;">${esc(data.intro || '')}</p>
-      <p style="color:var(--gray-600);margin-top:8px;font-size:0.9rem;">${esc(data.highlights || '')}</p>
-    </div>
-    ${clubs.map(c => `
-      <div class="club-card" onclick="showClubsDetail(${c.id})" style="cursor:pointer">
-        <h3>${esc(c.title)}</h3>
-        <div class="club-role">${esc(c.role)}</div>
-        <p>${esc(c.description)}</p>
-        <span class="club-status ${c.status === '活跃' ? 'status-active' : 'status-inactive'}">${esc(c.status)}</span>
-      </div>
-    `).join('')}
+    <p style="color:var(--gray-700);line-height:1.7;">${esc(data.intro || '')}</p>
+    ${data.highlights ? `<p style="color:var(--gray-600);margin-top:8px;font-size:0.9rem;">${esc(data.highlights)}</p>` : ''}
   `;
 }
 
