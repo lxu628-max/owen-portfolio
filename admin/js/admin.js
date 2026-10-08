@@ -155,13 +155,23 @@ function addNewsItem() {
   renderNewsList();
 }
 
+// 记录各类型待删除的 id：前端 splice 移除后仍需随保存发给后端真正 DELETE
+const pendingDeletes = { news: [], academic: [], sports: [], tibet: [], clubs: [], carousel: [] };
+
+function buildSaveItems(type, data) {
+  const kept = data
+    .filter(d => !d._deleted)
+    .map((d, i) => ({ ...d, sort_order: i + 1, _action: d._action || (d.id ? 'update' : 'add') }));
+  const del = pendingDeletes[type].map(id => ({ id, _action: 'delete' }));
+  return [...kept, ...del];
+}
+
 function deleteItem(type, index) {
   if (!confirm('确认删除此条目？')) return;
   const dataMap = { news: newsData, academic: academicData, sports: sportsData, tibet: tibetData, clubs: clubsData, carousel: carouselData };
   const data = dataMap[type];
   if (data[index].id) {
-    data[index]._action = 'delete';
-    data[index]._deleted = true;
+    pendingDeletes[type].push(data[index].id);
   }
   data.splice(index, 1);
   const renderMap = { news: renderNewsList, academic: renderAcademicList, sports: renderSportsList, tibet: renderTibetList, clubs: renderClubsList, carousel: renderCarouselList };
@@ -179,17 +189,11 @@ function moveItem(type, index, dir) {
 }
 
 async function saveNews() {
-  const items = newsData
-    .filter(d => !d._deleted)
-    .map((d, i) => ({
-      ...d,
-      sort_order: i + 1,
-      _action: d._action || (d.id ? 'update' : 'add')
-    }));
-
+  const items = buildSaveItems('news', newsData);
   const res = await api('/api/admin/news', { method: 'PUT', body: { items } });
   if (res && res.success) {
     newsData = res.data;
+    pendingDeletes.news = [];
     renderNewsList();
     showToast('动态已保存');
   }
@@ -224,8 +228,8 @@ async function saveAbout(e) {
 // ============ 学术 ============
 async function loadAcademicPanel() {
   const res = await fetch('/api/academic');
-  // 需要获取完整数据（含details等）
-  const detailPromises = res.map(item => fetch(`/api/academic/${item.id}`).then(r => r.json()));
+  const list = await res.json();
+  const detailPromises = list.map(item => fetch(`/api/academic/${item.id}`).then(r => r.json()));
   academicData = await Promise.all(detailPromises);
   renderAcademicList();
 }
@@ -280,15 +284,11 @@ function addAcademicItem() {
 }
 
 async function saveAcademic() {
-  const items = academicData.map((d, i) => ({
-    ...d,
-    sort_order: i + 1,
-    _action: d._action || (d.id ? 'update' : 'add')
-  }));
-
+  const items = buildSaveItems('academic', academicData);
   const res = await api('/api/admin/academic', { method: 'PUT', body: { items } });
   if (res && res.success) {
     academicData = res.data;
+    pendingDeletes.academic = [];
     renderAcademicList();
     showToast('学术项目已保存');
   }
@@ -297,7 +297,8 @@ async function saveAcademic() {
 // ============ 体育 ============
 async function loadSportsPanel() {
   const res = await fetch('/api/sports');
-  const detailPromises = res.map(item => fetch(`/api/sports/${item.id}`).then(r => r.json()));
+  const list = await res.json();
+  const detailPromises = list.map(item => fetch(`/api/sports/${item.id}`).then(r => r.json()));
   sportsData = await Promise.all(detailPromises);
   renderSportsList();
   // 主页面固定富文本（简短介绍 / 成长轨迹）
@@ -368,15 +369,11 @@ function addSportsItem() {
 }
 
 async function saveSports() {
-  const items = sportsData.map((d, i) => ({
-    ...d,
-    sort_order: i + 1,
-    _action: d._action || (d.id ? 'update' : 'add')
-  }));
-
+  const items = buildSaveItems('sports', sportsData);
   const res = await api('/api/admin/sports', { method: 'PUT', body: { items } });
   if (res && res.success) {
     sportsData = res.data;
+    pendingDeletes.sports = [];
     renderSportsList();
     showToast('运动记录已保存');
   }
@@ -564,17 +561,21 @@ function addCarouselItem() {
 
 async function saveCarousel() {
   const section = document.getElementById('carouselSection').value;
-  const items = carouselData.map((d, i) => ({
-    image_path: d.image_path,
-    caption: d.caption,
-    sort_order: i + 1,
-    _action: d._action || (d.id ? 'update' : 'add'),
-    id: d.id
-  }));
+  const kept = carouselData
+    .filter(d => !d._deleted)
+    .map((d, i) => ({
+      image_path: d.image_path,
+      caption: d.caption,
+      sort_order: i + 1,
+      _action: d._action || (d.id ? 'update' : 'add'),
+      id: d.id
+    }));
+  const items = [...kept, ...pendingDeletes.carousel.map(id => ({ id, _action: 'delete' }))];
 
   const res = await api(`/api/admin/carousel/${section}`, { method: 'PUT', body: { items } });
   if (res && res.success) {
     carouselData = res.data;
+    pendingDeletes.carousel = [];
     renderCarouselList();
     showToast('轮播图已保存');
   }
