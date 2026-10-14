@@ -320,10 +320,60 @@ async function loadTibet() {
     const section = await sectionRes.json();
 
     renderTibet(section);
-    await loadCarousel('tibetCarousel', 'tibet');
+    await Promise.all([
+      loadTibetTimeline(),
+      loadTibetPhotowall(),
+      loadCarousel('tibetCarousel', 'tibet')
+    ]);
   } catch (err) {
     console.error('加载西藏数据失败:', err);
   }
+}
+
+// ============ 富文本安全渲染（西藏后台富文本字段） ============
+// 白名单过滤：仅保留加粗/斜体/下划线/删除线/段落/换行/span(仅color与text-align内联样式)，
+// 其余标签剥壳保留文字，所有事件属性与外来属性一律移除，防存储型 XSS。
+function sanitizeRichText(html) {
+  if (!html) return '';
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  const ALLOWED = new Set(['B', 'STRONG', 'I', 'EM', 'U', 'S', 'BR', 'P', 'DIV', 'SPAN']);
+  const body = doc.body;
+  let changed = true;
+  while (changed) {
+    changed = false;
+    const stack = [body];
+    while (stack.length) {
+      const node = stack.pop();
+      for (const el of Array.from(node.children)) {
+        if (!ALLOWED.has(el.tagName)) {
+          // 剥壳：保留子内容，移除标签本身
+          const parent = el.parentNode;
+          while (el.firstChild) parent.insertBefore(el.firstChild, el);
+          parent.removeChild(el);
+          changed = true;
+          continue;
+        }
+        // 仅保留白名单内联样式（颜色、对齐）
+        let keptStyle = '';
+        const rawStyle = el.getAttribute('style') || '';
+        rawStyle.split(';').forEach(decl => {
+          const d = decl.trim();
+          if (/^(color|text-align)\s*:/i.test(d)) keptStyle += (keptStyle ? '; ' : '') + d;
+        });
+        Array.from(el.attributes).forEach(a => el.removeAttribute(a.name));
+        if (keptStyle) el.setAttribute('style', keptStyle);
+        stack.push(el);
+      }
+    }
+  }
+  return body.innerHTML;
+}
+
+// 富文本字段渲染：含 HTML 走白名单过滤；旧纯文本数据走 esc + 换行转 <br>
+function renderRich(text) {
+  if (!text) return '';
+  if (text.includes('<')) return sanitizeRichText(text);
+  return esc(text).replace(/\n/g, '<br>');
 }
 
 function renderTibet(section) {
@@ -336,10 +386,14 @@ function renderTibet(section) {
   } catch { data = {}; }
 
   intro.innerHTML = `
-    <h2>${esc(section.title || '西藏纪实')}</h2>
-    <p>${esc(data.intro || '')}</p>
-    ${data.mission ? `<p style="margin-top:8px;">${esc(data.mission)}</p>` : ''}
+    ${renderRich(data.intro || '')}
+    ${data.mission ? `<div style="margin-top:10px;">${renderRich(data.mission)}</div>` : ''}
   `;
+
+  const photoIntro = document.getElementById('tibetPhotoIntro');
+  if (photoIntro) {
+    photoIntro.innerHTML = data.photo_intro ? renderRich(data.photo_intro) : '';
+  }
 }
 
 async function showTibetDetail(id) {
@@ -363,6 +417,52 @@ async function showTibetDetail(id) {
   } catch (err) {
     console.error('加载西藏详情失败:', err);
   }
+}
+
+// ============ 西藏项目时间线 ============
+async function loadTibetTimeline() {
+  try {
+    const res = await fetch('/api/tibet-timeline');
+    const list = await res.json();
+    renderTibetTimeline(list);
+  } catch (err) {
+    console.error('加载时间线失败:', err);
+  }
+}
+
+function renderTibetTimeline(list) {
+  const el = document.getElementById('tibetTimeline');
+  if (!el) return;
+  if (!list || list.length === 0) { el.innerHTML = ''; return; }
+  el.innerHTML = list.map(item => `
+    <div class="timeline-item">
+      <div class="timeline-date">${esc(item.year_label)}</div>
+      <p>${esc(item.description)}</p>
+    </div>
+  `).join('');
+}
+
+// ============ 西藏核心过程与系统展示照片墙 ============
+async function loadTibetPhotowall() {
+  try {
+    const res = await fetch('/api/tibet-photowall');
+    const list = await res.json();
+    renderTibetPhotowall(list);
+  } catch (err) {
+    console.error('加载照片墙失败:', err);
+  }
+}
+
+function renderTibetPhotowall(list) {
+  const el = document.getElementById('tibetPhotoWall');
+  if (!el) return;
+  if (!list || list.length === 0) { el.innerHTML = ''; return; }
+  el.innerHTML = list.map(item => `
+    <div class="photowall-item">
+      <img src="${esc(item.image_path)}" alt="${esc(item.caption)}" loading="lazy">
+      ${item.caption ? `<div class="photowall-caption">${esc(item.caption)}</div>` : ''}
+    </div>
+  `).join('');
 }
 
 async function showClubsDetail(id) {

@@ -151,6 +151,22 @@ function initDatabase() {
       sort_order INTEGER DEFAULT 0
     );
 
+    -- 西藏项目时间线
+    CREATE TABLE IF NOT EXISTS tibet_timeline (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      year_label TEXT NOT NULL DEFAULT '',
+      description TEXT DEFAULT '',
+      sort_order INTEGER DEFAULT 0
+    );
+
+    -- 西藏核心过程与系统展示照片墙
+    CREATE TABLE IF NOT EXISTS tibet_photowall (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      image_path TEXT NOT NULL DEFAULT '',
+      caption TEXT DEFAULT '',
+      sort_order INTEGER DEFAULT 0
+    );
+
     -- 社团活动
     CREATE TABLE IF NOT EXISTS club_activities (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -637,6 +653,26 @@ app.get('/api/clubs/:id', (req, res) => {
   }
 });
 
+// 西藏项目时间线
+app.get('/api/tibet-timeline', (req, res) => {
+  try {
+    const rows = db.prepare('SELECT * FROM tibet_timeline ORDER BY sort_order ASC').all();
+    res.json(rows);
+  } catch (err) {
+    res.status(500).json({ error: '服务器内部错误' });
+  }
+});
+
+// 西藏核心过程与系统展示照片墙
+app.get('/api/tibet-photowall', (req, res) => {
+  try {
+    const rows = db.prepare('SELECT * FROM tibet_photowall ORDER BY sort_order ASC').all();
+    res.json(rows);
+  } catch (err) {
+    res.status(500).json({ error: '服务器内部错误' });
+  }
+});
+
 // 获取轮播图
 app.get('/api/carousel/:section_key', (req, res) => {
   try {
@@ -881,6 +917,62 @@ app.put('/api/admin/tibet', authMiddleware, async (req, res) => {
     transaction(items);
 
     const rows = db.prepare('SELECT * FROM tibet_activities ORDER BY sort_order ASC').all();
+    res.json({ success: true, data: rows });
+  } catch (err) {
+    res.status(500).json({ error: '服务器内部错误' });
+  }
+});
+
+// 管理西藏项目时间线
+app.put('/api/admin/tibet-timeline', authMiddleware, (req, res) => {
+  try {
+    const { items } = req.body;
+    if (!Array.isArray(items)) return res.status(400).json({ error: '数据格式错误' });
+
+    const transaction = db.transaction((items) => {
+      for (const item of items) {
+        if (item._action === 'delete' && item.id) {
+          db.prepare('DELETE FROM tibet_timeline WHERE id = ?').run(item.id);
+        } else if (item._action === 'add') {
+          db.prepare('INSERT INTO tibet_timeline (year_label, description, sort_order) VALUES (?, ?, ?)').run(
+            item.year_label || '', item.description || '', item.sort_order || 0);
+        } else if (item._action === 'update' && item.id) {
+          db.prepare('UPDATE tibet_timeline SET year_label=?, description=?, sort_order=? WHERE id=?').run(
+            item.year_label || '', item.description || '', item.sort_order || 0, item.id);
+        }
+      }
+    });
+    transaction(items);
+
+    const rows = db.prepare('SELECT * FROM tibet_timeline ORDER BY sort_order ASC').all();
+    res.json({ success: true, data: rows });
+  } catch (err) {
+    res.status(500).json({ error: '服务器内部错误' });
+  }
+});
+
+// 管理西藏核心过程与系统展示照片墙
+app.put('/api/admin/tibet-photowall', authMiddleware, (req, res) => {
+  try {
+    const { items } = req.body;
+    if (!Array.isArray(items)) return res.status(400).json({ error: '数据格式错误' });
+
+    const transaction = db.transaction((items) => {
+      for (const item of items) {
+        if (item._action === 'delete' && item.id) {
+          db.prepare('DELETE FROM tibet_photowall WHERE id = ?').run(item.id);
+        } else if (item._action === 'add') {
+          db.prepare('INSERT INTO tibet_photowall (image_path, caption, sort_order) VALUES (?, ?, ?)').run(
+            item.image_path || '', item.caption || '', item.sort_order || 0);
+        } else if (item._action === 'update' && item.id) {
+          db.prepare('UPDATE tibet_photowall SET image_path=?, caption=?, sort_order=? WHERE id=?').run(
+            item.image_path || '', item.caption || '', item.sort_order || 0, item.id);
+        }
+      }
+    });
+    transaction(items);
+
+    const rows = db.prepare('SELECT * FROM tibet_photowall ORDER BY sort_order ASC').all();
     res.json({ success: true, data: rows });
   } catch (err) {
     res.status(500).json({ error: '服务器内部错误' });

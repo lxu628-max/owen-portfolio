@@ -325,11 +325,60 @@
         <form id="tibetForm" class="edit-form card-form">
           <div class="form-group">
             <label>简介</label>
-            <textarea rows="3" data-field="intro"></textarea>
+            <div class="rte">
+              <div class="rte-toolbar" data-rte-toolbar>
+                <button type="button" data-cmd="bold" title="加粗"><b>B</b></button>
+                <button type="button" data-cmd="italic" title="斜体"><i>I</i></button>
+                <button type="button" data-cmd="underline" title="下划线"><u>U</u></button>
+                <span class="rte-sep"></span>
+                <input type="color" data-color title="字体颜色" value="#333333">
+                <span class="rte-sep"></span>
+                <button type="button" data-cmd="justifyLeft" title="左对齐">⯇</button>
+                <button type="button" data-cmd="justifyCenter" title="居中对齐">≡</button>
+                <button type="button" data-cmd="justifyRight" title="右对齐">⯈</button>
+                <span class="rte-sep"></span>
+                <button type="button" data-cmd="removeFormat" title="清除格式" class="rte-clear">✕ 清除</button>
+              </div>
+              <div class="rte-area" contenteditable="true" data-field="intro" data-rich="1"></div>
+            </div>
           </div>
           <div class="form-group">
             <label>使命 / 影响</label>
-            <textarea rows="3" data-field="mission"></textarea>
+            <div class="rte">
+              <div class="rte-toolbar" data-rte-toolbar>
+                <button type="button" data-cmd="bold" title="加粗"><b>B</b></button>
+                <button type="button" data-cmd="italic" title="斜体"><i>I</i></button>
+                <button type="button" data-cmd="underline" title="下划线"><u>U</u></button>
+                <span class="rte-sep"></span>
+                <input type="color" data-color title="字体颜色" value="#333333">
+                <span class="rte-sep"></span>
+                <button type="button" data-cmd="justifyLeft" title="左对齐">⯇</button>
+                <button type="button" data-cmd="justifyCenter" title="居中对齐">≡</button>
+                <button type="button" data-cmd="justifyRight" title="右对齐">⯈</button>
+                <span class="rte-sep"></span>
+                <button type="button" data-cmd="removeFormat" title="清除格式" class="rte-clear">✕ 清除</button>
+              </div>
+              <div class="rte-area" contenteditable="true" data-field="mission" data-rich="1"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>照片墙系统介绍文字</label>
+            <div class="rte">
+              <div class="rte-toolbar" data-rte-toolbar>
+                <button type="button" data-cmd="bold" title="加粗"><b>B</b></button>
+                <button type="button" data-cmd="italic" title="斜体"><i>I</i></button>
+                <button type="button" data-cmd="underline" title="下划线"><u>U</u></button>
+                <span class="rte-sep"></span>
+                <input type="color" data-color title="字体颜色" value="#333333">
+                <span class="rte-sep"></span>
+                <button type="button" data-cmd="justifyLeft" title="左对齐">⯇</button>
+                <button type="button" data-cmd="justifyCenter" title="居中对齐">≡</button>
+                <button type="button" data-cmd="justifyRight" title="右对齐">⯈</button>
+                <span class="rte-sep"></span>
+                <button type="button" data-cmd="removeFormat" title="清除格式" class="rte-clear">✕ 清除</button>
+              </div>
+              <div class="rte-area" contenteditable="true" data-field="photo_intro" data-rich="1"></div>
+            </div>
           </div>
           <div class="save-bar">
             <span class="save-tip">保存后前台即生效</span>
@@ -339,6 +388,34 @@
             </button>
           </div>
         </form>
+        <!-- 项目时间线编辑 -->
+        <div class="card card-form" style="margin-top:24px;">
+          <div class="panel-head">
+            <div>
+              <h3>项目时间线</h3>
+              <p class="ph-sub">竖向时间线节点，每个节点含年份/阶段标签与说明文字。保存后前台即生效。</p>
+            </div>
+          </div>
+          <div id="tibetTimelineList" class="item-list"></div>
+          <div class="toolbar-row">
+            <button type="button" class="btn btn-outline" onclick="addTibetTimelineItem()">+ 添加节点</button>
+            <button type="button" class="btn btn-success" onclick="saveTibetTimeline()">保存更改</button>
+          </div>
+        </div>
+        <!-- 核心过程与系统展示 照片墙编辑 -->
+        <div class="card card-form" style="margin-top:24px;">
+          <div class="panel-head">
+            <div>
+              <h3>核心过程与系统展示（照片墙）</h3>
+              <p class="ph-sub">固定网格展示，不轮播、不自动播放。系统介绍文字在上方「西藏纪实」卡片中维护。</p>
+            </div>
+          </div>
+          <div id="tibetPhotowallList" class="item-list"></div>
+          <div class="toolbar-row">
+            <button type="button" class="btn btn-outline" onclick="addTibetPhotowallItem()">+ 添加照片</button>
+            <button type="button" class="btn btn-success" onclick="saveTibetPhotowall()">保存更改</button>
+          </div>
+        </div>
       </div>
 
       <!-- ===================== 社团 ===================== -->

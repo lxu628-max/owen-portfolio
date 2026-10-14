@@ -514,6 +514,8 @@ img { max-width: 100%; height: auto; display: block; }
   margin-bottom: 40px;
   text-align: center;
   border: 1px solid var(--border);
+  font-size: 0.95rem;
+  line-height: 1.9;
 }
 
 .tibet-intro h2 {
@@ -523,13 +525,14 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--text-primary);
 }
 
-.tibet-intro p {
+.tibet-intro p, .tibet-intro div {
   font-size: 0.95rem;
   color: var(--text-body);
   line-height: 1.9;
   max-width: 700px;
-  margin: 0 auto;
+  margin: 0 auto 8px;
 }
+.tibet-intro > :last-child { margin-bottom: 0; }
 
 .tibet-carousel {
   margin-bottom: 48px;
@@ -604,6 +607,52 @@ img { max-width: 100%; height: auto; display: block; }
   font-style: italic;
   padding-top: 12px;
   border-top: 1px solid var(--border-light);
+}
+
+/* ============ 西藏照片墙 ============ */
+.tibet-timeline-section { margin: 48px 0; }
+.tibet-photowall-section { margin: 48px 0; }
+.photowall-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+.photowall-item {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+.photowall-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.photowall-caption {
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  color: var(--text-body);
+  text-align: center;
+}
+.tibet-photo-intro {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-top: 40px;
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+.tibet-photo-intro p, .tibet-photo-intro div { margin: 0 0 8px; }
+.tibet-photo-intro > :last-child { margin-bottom: 0; }
+@media (max-width: 900px) {
+  .photowall-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .photowall-grid { grid-template-columns: 1fr; }
 }
 
 /* ============ 社团 ============ */
@@ -828,6 +877,7 @@ img { max-width: 100%; height: auto; display: block; }
   .nav-container { padding: 0 20px; }
   .detail-modal { padding: 28px; }
   .tibet-intro { padding: 28px; }
+  .tibet-photo-intro { padding: 28px; }
   .sports-table th, .sports-table td {
     padding: 10px 12px;
     font-size: 0.8rem;

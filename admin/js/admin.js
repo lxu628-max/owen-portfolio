@@ -13,6 +13,8 @@ let newsData = [];
 let academicData = [];
 let sportsData = [];
 let tibetData = [];
+let tibetTimelineData = [];
+let tibetPhotowallData = [];
 let clubsData = [];
 let carouselData = [];
 
@@ -156,7 +158,7 @@ function addNewsItem() {
 }
 
 // 记录各类型待删除的 id：前端 splice 移除后仍需随保存发给后端真正 DELETE
-const pendingDeletes = { news: [], academic: [], sports: [], tibet: [], clubs: [], carousel: [] };
+const pendingDeletes = { news: [], academic: [], sports: [], tibet: [], clubs: [], carousel: [], tibetTimeline: [], tibetPhotowall: [] };
 
 function buildSaveItems(type, data) {
   const kept = data
@@ -168,23 +170,23 @@ function buildSaveItems(type, data) {
 
 function deleteItem(type, index) {
   if (!confirm('确认删除此条目？')) return;
-  const dataMap = { news: newsData, academic: academicData, sports: sportsData, tibet: tibetData, clubs: clubsData, carousel: carouselData };
+  const dataMap = { news: newsData, academic: academicData, sports: sportsData, tibet: tibetData, clubs: clubsData, carousel: carouselData, tibetTimeline: tibetTimelineData, tibetPhotowall: tibetPhotowallData };
   const data = dataMap[type];
   if (data[index].id) {
     pendingDeletes[type].push(data[index].id);
   }
   data.splice(index, 1);
-  const renderMap = { news: renderNewsList, academic: renderAcademicList, sports: renderSportsList, tibet: renderTibetList, clubs: renderClubsList, carousel: renderCarouselList };
+  const renderMap = { news: renderNewsList, academic: renderAcademicList, sports: renderSportsList, tibet: renderTibetList, clubs: renderClubsList, carousel: renderCarouselList, tibetTimeline: renderTibetTimelineList, tibetPhotowall: renderTibetPhotowallList };
   renderMap[type]();
 }
 
 function moveItem(type, index, dir) {
-  const dataMap = { news: newsData, academic: academicData, sports: sportsData, tibet: tibetData, clubs: clubsData, carousel: carouselData };
+  const dataMap = { news: newsData, academic: academicData, sports: sportsData, tibet: tibetData, clubs: clubsData, carousel: carouselData, tibetTimeline: tibetTimelineData, tibetPhotowall: tibetPhotowallData };
   const data = dataMap[type];
   const newIndex = index + dir;
   if (newIndex < 0 || newIndex >= data.length) return;
   [data[index], data[newIndex]] = [data[newIndex], data[index]];
-  const renderMap = { news: renderNewsList, academic: renderAcademicList, sports: renderSportsList, tibet: renderTibetList, clubs: renderClubsList, carousel: renderCarouselList };
+  const renderMap = { news: renderNewsList, academic: renderAcademicList, sports: renderSportsList, tibet: renderTibetList, clubs: renderClubsList, carousel: renderCarouselList, tibetTimeline: renderTibetTimelineList, tibetPhotowall: renderTibetPhotowallList };
   renderMap[type]();
 }
 
@@ -380,12 +382,44 @@ async function saveSports() {
 }
 
 // ============ 西藏（关闭子页面新增，仅富文本 + 轮播） ============
+// 轻量富文本编辑器：contenteditable + 工具栏（加粗/斜体/下划线/颜色/对齐/清除）
+function initRichEditors() {
+  try { document.execCommand('styleWithCSS', false, true); } catch (err) { /* 旧浏览器忽略 */ }
+  document.querySelectorAll('[data-rte-toolbar]').forEach(bar => {
+    if (bar.dataset.rteInit) return;
+    bar.dataset.rteInit = '1';
+    const area = bar.parentElement.querySelector('.rte-area');
+    if (!area) return;
+    bar.querySelectorAll('button[data-cmd]').forEach(btn => {
+      btn.addEventListener('mousedown', e => e.preventDefault()); // 防止失焦丢失选区
+      btn.addEventListener('click', () => {
+        area.focus();
+        document.execCommand(btn.dataset.cmd, false, null);
+      });
+    });
+    const color = bar.querySelector('input[data-color]');
+    if (color) {
+      color.addEventListener('mousedown', e => e.preventDefault());
+      color.addEventListener('input', () => {
+        area.focus();
+        document.execCommand('foreColor', false, color.value);
+      });
+    }
+  });
+}
+
 async function loadTibetPanel() {
   const res = await fetch('/api/section/tibet');
   const section = await res.json();
   let data;
   try { data = typeof section.content === 'string' ? JSON.parse(section.content) : section.content; } catch { data = {}; }
-  document.querySelectorAll('#tibetForm [data-field]').forEach(el => { el.value = data[el.dataset.field] || ''; });
+  document.querySelectorAll('#tibetForm [data-field]').forEach(el => {
+    const v = data[el.dataset.field] || '';
+    if (el.dataset.rich) { el.innerHTML = v; } else { el.value = v; }
+  });
+  initRichEditors();
+  await loadTibetTimelinePanel();
+  await loadTibetPhotowallPanel();
 }
 
 function renderTibetList() {
@@ -440,9 +474,116 @@ function addTibetItem() {
 async function saveTibet(e) {
   e.preventDefault();
   const content = {};
-  document.querySelectorAll('#tibetForm [data-field]').forEach(el => { content[el.dataset.field] = el.value; });
+  document.querySelectorAll('#tibetForm [data-field]').forEach(el => {
+    content[el.dataset.field] = el.dataset.rich ? el.innerHTML : el.value;
+  });
   const res = await api('/api/admin/section/tibet', { method: 'PUT', body: { title: '西藏纪实', content } });
   if (res && res.success) showToast('西藏内容已保存');
+}
+
+// ============ 西藏项目时间线（后台） ============
+async function loadTibetTimelinePanel() {
+  try {
+    const res = await fetch('/api/tibet-timeline');
+    tibetTimelineData = await res.json();
+    renderTibetTimelineList();
+  } catch (err) { console.error('加载时间线失败:', err); }
+}
+function renderTibetTimelineList() {
+  const list = document.getElementById('tibetTimelineList');
+  if (!list) return;
+  if (tibetTimelineData.length === 0) {
+    list.innerHTML = '<p class="empty-tip">暂无节点，点击"添加节点"开始</p>';
+    return;
+  }
+  list.innerHTML = tibetTimelineData.map((item, index) => `
+    <div class="list-item" data-index="${index}">
+      <div class="list-item-header">
+        <h4>${esc(item.year_label) || '新节点'}</h4>
+        <div class="list-item-actions">
+          <button class="btn btn-xs btn-outline" onclick="moveItem('tibetTimeline', ${index}, -1)" ${index === 0 ? 'disabled' : ''}>↑</button>
+          <button class="btn btn-xs btn-outline" onclick="moveItem('tibetTimeline', ${index}, 1)" ${index === tibetTimelineData.length - 1 ? 'disabled' : ''}>↓</button>
+          <button class="btn btn-xs btn-danger" onclick="deleteItem('tibetTimeline', ${index})">删除</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>年份 / 阶段标签</label>
+        <input type="text" value="${esc(item.year_label)}" onchange="tibetTimelineData[${index}].year_label=this.value">
+      </div>
+      <div class="form-group">
+        <label>说明文字</label>
+        <textarea rows="2" onchange="tibetTimelineData[${index}].description=this.value">${esc(item.description)}</textarea>
+      </div>
+    </div>
+  `).join('');
+}
+function addTibetTimelineItem() {
+  tibetTimelineData.push({ year_label: '', description: '', _action: 'add', sort_order: tibetTimelineData.length + 1 });
+  renderTibetTimelineList();
+}
+async function saveTibetTimeline() {
+  const items = buildSaveItems('tibetTimeline', tibetTimelineData);
+  const res = await api('/api/admin/tibet-timeline', { method: 'PUT', body: { items } });
+  if (res && res.success) {
+    tibetTimelineData = res.data;
+    pendingDeletes.tibetTimeline = [];
+    renderTibetTimelineList();
+    showToast('时间线已保存');
+  }
+}
+
+// ============ 西藏照片墙（后台） ============
+async function loadTibetPhotowallPanel() {
+  try {
+    const res = await fetch('/api/tibet-photowall');
+    tibetPhotowallData = await res.json();
+    renderTibetPhotowallList();
+  } catch (err) { console.error('加载照片墙失败:', err); }
+}
+function renderTibetPhotowallList() {
+  const list = document.getElementById('tibetPhotowallList');
+  if (!list) return;
+  if (tibetPhotowallData.length === 0) {
+    list.innerHTML = '<p class="empty-tip">暂无照片，点击"添加照片"开始</p>';
+    return;
+  }
+  list.innerHTML = tibetPhotowallData.map((item, index) => `
+    <div class="list-item" data-index="${index}">
+      <div class="list-item-header">
+        <h4>${esc(item.caption) || '新照片'}</h4>
+        <div class="list-item-actions">
+          <button class="btn btn-xs btn-outline" onclick="moveItem('tibetPhotowall', ${index}, -1)" ${index === 0 ? 'disabled' : ''}>↑</button>
+          <button class="btn btn-xs btn-outline" onclick="moveItem('tibetPhotowall', ${index}, 1)" ${index === tibetPhotowallData.length - 1 ? 'disabled' : ''}>↓</button>
+          <button class="btn btn-xs btn-danger" onclick="deleteItem('tibetPhotowall', ${index})">删除</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>图片</label>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <input type="text" value="${esc(item.image_path)}" onchange="tibetPhotowallData[${index}].image_path=this.value" style="flex:1">
+          <button class="btn btn-xs btn-primary" onclick="openUpload(url => { tibetPhotowallData[${index}].image_path=url; renderTibetPhotowallList(); })">上传</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>说明文字</label>
+        <input type="text" value="${esc(item.caption)}" onchange="tibetPhotowallData[${index}].caption=this.value">
+      </div>
+    </div>
+  `).join('');
+}
+function addTibetPhotowallItem() {
+  tibetPhotowallData.push({ image_path: '', caption: '', _action: 'add', sort_order: tibetPhotowallData.length + 1 });
+  renderTibetPhotowallList();
+}
+async function saveTibetPhotowall() {
+  const items = buildSaveItems('tibetPhotowall', tibetPhotowallData);
+  const res = await api('/api/admin/tibet-photowall', { method: 'PUT', body: { items } });
+  if (res && res.success) {
+    tibetPhotowallData = res.data;
+    pendingDeletes.tibetPhotowall = [];
+    renderTibetPhotowallList();
+    showToast('照片墙已保存');
+  }
 }
 
 // ============ 社团（关闭子页面新增，仅富文本 + 轮播） ============
